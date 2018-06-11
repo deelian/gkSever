@@ -16,6 +16,7 @@ class SearchController extends Controller
     public function __construct()
     {
         parent::__construct();
+        require_once '/usr/local/xunsearch/sdk/php/lib/XS.php';
     }
 
     /**

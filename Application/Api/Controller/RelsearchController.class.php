@@ -1,7 +1,6 @@
 <?php
 namespace Api\Controller;
 
-require_once '/usr/local/xunsearch/sdk/php/lib/XS.php';
 class RelsearchController extends SearchController {
 
     private $XS;
