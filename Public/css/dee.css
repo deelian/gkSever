@@ -1,0 +1,85 @@
+a:hover,
+body{
+    margin-top:70px;
+}
+a:focus {
+    color: #2a6496;
+    /*text-decoration: underline;*/
+    text-decoration:none
+}
+
+a:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+#searchKey{
+    width: 400px;
+}
+
+#searchBox {
+    margin-bottom: 0px;
+}
+
+#searchBox li{
+    margin-top: 0px;
+}
+
+#foraspcn{
+    /*margin-left: -55px;*/
+    /*float: left;*/
+    left: 21.7%;/*写响应式的话这个值就要自己去调整了*/
+    text-align: left;
+}
+.mt{
+    margin-top: 25px;
+}
+.bg333{
+    background-color: #ccc;
+    color: #f7f7f7;
+    font-size: 18px;
+    width: 100%;
+}
+.mlb>a{
+    margin: 3px;
+}
+.searh_list{
+    color: #333;
+}
+.searh_list_hb{
+    width: 120px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.searh_list_d{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /*text-overflow:ellipsis;*/
+    /*white-space: nowrap;*/
+}
+/*.searh_list_d:first-letter{*/
+    /*font-size:72px;*/
+    /*color:#f5e327;*/
+    /*float:left;*/
+/*}*/
+.searh_list:hover .searh_list_h{
+    color: #5cb85c;
+}
+.searh_list:active .searh_list_h{
+    color: #4cae4c;
+}
+
+
+.detail_t{
+    width: 80%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.detail_l{
+    border: none;
+}

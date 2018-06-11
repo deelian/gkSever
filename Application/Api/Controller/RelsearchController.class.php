@@ -33,6 +33,9 @@ class RelsearchController extends SearchController {
 
 
     public function getRel(){
+        //searchLock
+
+
         if (!IS_POST){
             $this->retFalse('Unlawful request！');
         }
