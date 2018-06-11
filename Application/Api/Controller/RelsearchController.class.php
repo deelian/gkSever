@@ -9,7 +9,7 @@ class RelsearchController extends SearchController {
     public function __construct()
     {
         parent::__construct();
-        $searchObj = new XS(C('ERL_SEARCH'));
+        $searchObj = new \XS(C('ERL_SEARCH'));
         $this->XS = $searchObj->search;
         $this->XS->setCharset('UTF-8');
     }
