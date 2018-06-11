@@ -256,7 +256,7 @@ class Client implements ClientInterface, \IteratorAggregate
      * Retrieves the specified connection from the aggregate connection when the
      * client is in cluster or replication mode.
      *
-     * @param string $connectionID Index or alias of the single connection.
+     * @param string $connectionID Api or alias of the single connection.
      *
      * @throws NotSupportedException
      *

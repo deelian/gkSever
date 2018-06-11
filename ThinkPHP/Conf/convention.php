@@ -44,7 +44,7 @@ return  array(
     'DEFAULT_LANG'          =>  'zh-cn', // 默认语言
     'DEFAULT_THEME'         =>  '',	// 默认模板主题名称
     'DEFAULT_MODULE'        =>  'Home',  // 默认模块
-    'DEFAULT_CONTROLLER'    =>  'Index', // 默认控制器名称
+    'DEFAULT_CONTROLLER'    =>  'Api', // 默认控制器名称
     'DEFAULT_ACTION'        =>  'index', // 默认操作名称
     'DEFAULT_CHARSET'       =>  'utf-8', // 默认输出编码
     'DEFAULT_TIMEZONE'      =>  'PRC',	// 默认时区

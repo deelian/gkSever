@@ -957,7 +957,7 @@ if($this->RunType=='Cache'){
 
 echo '</td></tr><tr><td colspan="2" bgcolor="#F7F7F7"><table border="0" width="100%" cellpadding="0" style="border-collapse: collapse">
 <tr><td'.$sf13.'>Cache File ID: <b>'.substr($this->TplID,0,-1).'</b></td>
-<td'.$sf13.'>Index: <b>'.((count($this->FileList)==0)?'False':'True').'</b></td>
+<td'.$sf13.'>Api: <b>'.((count($this->FileList)==0)?'False':'True').'</b></td>
 <td'.$sf13.'>Format: <b>'.$this->Ext.'</b></td>
 <td'.$sf13.'>Cache: <b>'.($this->RunType=='MemCache'?'Memcache Engine':($this->RunType == 'Replace'?'Replace Engine':$this->CacheDir)).'</b></td>
 <td'.$sf13.'>Template: <b>'.$this->TemplateDir.'</b></td></tr>

@@ -64,7 +64,7 @@ interface CommandInterface
     /**
      * Gets the argument of the command at the specified index.
      *
-     * @param int $index Index of the desired argument.
+     * @param int $index Api of the desired argument.
      *
      * @return mixed|null
      */

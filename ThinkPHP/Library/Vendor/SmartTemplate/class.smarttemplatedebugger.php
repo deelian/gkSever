@@ -294,7 +294,7 @@
 					src.innerHTML = v ? str.replace(/Hide/, "Show") : str.replace(/Show/, "Hide");}
 					</script></head><body>';
 
-			// Print Index
+			// Print Api
 			echo '<font face="Arial" Size="3"><b>';
 			echo 'SmartTemplate Debugger<br>';
 			echo '<font size="2"><li>PHP-Script: ' . $_SERVER['PATH_TRANSLATED'] . '</li><li>Template: ' . $this->filename . '</li></font><hr>';

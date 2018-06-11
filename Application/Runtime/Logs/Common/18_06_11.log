@@ -1,18 +1,18 @@
-[ 2018-06-09T14:58:10+08:00 ] 127.0.0.1 /favicon.ico
+[ 2018-06-11T08:47:34+08:00 ] 127.0.0.1 /favicon.ico
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
 ERR: 无法加载模块:Favicon
 
-[ 2018-06-09T18:02:56+08:00 ] 127.0.0.1 /favicon.ico
+[ 2018-06-11T10:03:00+08:00 ] 127.0.0.1 /index
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
 INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
-ERR: 无法加载模块:Favicon
+ERR: 无法加载模块:Index
 
-[ 2018-06-09T18:03:00+08:00 ] 127.0.0.1 /favicon.ico
+[ 2018-06-11T10:03:08+08:00 ] 127.0.0.1 /index
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
-ERR: 无法加载模块:Favicon
+ERR: 无法加载模块:Index
 

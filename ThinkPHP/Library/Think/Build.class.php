@@ -115,7 +115,7 @@ class [MODEL]Model extends Model {
     }
 
     // 创建控制器类
-    static public function buildController($module,$controller='Index') {
+    static public function buildController($module,$controller='Api') {
         $file   =   APP_PATH.$module.'/Controller/'.$controller.'Controller'.EXT;
         if(!is_file($file)){
             $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),self::$controller);
