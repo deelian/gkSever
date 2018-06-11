@@ -67,7 +67,6 @@ class RelsearchController extends SearchController {
         $search_cost = microtime(true) - $search_begin;
         $this->retSuccess([
             'lists' => $relLists,
-            'highLight' => $this->XS->highlight,
             'costTime' => $search_cost
         ]);
     }
