@@ -53,11 +53,7 @@ class RelsearchController extends SearchController {
         $this->XS->setAutoSynonyms(true);
 
         // set query
-//        if (!empty($f) && $f != '_all') {
-//            $this->XS->setQuery($f . ':(' . $q . ')');
-//        } else {
-            $this->XS->setQuery($q);
-//        }
+        $this->XS->setQuery($f . ':(' . $q . ')');
 
         // set sort
         if (($pos = strrpos($s, '_')) !== false) {
