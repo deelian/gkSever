@@ -1,6 +1,7 @@
 <?php
 namespace Api\Controller;
 
+require_once '/usr/local/xunsearch/sdk/php/lib/XS.php';
 class RelsearchController extends SearchController {
 
     private $XS;
@@ -8,7 +9,6 @@ class RelsearchController extends SearchController {
     public function __construct()
     {
         parent::__construct();
-        require_once '/usr/local/xunsearch/sdk/php/lib/XS.php';
         $searchObj = new XS(C('ERL_SEARCH'));
         $this->XS = $searchObj->search;
         $this->XS->setCharset('UTF-8');
