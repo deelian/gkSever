@@ -109,3 +109,120 @@ INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
 INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
 NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
 
+[ 2018-06-11T14:19:10+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:11+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:12+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:12+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:12+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:12+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:12+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:13+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:13+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:13+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:13+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:14+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+
+[ 2018-06-11T14:19:14+08:00 ] 127.0.0.1 /api/Relsearch
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(/usr/local/xunsearch/sdk/php/lib/XS.php): failed to open stream: No such file or directory D:\phpStudy\WWW\xiakexing\Application\Api\Controller\SearchController.class.php 第 19 行.
+

@@ -43,7 +43,7 @@ class RelsearchController extends SearchController {
         }
 
         $f = 'res_name';
-        $q = $req['kw'];
+        $q = get_magic_quotes_gpc() ? stripslashes($req['kw']) : $req['kw'];
         $s = 'id';
 
         // fuzzy search
@@ -53,11 +53,11 @@ class RelsearchController extends SearchController {
         $this->XS->setAutoSynonyms(true);
 
         // set query
-        if (!empty($f) && $f != '_all') {
-            $this->XS->setQuery($f . ':(' . $q . ')');
-        } else {
+//        if (!empty($f) && $f != '_all') {
+//            $this->XS->setQuery($f . ':(' . $q . ')');
+//        } else {
             $this->XS->setQuery($q);
-        }
+//        }
 
         // set sort
         if (($pos = strrpos($s, '_')) !== false) {
