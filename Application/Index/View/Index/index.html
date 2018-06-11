@@ -290,7 +290,7 @@
                 $(this).addClass('tips').val($(this).attr('title'));
             }
         }).blur().autocomplete({
-            'source':'suggest.php',
+            'source':'http://www.tt.com/search3/suggest.php?term=c',
             'select':function(ev,ui) {
                 $('#q-input .search-query').val(ui.item.label);
                 $('#q-form').submit();
