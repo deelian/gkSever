@@ -325,8 +325,8 @@
                 fouce_li_num=-1;
                 $("#foraspcn").empty();
                 ///ajax调用 这里使用的是 测试内容
-                ajax_demo();
-                //ajax_getdata(key_);//如果使用ajax去前面的demo和//
+//                ajax_demo();
+                ajax_getdata(key_);//如果使用ajax去前面的demo和//
                 //赋值完毕后进行显示
                 $("#foraspcn").show().css({"left":""+ left_});
             }
@@ -358,18 +358,18 @@
         $("#foraspcn >li").click(function(){$("input[name=key]").val($.trim($(this).text()));$(this).parent().hide();});
     }
 
-//    function ajax_getdata(key){
-//        $.post(
-//            "ajax_tag_search.php",
-//            {"key":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
-//            function(data){//返回格式是json数据，至少是个数组也可自定义，然后再这里进行操作
-//                data_array = eval("("+data+")");
-//                for(i=0;i<data_array.length;i++)//这里进行数据附加 返回数据格式为 关键词数组
-//                    $("#foraspcn").append("<li style='width:"+width_+"px;'>"+data_array[i]+"</li>");
-//                $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
-//                $("#foraspcn >li").mouseout(function(){$(this).css("background-color",li_color);});
-//                $("#foraspcn >li").click(function(){$("input[name=key]").val($.trim($(this).text()));$(this).parent().hide();});
-//            }
-//        );
-//    }
+    function ajax_getdata(key){
+        $.post(
+            "{:U('')}",
+            {"key":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
+            function(data){//返回格式是json数据，至少是个数组也可自定义，然后再这里进行操作
+                data_array = eval("("+data+")");
+                for(i=0;i<data_array.length;i++)//这里进行数据附加 返回数据格式为 关键词数组
+                    $("#foraspcn").append("<li style='width:"+width_+"px;'>"+data_array[i]+"</li>");
+                $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
+                $("#foraspcn >li").mouseout(function(){$(this).css("background-color",li_color);});
+                $("#foraspcn >li").click(function(){$("input[name=key]").val($.trim($(this).text()));$(this).parent().hide();});
+            }
+        );
+    }
 </script>
