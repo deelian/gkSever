@@ -360,9 +360,9 @@
 
     function ajax_getdata(key){
         $.post(
-            "{:U('')}",
+            "{:U('/Api/Relsearch/getRel')}",
             {"key":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
-            function(data){//返回格式是json数据，至少是个数组也可自定义，然后再这里进行操作
+            function(data){
                 data_array = eval("("+data+")");
                 for(i=0;i<data_array.length;i++)//这里进行数据附加 返回数据格式为 关键词数组
                     $("#foraspcn").append("<li style='width:"+width_+"px;'>"+data_array[i]+"</li>");
