@@ -366,7 +366,7 @@
                 console.log(data.data.lists);
                 data_array = data.data.lists;
                 for(i=0;i<data_array.length;i++) {
-                    $("#foraspcn").append("<li class='form-control' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
+                    $("#foraspcn").append("<li class='form-control searh_list_d' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
                 }
                 $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
                 $("#foraspcn >li").mouseout(function(){$(this).css("background-color",li_color);});
