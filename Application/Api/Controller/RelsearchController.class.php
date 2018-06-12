@@ -71,7 +71,7 @@ class RelsearchController extends SearchController {
         $lists = [];
         $a = [];
         foreach ($relLists as $k => $v){
-            $lists = array_push($lists, $v->res_name);
+            $lists = array_push($lists, "$v->res_name");
             $a[$k]  = $v->res_name;
         }
         p($a);
