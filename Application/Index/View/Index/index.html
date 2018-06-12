@@ -327,7 +327,7 @@
 //                ajax_demo();
                 ajax_getdata(key_);//如果使用ajax去前面的demo和//
                 //赋值完毕后进行显示
-                $("#foraspcn").show().css({"left":""+ left_});
+                $("#foraspcn").show("slow").css({"left":""+ left_});
             }
         });
         //当焦点从搜索框内离开则，隐藏层
@@ -351,7 +351,6 @@
             {"kw":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
             function(data){                 
                 data_array = data.data.lists;
-                $("#foraspcn").empty();
                 for(i=0;i<data_array.length;i++) {
                     $("#foraspcn").css("opacity","0");
                     $("#foraspcn").animate({opacity:1},800).append("<li class='form-control searh_list_d' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
