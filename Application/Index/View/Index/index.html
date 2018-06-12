@@ -364,10 +364,11 @@
             {"kw":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
             function(data){                 
                 console.log(data.data.lists);
-                data_array = $.parseJSON(data.data.lists);
+                data_array = data.data.lists;
 //                data_array = eval("("+data.data.lists+")");
-                for(i=0;i<data_array.length;i++)//这里进行数据附加 返回数据格式为 关键词数组
+                for(i=0;i<data_array.length;i++) {
                     $("#foraspcn").append("<li style='width:"+width_+"px;'>"+data_array[i]+"</li>");
+                }
                 $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
                 $("#foraspcn >li").mouseout(function(){$(this).css("background-color",li_color);});
                 $("#foraspcn >li").click(function(){$("input[name=key]").val($.trim($(this).text()));$(this).parent().hide();});
