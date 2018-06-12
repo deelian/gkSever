@@ -351,7 +351,7 @@
         var data_array = ["网站制作学习网","网站制作","www.jb51.net"];
         for(i=0;i<data_array.length;i++){
             //这里进行数据附加 返回数据格式为 关键词数组
-            $("#foraspcn").delay("slow").append("<li class='form-control' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
+            $("#foraspcn").animate({opacity:1},500).append("<li class='form-control' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
             
         }
         $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
