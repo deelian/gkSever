@@ -22,7 +22,7 @@ class RelsearchController extends SearchController {
         if ($hot){
             if(IS_POST){
                 $this->retSuccess([
-                    'list'  => hot,
+                    'list'  => $hot,
                 ]);
             }
             return [
