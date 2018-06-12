@@ -69,8 +69,8 @@ class RelsearchController extends SearchController {
         $relLists = $this->XS->search();
         $search_cost = microtime(true) - $search_begin;
         foreach ($relLists as $k => $v){
-            p($k->res_name);
-            p($v);
+            p($k);
+            p($v->res_name);
         }
         $this->retSuccess([
             'lists' => $relLists,
