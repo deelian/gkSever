@@ -290,9 +290,7 @@
             if(delkeycode(keycode))return;
             var key_ = $(this).val();//获取搜索值
             // var top_ = $(this).offset().top;//获搜索框的顶部位移
-            // console.log(top_)
             var left_ = $(this).offset().left;//获取搜索框的左边位移
-            console.log(left_)
             if(keycode==13){
                 //enter search
                 if(fouce_li_num>=0){
@@ -346,28 +344,15 @@
         return false;
     }
 
-    //这是一个测试案例
-    function ajax_demo(){
-        var data_array = ["网站制作学习网","网站制作","www.jb51.net"];
-        for(i=0;i<data_array.length;i++){
-            //这里进行数据附加 返回数据格式为 关键词数组
-            $("#foraspcn").animate({opacity:1},500).append("<li class='form-control' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
-            
-        }
-        $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
-        $("#foraspcn >li").mouseout(function(){$(this).css("background-color",li_color);});
-        $("#foraspcn >li").click(function(){$("input[name=key]").val($.trim($(this).text()));$(this).parent().hide();});
-    }
-
     function ajax_getdata(key){
         $.post(
             "{:U('/Api/Relsearch/getRel')}",
             {"kw":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
             function(data){                 
-                console.log(data.data.lists);
                 data_array = data.data.lists;
                 for(i=0;i<data_array.length;i++) {
-                    $("#foraspcn").append("<li class='form-control searh_list_d' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
+                    $("#foraspcn").css("opacity","0");
+                    $("#foraspcn").animate({opacity:1},500).append("<li class='form-control searh_list_d' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
                 }
                 $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
                 $("#foraspcn >li").mouseout(function(){$(this).css("background-color",li_color);});
