@@ -20,11 +20,19 @@ class RelsearchController extends SearchController {
     public function getHot(){
         $hot = $this->XS->getHotQuery();
         if ($hot){
+            if(IS_POST){
+                $this->retSuccess([
+                    'list'  => hot,
+                ]);
+            }
             return [
                 'code'  => 200,
                 'data'  => $hot
             ];
         } else {
+            if(IS_POST){
+                $this->retFalse('Empty hot lists!');
+            }
             return [
                 'code'  => 400
             ];
