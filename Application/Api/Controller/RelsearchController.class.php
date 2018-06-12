@@ -70,7 +70,7 @@ class RelsearchController extends SearchController {
         $search_cost = microtime(true) - $search_begin;
         $lists = [];
         foreach ($relLists as $k => $v){
-            $lists = array_merge($v->res_name, $lists);
+            $lists = array_merge($lists, $v->res_name);
         }
         $this->retSuccess([
             'lists' => $lists,
