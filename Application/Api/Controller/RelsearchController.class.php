@@ -72,7 +72,7 @@ class RelsearchController extends SearchController {
             p($k->res_name);
             p($v);
         }
-        $this->retSucce ss([
+        $this->retSuccess([
             'lists' => $relLists,
             'costTime' => $search_cost
         ]);
