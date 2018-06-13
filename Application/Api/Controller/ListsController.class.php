@@ -17,7 +17,7 @@ class ListsController extends SearchController
     public function __construct()
     {
         parent::__construct();
-        $searchObj = new \XS('d_search');
+        $searchObj = new \XS(C('RES_SEARCH'));
         $this->XS = $searchObj->search;
         $this->XS->setCharset('UTF-8');
     }
