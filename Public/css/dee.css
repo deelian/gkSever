@@ -48,7 +48,7 @@ a:focus {
     color: #333;
 }
 .searh_list_hb{
-    width: 500px;
+    width: 650px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
