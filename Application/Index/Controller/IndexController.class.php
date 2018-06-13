@@ -15,7 +15,7 @@ class IndexController extends BaseController {
         if (I('get.kw')){
             $SearchModel = new ListssearchController();
             $res = $SearchModel->get(I('get.kw'));
-//            p($res,1);
+            p($res,1);
             foreach ($res['list'] as $v){
                 p($v->percent);
             }
