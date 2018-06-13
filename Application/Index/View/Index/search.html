@@ -49,23 +49,21 @@
         </div>
 
         <foreach name="data.list" item="list">
-
-        </foreach>
-        <a href="#" class="searh_list">
-          <div class="row mt">
-            <div class="col-md-12 m">
-              <div class="text-justify">
-                <h4 class="searh_list_h"><label class="searh_list_hb">{$list->res_name} </label><span class="badge">Hot</span></h4>
-                <p class="searh_list_d">{$list->res_desc}</p>
-                <div class="row">
-                  <div class="col-md-3"><label>Downloaded:</label> 1024</div>
-                  <div class="col-md-3"><label>PR:</label> {$list->percent}</div>
+          <a href="#" class="searh_list">
+            <div class="row mt">
+              <div class="col-md-12 m">
+                <div class="text-justify">
+                  <h4 class="searh_list_h"><label class="searh_list_hb">{$list->res_name} </label><span class="badge">Hot</span></h4>
+                  <p class="searh_list_d">{$list->res_desc}</p>
+                  <div class="row">
+                    <div class="col-md-3"><label>Downloaded:</label> 1024</div>
+                    <div class="col-md-3"><label>PR:</label> {$list->percent}</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </a>
-
+          </a>
+        </foreach>
 
       </div>
       <div class="col-md-3">
