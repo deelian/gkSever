@@ -1,4 +1,5 @@
 <?php
+
 namespace Api\Controller;
 
 class RelsearchController extends SearchController {

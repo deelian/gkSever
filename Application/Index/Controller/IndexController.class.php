@@ -1,8 +1,7 @@
 <?php
 namespace Index\Controller;
 
-use Api\Controller\ListsController;
-use Api\Controller\SearchController;
+use Api\Controller\ListssearchController;
 
 class IndexController extends BaseController {
     /**
@@ -14,7 +13,7 @@ class IndexController extends BaseController {
 
     public function search(){
         if (I('get.kw')){
-            $SearchModel = new ListsController();
+            $SearchModel = new ListssearchController();
             $res = $SearchModel->get(I('get.kw'));
             p($res);
         } else {

@@ -1,16 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2018/6/13
- * Time: 15:04
- */
 
 namespace Api\Controller;
 
-
-class ListsController extends SearchController
-{
+class ListssearchController extends SearchController{
 
     private $XS;
 

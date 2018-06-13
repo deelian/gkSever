@@ -1,6 +1,6 @@
 <?php
 return array(
-	//'配置项'=>'配置值'
+	//Base Conf
     'DEFAULT_MODULE'     => 'Index', //默认模块
     'DEFAULT_CONTROLLER' => 'Index', // 默认控制器名称
     'DEFAULT_ACTION'     => 'index', // 默认操作名称
@@ -8,9 +8,16 @@ return array(
     'SESSION_AUTO_START' => true, //是否开启session
     'SESSION_PREFIX'     => 'xd_', // session 前缀
 
+    //Search Lib
+    'REL_SEARCH'    => 'l_search',
+    'RES_SEARCH'    => 'd_search',
+
+    //Logs Size
     'LOG_FILE_SIZE'      => '10240',
 
+    //EnCrypt Code
     'ENCRYPT_CODE'       => 'deeliansCryptCode',
 
+    //Stone Conf
     'LOAD_EXT_CONFIG'    => 'store'
 );
