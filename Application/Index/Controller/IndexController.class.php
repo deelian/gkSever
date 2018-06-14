@@ -13,8 +13,9 @@ class IndexController extends BaseController {
 
     public function search(){
         if (I('get.kw')){
+            $req = I('get.');
             $SearchModel = new ListssearchController();
-            $res = $SearchModel->get(I('get.kw'));
+            $res = $SearchModel->get($req['kw'], $req['p']);
             $this->assign('data', $res);
             $this->display();
         } else {

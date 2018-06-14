@@ -14,7 +14,7 @@ class ListssearchController extends SearchController{
         $this->XS->setCharset('UTF-8');
     }
 
-    public function get($kw){
+    public function get($kw, $p){
         $f = 'res_name';
         $q = get_magic_quotes_gpc() ? stripslashes($kw) : $kw;
         $s = 'id';
@@ -34,6 +34,10 @@ class ListssearchController extends SearchController{
             $st = substr($s, $pos + 1);
             $this->XS->setSort($sf, $st === 'ASC');
         }
+
+        $p = max(1, intval($p));
+        $n = XSSearch::PAGE_SIZE;
+        $this->XS->setLimit($n, ($p - 1) * $n);
 
         $search_begin = microtime(true);
         $lists = $this->XS->search();
