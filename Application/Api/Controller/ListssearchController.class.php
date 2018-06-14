@@ -49,12 +49,12 @@ class ListssearchController extends SearchController{
 
         $count      = $this->XS->getLastCount();
         $Page       = new \Think\Page($count,$n);
-        $Page->lastSuffix = false;
-        $Page->setConfig('header','<li class="disabled hwh-page-info"><a>共<em>%TOTAL_ROW%</em>条  <em>%NOW_PAGE%</em>/%TOTAL_PAGE%页</a></li>');
-        $Page->setConfig('prev','上一页');
-        $Page->setConfig('next','下一页');
-        $Page->setConfig('last','末页');
-        $Page->setConfig('first','首页');
+        $Page->lastSuffix = true;
+        $Page->setConfig('header','<li class="disabled hwh-page-info"><a>Total<em>%TOTAL_ROW%</em>  <em>%NOW_PAGE%</em>/%TOTAL_PAGE%页</a></li>');
+        $Page->setConfig('prev','Pre');
+        $Page->setConfig('next','Next');
+        $Page->setConfig('last','End');
+        $Page->setConfig('first','Fir');
         $Page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
         $page_show = bootstrap_page_style($Page->show());
 
