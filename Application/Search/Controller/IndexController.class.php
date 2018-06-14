@@ -16,10 +16,10 @@ class IndexController extends BaseController {
      * SearchPage
      */
     public function search(){
-        if (I('get.kw')){
+        if (I('get.key')){
             $req = I('get.');
             $SearchModel = new ListssearchController();
-            $res = $SearchModel->get($req['kw'], $req['p']);
+            $res = $SearchModel->get($req['key'], $req['p']);
 
             $this->assign('data', $res);
             $this->display();
