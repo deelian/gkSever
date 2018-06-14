@@ -6,12 +6,16 @@ class ListssearchController extends SearchController{
 
     private $XS;
 
+    private $XSS;
+
     public function __construct()
     {
         parent::__construct();
         $searchObj = new \XS(C('RES_SEARCH'));
         $this->XS = $searchObj->search;
         $this->XS->setCharset('UTF-8');
+
+        $this->XSS = new \XSSearch();
     }
 
     public function get($kw, $p){
@@ -36,7 +40,7 @@ class ListssearchController extends SearchController{
         }
 
         $p = max(1, intval($p));
-        $n = XSSearch::PAGE_SIZE;
+        $n = $this->XSS->PAGE_SIZE;
         $this->XS->setLimit($n, ($p - 1) * $n);
 
         $search_begin = microtime(true);
