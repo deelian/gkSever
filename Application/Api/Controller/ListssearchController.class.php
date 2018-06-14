@@ -43,12 +43,17 @@ class ListssearchController extends SearchController{
         $n = $this->XSS::PAGE_SIZE;
         $this->XS->setLimit($n, ($p - 1) * $n);
 
-        $search_begin = microtime(true);
-        $lists = $this->XS->search();
-        $search_cost = microtime(true) - $search_begin;
+        $search_begin   = microtime(true);
+        $lists          = $this->XS->search();
+        $search_cost    = microtime(true) - $search_begin;
+
+        $count      = $this->XS->getLastCount();
+        $Page       = new \Think\Page($count,$n);
+        $show       = $Page->show();
         return [
-            'list'  => $lists,
-            'costTime'  => $search_cost
+            'list'      => $lists,
+            'costTime'  => $search_cost,
+            'page'      => $show
         ];
     }
 }
