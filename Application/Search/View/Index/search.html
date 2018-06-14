@@ -49,7 +49,7 @@
         </div>
         <h4>{$data.total} in total, took {$data.costTime} seconds</h4>
         <foreach name="data.list" item="list">
-          <a href="{:U('index/detail', ['code'=>$list['id']])}" class="searh_list">
+          <a href="{:U('index/detail', ['code'=> encrypt($list['id'])])}" class="searh_list">
             <div class="row mt">
               <div class="col-md-12 m">
                 <div class="text-justify">
