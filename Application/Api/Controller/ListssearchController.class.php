@@ -49,11 +49,19 @@ class ListssearchController extends SearchController{
 
         $count      = $this->XS->getLastCount();
         $Page       = new \Think\Page($count,$n);
-        $show       = $Page->show();
+        $Page->lastSuffix = false;
+        $Page->setConfig('header','<li class="disabled hwh-page-info"><a>共<em>%TOTAL_ROW%</em>条  <em>%NOW_PAGE%</em>/%TOTAL_PAGE%页</a></li>');
+        $Page->setConfig('prev','上一页');
+        $Page->setConfig('next','下一页');
+        $Page->setConfig('last','末页');
+        $Page->setConfig('first','首页');
+        $Page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
+        $page_show = bootstrap_page_style($Page->show());
+
         return [
             'list'      => $lists,
             'costTime'  => $search_cost,
-            'page'      => $show
+            'page'      => $page_show
         ];
     }
 }
