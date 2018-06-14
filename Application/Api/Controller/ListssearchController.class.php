@@ -40,7 +40,7 @@ class ListssearchController extends SearchController{
         }
 
         $p = max(1, intval($p));
-        $n = $this->XSS->PAGE_SIZE;
+        $n = $this->XSS::PAGE_SIZE;
         $this->XS->setLimit($n, ($p - 1) * $n);
 
         $search_begin = microtime(true);
