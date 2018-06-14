@@ -37,14 +37,7 @@
       <div class="col-md-9">
         <div class="row float">
           <div class="row text-center">
-            <form action="#" role="search" id="searchBox" class="navbar-form">
-              <div class="form-group input-group input-group-lg" >
-                <input type="text" id="searchKey" name="key" class="form-control" placeholder="Search" >
-              </div>
-              <button type="submit" class="btn btn-success btn-lg">Search</button>
-            </form>
-            <!-- 搜索框弹出框 -->
-            <div class="" id='foraspcn'></div>
+            <include file="./Public/common/search.html"/>
           </div>
         </div>
         <h4>{$data.total} in total, took {$data.costTime} seconds</h4>
