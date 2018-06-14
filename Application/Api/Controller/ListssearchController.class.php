@@ -49,8 +49,7 @@ class ListssearchController extends SearchController{
 
         $count      = $this->XS->getLastCount();
         $Page       = new \Think\Page($count,$n);
-        $Page->lastSuffix = true;
-        $Page->setConfig('header','<li class="disabled hwh-page-info"><a>Total<em>%TOTAL_ROW%</em>  <em>%NOW_PAGE%</em>/%TOTAL_PAGE%页</a></li>');
+        $Page->lastSuffix = false;
         $Page->setConfig('prev','Pre');
         $Page->setConfig('next','Next');
         $Page->setConfig('last','End');
@@ -61,6 +60,7 @@ class ListssearchController extends SearchController{
         return [
             'list'      => $lists,
             'costTime'  => $search_cost,
+            'total'     => $count,
             'page'      => $page_show
         ];
     }
