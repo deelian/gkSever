@@ -68,7 +68,7 @@ function delkeycode(keycode){
 
 function ajax_getdata(key){
     $.post(
-        "{:U('/Api/Relsearch/getRel')}",
+        "/Api/Relsearch/getRel",
         {"kw":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
         function(data){
             data_array = data.data.lists;
