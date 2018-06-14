@@ -39,7 +39,7 @@
           <div class="row text-center">
             <form action="{:U('Index/search')}" role="search" id="searchBox" class="navbar-form" method="get">
               <div class="form-group input-group input-group-lg" >
-                <input type="text" id="searchKey" name="kw" class="form-control" placeholder="Search" autofocus>
+                <input type="text" id="searchKey" name="kw" flag="search" class="form-control" placeholder="Search" autofocus>
               </div>
               <button type="submit" class="btn btn-success btn-lg">Search</button>
             </form>
@@ -279,7 +279,7 @@
 <script language="javascript">
 
     ///开始定义全局内容
-    var i = $("input[name=key]");
+    var i = $("input[flag=search]");
     var fouce_li_num = -1;///默认没有选择任何下拉内容
     var width_ = i.css('width');//这里设置的是搜索框的宽度，目的为了与下面的列表宽度相同
     // var top_ = i.offset().top;
