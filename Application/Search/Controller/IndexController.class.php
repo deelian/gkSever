@@ -1,7 +1,8 @@
 <?php
-namespace Index\Controller;
+namespace Search\Controller;
 
 use Api\Controller\ListssearchController;
+use Home\Controller\IndexController as dataModel;
 
 class IndexController extends BaseController {
     /**
@@ -11,6 +12,9 @@ class IndexController extends BaseController {
         $this->display();
     }
 
+    /**
+     * SearchPage
+     */
     public function search(){
         if (I('get.kw')){
             $req = I('get.');
@@ -22,6 +26,16 @@ class IndexController extends BaseController {
         } else {
             echo 11;
         }
+    }
 
+    public function detail(){
+        if (empty(I('get.code'))){
+            $this->redirect(U('/'));
+        }
+        $data = new dataModel();
+        $res = $data->getInfo(I('get.code'));
+//        p($res,1);
+        $this->assign('info', $res);
+        $this->display();
     }
 }

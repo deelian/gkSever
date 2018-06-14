@@ -12,16 +12,22 @@ use Home\Model\ResModel;
 class IndexController extends XkController
 {
     //资源前缀
-    protected $redPre = 'Resource:ResInfo:';
+    protected $redPre;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->redPre = C('REDIS_PRE');
+    }
 
     /**
      * 数据虚拟化
      */
-    public function init(){
+    public function init($start){
         ini_set('max_execution_time', 0);
         $resM = new ResModel();
-        $start = I('get.start');
-        $end = 208888;
+//        $start = I('get.start');
+        $end = 208889;
         for ($i = $start; $i<=$end; $i++){
             $info = $resM->getDetail($i);
 
@@ -40,16 +46,28 @@ class IndexController extends XkController
     /**
      * 虚拟数据重置
      */
-    public function reSet(){
+    public function reSet($start){
         $this->RED->flushall();
-        $this->init();
+        $this->init($start);
     }
 
-    public function index(){
-        $data = '9';        // 被加密信息
-        $encrypt = encrypt($data);
-        $decrypt = decrypt($encrypt);
-        echo $encrypt, "\n", $decrypt;
+    public function getInfo($data){
+        $res = $this->RED->hgetall(C('REDIS_PRE').decrypt($data));
+//        $res = $this->RED->hgetall(C('REDIS_PRE').'2088897');
+        if (empty($res)){
+            return [
+                'code'  => 400
+            ];
+        } else {
+            if (!empty($res['res_desc'])){
+                $res['res_desc'] = explode('|', $res['res_desc']);
+            }
+            array_pop($res['res_desc']);
+            return [
+                'code'  => 200,
+                'info'  => $res
+            ];
+        }
     }
 
 

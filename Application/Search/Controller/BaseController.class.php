@@ -6,7 +6,7 @@
  * Time: 15:29
  */
 
-namespace Index\Controller;
+namespace Search\Controller;
 
 
 use Think\Controller;

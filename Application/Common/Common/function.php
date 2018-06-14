@@ -67,6 +67,7 @@ function pLog($value, $detail='调试日志', $name='logs.txt')
 //加密函数
 function encrypt($data)
 {
+    $data   =   strval($data);
     $key    =   md5(C('ENCRYPT_CODE'));
     $x      =   0;
     $len    =   strlen($data);

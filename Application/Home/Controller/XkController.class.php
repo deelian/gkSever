@@ -14,10 +14,10 @@ class XkController extends Controller {
         parent::__construct();
         Autoloader::register();
         $host = [
-            'scheme' => 'tcp',
-            'host'   => C('REDIS_HOST'),
-            'port'   => C('REDIS_PORT'),
-            'read_write_timeout' => 0
+            'scheme'                => 'tcp',
+            'host'                  => C('REDIS_HOST'),
+            'port'                  => C('REDIS_PORT'),
+            'read_write_timeout'    => 0
         ];
         $this->RED = new Client($host);
     }

@@ -1,7 +1,7 @@
 <?php
 return array(
 	//Base Conf
-    'DEFAULT_MODULE'     => 'Index', //默认模块
+    'DEFAULT_MODULE'     => 'Search', //默认模块
     'DEFAULT_CONTROLLER' => 'Index', // 默认控制器名称
     'DEFAULT_ACTION'     => 'index', // 默认操作名称
     'URL_MODEL'          => '2', //URL模式
@@ -19,5 +19,8 @@ return array(
     'ENCRYPT_CODE'       => 'deeliansCryptCode',
 
     //Stone Conf
-    'LOAD_EXT_CONFIG'    => 'store'
+    'LOAD_EXT_CONFIG'    => 'store',
+
+    //Redis prefix
+    'REDIS_PRE'          => 'Resource:ResInfo:',
 );

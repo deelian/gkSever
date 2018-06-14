@@ -35,39 +35,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9">
-        <div class="row float">
-          <div class="row text-center">
-            <form action="#" role="search" id="searchBox" class="navbar-form">
-              <div class="form-group input-group input-group-lg" >
-                <input type="text" id="searchKey" name="key" class="form-control" placeholder="Search" >
-              </div>
-              <button type="submit" class="btn btn-success btn-lg">Search</button>
-            </form>
-            <!-- 搜索框弹出框 -->
-            <div class="" id='foraspcn'></div>
-          </div>
-        </div>
-        <h4>{$data.total} in total, took {$data.costTime} seconds</h4>
-        <foreach name="data.list" item="list">
-          <a href="#" class="searh_list">
-            <div class="row mt">
-              <div class="col-md-12 m">
-                <div class="text-justify">
-                  <h4 class="searh_list_h"><label class="searh_list_hb"><span class="badge">Hot</span>{$list->res_name} </label></h4>
-                  <p class="searh_list_d">{$list->res_desc}</p>
-                  <div class="row">
-                    <div class="col-md-3"><label>Downloaded:</label> 1024</div>
-                    <div class="col-md-3"><label>PR:</label> {:ceil($list->percent()/10)}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </foreach>
-        <div class="panel-body center">
-          {$data.page}
-        </div>
-
+        <h1 class="detail_t">{$info.info.res_name}</h1>
+        <ul class="list-group detail_l">
+          <foreach item="list" name="info.info.res_desc">
+            <li class="list-group-item">{$list}</li>
+          </foreach>
+        </ul>
+        <span class="btn btn-lg btn-success pull-right">Download Now</span>
       </div>
       <div class="col-md-3">
         <div class="row">
