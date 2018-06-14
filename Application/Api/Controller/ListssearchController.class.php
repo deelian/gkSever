@@ -50,6 +50,7 @@ class ListssearchController extends SearchController{
         $count      = $this->XS->getLastCount();
         $Page       = new \Think\Page($count,$n);
         $Page->lastSuffix = false;
+        $Page->setConfig('header','');
         $Page->setConfig('prev','Pre');
         $Page->setConfig('next','Next');
         $Page->setConfig('last','End');
