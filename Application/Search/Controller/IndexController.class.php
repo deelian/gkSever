@@ -30,7 +30,7 @@ class IndexController extends BaseController {
 
     public function detail(){
         if (empty(I('get.code'))){
-            $this->redirect(U('/'));
+            $this->display('Common/error');
         }
         $data = new dataModel();
         $res = $data->getInfo(I('get.code'));
