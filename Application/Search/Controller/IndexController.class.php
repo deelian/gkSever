@@ -24,7 +24,7 @@ class IndexController extends BaseController {
             $this->assign('data', $res);
             $this->display();
         } else {
-            echo 11;
+            $this->display('Common/index');
         }
     }
 

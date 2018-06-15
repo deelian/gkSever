@@ -7,6 +7,7 @@ return array(
     'URL_MODEL'          => '2', //URL模式
     'SESSION_AUTO_START' => true, //是否开启session
     'SESSION_PREFIX'     => 'xd_', // session 前缀
+    'URL_HTML_SUFFIX'    => 'jsp',
 
     //Search Lib
     'REL_SEARCH'    => 'l_search',
@@ -23,4 +24,5 @@ return array(
 
     //Redis prefix
     'REDIS_PRE'          => 'Resource:ResInfo:',
+    'SYS_PRE'            => 'SysSetting:Info:',
 );

@@ -10,27 +10,7 @@
 </head>
 <body>
   <!-- 页头 -->
-  <div class="container navbar-fixed-top">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="#" class="navbar-brand" style="color: #fff;"><span class="glyphicon glyphicon-home">.</span>Gk-Online</a>
-        </div>
-        <div>
-          <ul class="nav navbar-nav">
-            <li><a href="#">Top100</a></li>
-            <li><a href="#">Hot100</a></li>
-          </ul>
-        </div>
-        <form action="#" class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search">.Search</button>
-        </form>
-      </div>
-    </nav>
-  </div>
+  <include file="./Public/common/head.html"/>
   <!-- 搜索框 -->
   <div class="container">
     <div class="row">
@@ -111,13 +91,7 @@
     </div>
   </div>
   <!-- 页尾 -->
-  <div class="container">
-    <footer>
-      <div class="container text-center">
-        <p>&copy; CopyRight 2012</p>
-      </div>
-    </footer>
-  </div>
+  <include file="./Public/common/footer.html"/>
 </body>
 </html>
 

@@ -51,6 +51,11 @@ class IndexController extends XkController
         $this->init($start);
     }
 
+    /**
+     * 获取详情
+     * @param $data
+     * @return array
+     */
     public function getInfo($data){
         $res = $this->RED->hgetall(C('REDIS_PRE').decrypt($data));
 //        $res = $this->RED->hgetall(C('REDIS_PRE').'2088897');

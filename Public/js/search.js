@@ -73,8 +73,7 @@ function ajax_getdata(key){
         function(data){
             data_array = data.data.lists;
             for(i=0;i<data_array.length;i++) {
-                $("#foraspcn").css("opacity","0");
-                $("#foraspcn").animate({opacity:1},800).append("<li class='form-control searh_list_d' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
+                $("#foraspcn").append("<li class='form-control searh_list_d' style='margin-top:0px;font-size:18px; width:"+width_+"px;'>"+data_array[i]+"</li>");
             }
             $("#foraspcn >li").mouseover(function(){$(this).css("background-color",li_color_);});
             $("#foraspcn >li").mouseout(function(){$(this).css("background-color",li_color);});
