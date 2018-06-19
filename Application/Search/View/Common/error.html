@@ -1,45 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<!-- Viewport metatags -->
-<meta name="HandheldFriendly" content="true" />
-<meta name="MobileOptimized" content="320" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-theme.css">
-<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.css">
-<link rel="stylesheet" href="__PUBLIC__/css/dandelion.css"  media="screen" />
-<title>Oops! You got errors... </title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/dee.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/dandelion.css"  media="screen" />
+    <title>gk</title>
 </head>
-
 <body>
-<include file="./Public/common/head.html"/>
-<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
-<div class="container">
-    <div id="da-wrapper" class="fluid">
-        <!-- Content -->
+  <!-- 页头 -->
+  <include file="./Public/common/head.html"/>
+  <!-- 搜索框 -->
+  <div class="container">
+    <div class="row">
+        <div id="da-wrapper" class="fluid">
+      <div class="col-md-12">
         <div id="da-content">
-            <!-- Container -->
-            <div class="da-container clearfix">
-                <div id="da-error-wrapper">
-                    <div id="da-error-pin"></div>
-                    <div id="da-error-code">
-                        error <span>404</span>
-                    </div>
-                    <h1 class="da-error-heading">It looks like somewhere got wrong</h1>
-                    <p>You can got someelse from here！</p>
-                    <p><a href="http://www.smallseashell.com/">小贝壳资源下载</a><a href="http://www.smallseashell.com/">jquery脚本</a><a href="http://www.smallseashell.com/">jsp源码</a><a href="http://www.smallseashell.com/">网页素材</a></p>
-                </div>
+          <!-- Container -->
+          <div class="da-container clearfix">
+            <div id="da-error-wrapper">
+              <div id="da-error-pin"></div>
+              <div id="da-error-code">
+                Error <span>404</span>
+              </div>
+              <h1 class="da-error-heading">It looks like somewhere got wrong</h1>
+              <p>You can got someelse from here！</p>
+              <p><a href="http://www.smallseashell.com/">小贝壳资源下载</a><a href="http://www.smallseashell.com/">jquery脚本</a><a href="http://www.smallseashell.com/">jsp源码</a><a href="http://www.smallseashell.com/">网页素材</a></p>
             </div>
+          </div>
         </div>
-        <!-- Footer -->
-        <include file="./Public/common/footer.html"/>
+      </div>
+        </div>
     </div>
-</div>
+    <div class="row">
+      <!-- Footer -->
+      <!--<include file="./Public/common/footer.html"/>-->
+    </div>
+  </div>
+  <!-- 页尾 -->
+  <include file="./Public/common/footer.html"/>
 </body>
 </html>
+
 <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
