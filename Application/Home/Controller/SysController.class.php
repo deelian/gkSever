@@ -23,9 +23,10 @@ class SysController extends XkController
     /**
      * 设置站点信息
      * @param $data
+     * @return mixed
      */
     public function setSysInfo($data){
-        $this->RED->hmset($this->sysPre.'site', $data);
+        return $this->RED->hmset($this->sysPre.'site', $data);
     }
 
     /**
@@ -33,13 +34,7 @@ class SysController extends XkController
      * @return array
      */
     public function getSysInfo(){
-        $sysSite = $this->RED->hgetall($this->sysPre.'site');
-        if (!empty($sysSite)){
-            return $sysSite;
-        } else {
-
-            self::getSysInfo();
-        }
+        return $this->RED->hgetall($this->sysPre.'site');
     }
 
 //    public function getSys

@@ -25,4 +25,7 @@ return array(
     //Redis prefix
     'REDIS_PRE'          => 'Resource:ResInfo:',
     'SYS_PRE'            => 'SysSetting:Info:',
+
+    //sub suffix
+    'ALLOW_SUFFIX'       => 'torrent'
 );

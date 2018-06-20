@@ -83,3 +83,15 @@ a:focus {
 .detail_l{
     border: none;
 }
+
+.alerts{
+    position: fixed;
+    margin:0 auto;
+    left:0;
+    right:0;
+    z-index: 999;
+    width: 50%;
+}
+.kv-upload-progress{
+    position: fixed;
+}

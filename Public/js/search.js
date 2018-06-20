@@ -7,6 +7,23 @@ var width_ = i.css('width');//这里设置的是搜索框的宽度，目的为�
 var li_color = "#fff";//默认的下拉背景颜色
 var li_color_ = "#CCC";//当下拉选项获取焦点后背景颜色
 $(function(){
+
+    $("#input-709").fileinput({
+        uploadUrl: SubUrl,
+        uploadAsync: true,
+        showPreview: false,
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        maxFileCount: 5,
+        elErrorContainer: '#kv-error-1'
+    }).on('filebatchpreupload', function(event, data, id, index) {
+        $('#kv-success-1').html('<h4>Congratulations!</h4><ul></ul>').hide();
+    }).on('fileuploaded', function(event, data, id, index) {
+        var fname = data.files[index].name;
+        $('#kv-success-1 ul').append("<strong>Uploaded "+fname+" successfully!</strong><br>Now you can find it from the search Cp");
+        $('#kv-success-1').fadeIn('slow');
+        setTimeout("$('#kv-success-1').fadeOut('slow')",5000)
+    });
+
     i.keyup(function(event){
         var keycode = event.keyCode;
         if(delkeycode(keycode))return;

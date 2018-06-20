@@ -17,7 +17,7 @@ class XkController extends Controller {
             'scheme'                => 'tcp',
             'host'                  => C('REDIS_HOST'),
             'port'                  => C('REDIS_PORT'),
-            'read_write_timeout'    => 0
+            'read_write_timeout'    => 0,
         ];
         $this->RED = new Client($host);
     }
