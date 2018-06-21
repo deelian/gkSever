@@ -27,5 +27,8 @@ return array(
     'SYS_PRE'            => 'SysSetting:Info:',
 
     //sub suffix
-    'ALLOW_SUFFIX'       => 'torrent'
+    'ALLOW_SUFFIX'       => 'torrent',
+
+    //uploadType
+    'FILE_UPLOAD_TYPE'   => 'Qiniu',
 );

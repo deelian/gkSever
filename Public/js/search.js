@@ -12,16 +12,18 @@ $(function(){
         uploadUrl: SubUrl,
         uploadAsync: true,
         showPreview: false,
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        allowedFileExtensions: ['torrent', 'png', 'gif'],
         maxFileCount: 5,
         elErrorContainer: '#kv-error-1'
     }).on('filebatchpreupload', function(event, data, id, index) {
         $('#kv-success-1').html('<h4>Congratulations!</h4><ul></ul>').hide();
     }).on('fileuploaded', function(event, data, id, index) {
-        var fname = data.files[index].name;
-        $('#kv-success-1 ul').append("<strong>Uploaded "+fname+" successfully!</strong><br>Now you can find it from the search Cp");
-        $('#kv-success-1').fadeIn('slow');
-        setTimeout("$('#kv-success-1').fadeOut('slow')",5000)
+        if(data.jqXHR.responseJSON.code == 200){
+            var fname = data.files[index].name;
+            $('#kv-success-1 ul').append("<strong>Uploaded "+fname+" successfully!</strong><br>Now you can find it from the search Cp");
+            $('#kv-success-1').fadeIn('slow');
+            setTimeout("$('#kv-success-1').fadeOut('slow')",5000)
+        }
     });
 
     i.keyup(function(event){

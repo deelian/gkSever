@@ -30,7 +30,7 @@ class Qiniu{
         'accessKey'      => '', //七牛用户
         'domain'         => '', //七牛密码
         'bucket'         => '', //空间名称
-        'timeout'        => 300, //超时时间
+        'timeout'        => 3000, //超时时间
     );
 
     /**
