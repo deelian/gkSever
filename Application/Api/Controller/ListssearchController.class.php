@@ -73,6 +73,6 @@ class ListssearchController extends SearchController{
         //创建文档对象
         $doc = new \XSDocument();
         $doc->setFields($data);
-        $this->XI->update($doc);
+        $this->XI->add($doc);
     }
 }

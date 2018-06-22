@@ -54,7 +54,7 @@ class FileController extends Controller
                 //storeSearchIndex
                 $listModel = new ListssearchController();
                 $listModel->setDetail($subData);
-                
+
                 $this->ajaxReturn([
                     'code'  => 200,
                     'info'  => $subData
