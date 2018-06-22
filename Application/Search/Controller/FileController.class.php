@@ -10,6 +10,7 @@ namespace Search\Controller;
 
 
 use Api\Controller\ListssearchController;
+use Api\Controller\RelsearchController;
 use Search\Model\ResModel;
 use Think\Controller;
 
@@ -54,6 +55,9 @@ class FileController extends Controller
                 //storeSearchIndex
                 $listModel = new ListssearchController();
                 $listModel->setDetail($subData);
+
+                $relSeachModel = new RelsearchController();
+                $relSeachModel->setList($subData);
 
                 $this->ajaxReturn([
                     'code'  => 200,

@@ -76,4 +76,5 @@ class ListssearchController extends SearchController{
         $doc->setFields($data);
         $this->XI->add($doc);
     }
+
 }

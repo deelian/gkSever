@@ -6,11 +6,14 @@ class RelsearchController extends SearchController {
 
     private $XS;
 
+    private $XL;
+
     public function __construct()
     {
         parent::__construct();
         $searchObj = new \XS(C('REL_SEARCH'));
         $this->XS = $searchObj->search;
+        $this->XL = $searchObj->index;
         $this->XS->setCharset('UTF-8');
     }
 
@@ -85,5 +88,12 @@ class RelsearchController extends SearchController {
             'lists' => $lists,
             'costTime' => $search_cost
         ]);
+    }
+
+    public function setList($data){
+        //创建文档对象
+        $doc = new \XSDocument();
+        $doc->setFields($data);
+        $this->XL->add($doc);
     }
 }
