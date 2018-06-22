@@ -6,6 +6,8 @@ class ListssearchController extends SearchController{
 
     private $XS;
 
+    private $XI;
+
     private $XSS;
 
     public function __construct()
@@ -13,6 +15,7 @@ class ListssearchController extends SearchController{
         parent::__construct();
         $searchObj = new \XS(C('RES_SEARCH'));
         $this->XS = $searchObj->search;
+        $this->XI = $searchObj->index;
         $this->XS->setCharset('UTF-8');
 
         $this->XSS = new \XSSearch();
@@ -64,5 +67,12 @@ class ListssearchController extends SearchController{
             'total'     => $count,
             'page'      => $page_show
         ];
+    }
+
+    public function setDetail($data){
+        //创建文档对象
+        $doc = new \XSDocument();
+        $doc->setFields($data);
+        $this->XI->update($doc);
     }
 }

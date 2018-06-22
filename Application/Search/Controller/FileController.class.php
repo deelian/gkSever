@@ -9,6 +9,7 @@
 namespace Search\Controller;
 
 
+use Api\Controller\ListssearchController;
 use Search\Model\ResModel;
 use Think\Controller;
 
@@ -51,11 +52,9 @@ class FileController extends Controller
                 $RedModel->insertRes($subData);
 
                 //storeSearchIndex
-                $commond = "/usr/local/xunsearch/sdk/php/util/Indexer.php  --build --source=mysql://root:deelian@192.168.253.128/xiakexing --sql='SELECT * FROM xd_res where id = $res_id' --project=d_search";
-//                shell_exec($commond);
-                p(exec($commond,$results,$ret));
-                pLog($results,'111');
-                pLog($ret,'222');
+                $listModel = new ListssearchController();
+                $listModel->setDetail($subData);
+                
                 $this->ajaxReturn([
                     'code'  => 200,
                     'info'  => $subData
