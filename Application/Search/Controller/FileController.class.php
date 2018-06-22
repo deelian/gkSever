@@ -35,6 +35,7 @@ class FileController extends Controller
                     'res_dirs'  => $dirs,
                     'res_links' => $res['info']['kartik-input-709']['savename'],
                     'res_name'  => $name[0],
+                    'res_desc'  => '',
                     'times'     => 0,
                     'show_times'=> rand(1000, 99999),
                     'status'    => 1,
