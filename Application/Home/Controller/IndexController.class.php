@@ -75,5 +75,14 @@ class IndexController extends XkController
         }
     }
 
+    /**
+     * New Res Insert
+     * @param $data
+     * @return mixed
+     */
+    public function insertRes($data){
+        return $this->RED->hmset($this->redPre.$data['id'], $data);
+    }
+
 
 }

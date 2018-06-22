@@ -9,6 +9,7 @@
 namespace Search\Controller;
 
 
+use Search\Model\ResModel;
 use Think\Controller;
 
 class FileController extends Controller
@@ -26,20 +27,30 @@ class FileController extends Controller
         if (IS_POST){
             $res = $this->saveFile();
             if ($res['status'] == 1){
-                pLog($res['info']);
-                pLog($_FILES);
+                $name = explode('.torrent',$_FILES['kartik-input-709']['name']);
+                $dirs = substr($res['info']['kartik-input-709']['savepath'],0,strlen($res['info']['kartik-input-709']['savepath'])-1);
+
                 //storeMysql
                 $subData = [
-                    'res_dirs'  => $res['info']['kartik-input-709']['savepath'],
+                    'res_dirs'  => $dirs,
                     'res_links' => $res['info']['kartik-input-709']['savename'],
-                    'res_name'  => $_FILES['kartik-input-709']['name'],
+                    'res_name'  => $name[0],
                     'times'     => 0,
                     'show_times'=> rand(1000, 99999),
                     'status'    => 1,
                     'add_time'  => time(),
                     'user_id'   => 0,
                 ];
+                $resModel = new ResModel();
+                $res_id = $resModel->saveRes($subData);
+
                 //storeRedis
+                $subData['id'] = $res_id;
+                $RedModel = new \Home\Controller\IndexController();
+                $RedModel->insertRes($subData);
+
+                //storeSearchIndex
+
 
                 $this->ajaxReturn([
                     'code'  => 200,
