@@ -114,14 +114,15 @@ class Upload {
 
     /**
      * 上传文件
-     * @param 文件信息数组 $files ，通常是 $_FILES数组
+     * @param string $files
+     * @return array|bool
      */
     public function upload($files='') {
         if('' === $files){
             $files  =   $_FILES;
         }
         if(empty($files)){
-            $this->error = '没有上传的文件！';
+            $this->error = 'No Such Files！';
             return false;
         }
 

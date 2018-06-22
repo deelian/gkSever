@@ -26,13 +26,13 @@ class FileController extends Controller
         if (IS_POST){
             $res = $this->saveFile();
             if ($res['status'] == 1){
-                pLog($res);
+                pLog($res['info']);
                 pLog($_FILES);
                 //storeMysql
                 $subData = [
-                    'res_dirs'  => $res['info']->savepath,
-                    'res_links' => $res['info']->savename,
-                    'res_name'  => $_FILES['kartik-input-709[]']['name'],
+                    'res_dirs'  => $res['info']['kartik-input-709']['savepath'],
+                    'res_links' => $res['info']['kartik-input-709']['savename'],
+                    'res_name'  => $_FILES['kartik-input-709']['name'],
                     'times'     => 0,
                     'show_times'=> rand(1000, 99999),
                     'status'    => 1,
