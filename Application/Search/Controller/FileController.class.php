@@ -51,8 +51,9 @@ class FileController extends Controller
                 $RedModel->insertRes($subData);
 
                 //storeSearchIndex
-                system("cd /usr/local/xunsearch/sdk/php/; util/Indexer.php  --build --source=mysql://root:deelian@192.168.253.128/xiakexing --sql='SELECT * FROM xd_res where id = $res_id' --project=d_search");
+                system("cd /usr/local/xunsearch/sdk/php; php util/Indexer.php  --build --source=mysql://root:deelian@192.168.253.128/xiakexing --sql='SELECT * FROM xd_res where id = $res_id' --project=d_search");
 
+                pLog("cd /usr/local/xunsearch/sdk/php; php util/Indexer.php  --build --source=mysql://root:deelian@192.168.253.128/xiakexing --sql='SELECT * FROM xd_res where id = $res_id' --project=d_search");
                 $this->ajaxReturn([
                     'code'  => 200,
                     'info'  => $subData
