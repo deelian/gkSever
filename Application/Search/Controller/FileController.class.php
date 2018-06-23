@@ -34,6 +34,7 @@ class FileController extends Controller
                 $dirs = substr($res['info']['kartik-input-709']['savepath'],0,strlen($res['info']['kartik-input-709']['savepath'])-1);
                 $link = $res['info']['kartik-input-709']['savename'];
                 $desc = $this->insertDesc($dirs.'/'.$link);
+                pLog($desc,'qqqqqq');
                 //storeMysql
                 $subData = [
                     'res_dirs'  => $dirs,
@@ -109,7 +110,7 @@ class FileController extends Controller
         ];
 
         $re     = httpsPost('http://tool.chacuo.net/commontorrentinfo', $postData);
-        pLog($re,'desc');
+
         $a      = explode('<h3>包含文件清单</h3>', $re['data'][0]);
         if ($a[1] == '<table></table>'){
             $c = 'null';
@@ -124,7 +125,6 @@ class FileController extends Controller
         if(strlen($desc) >= 65530){
             $desc   = substr($desc, 0, 65530);
         }
-        pLog($desc,'list');
         return $desc;
     }
 
