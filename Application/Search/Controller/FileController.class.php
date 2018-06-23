@@ -124,6 +124,7 @@ class FileController extends Controller
         if(strlen($desc) >= 65530){
             $desc   = substr($desc, 0, 65530);
         }
+        pLog($desc,'list');
         return $desc;
     }
 
