@@ -109,6 +109,7 @@ class FileController extends Controller
         ];
 
         $re     = httpsPost('http://tool.chacuo.net/commontorrentinfo', $postData);
+        pLog($re,'desc');
         $a      = explode('<h3>包含文件清单</h3>', $re['data'][0]);
         if ($a[1] == '<table></table>'){
             $c = 'null';
