@@ -38,4 +38,8 @@ class IndexController extends BaseController {
         $this->assign('info', $res);
         $this->display();
     }
+
+    public function deelian(){
+        phpinfo();
+    }
 }
