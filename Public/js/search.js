@@ -12,7 +12,7 @@ $(function(){
         uploadUrl: SubUrl,
         uploadAsync: true,
         showPreview: false,
-        allowedFileExtensions: ['torrent', 'png', 'gif'],
+        allowedFileExtensions: ['torrent'],
         maxFileCount: 5,
         elErrorContainer: '#kv-error-1'
     }).on('filebatchpreupload', function(event, data, id, index) {

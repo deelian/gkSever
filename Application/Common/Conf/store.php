@@ -35,7 +35,7 @@ return array(
         'rootPath'          => './',
         'savePath'          => 'Ebola/',// 文件上传的保存路径
         'saveName'          => array ('uniqid', ''),
-        'exts'              => ['torrent','png'],  // 设置附件上传类型
+        'exts'              => ['torrent'],  // 设置附件上传类型
         'driver'            => 'Qiniu',//七牛驱动
         'driverConfig'      => array (
             'secretKey'        => 'TxY8akh_wm1LkOLj_kXaOMlw_ZRetFG7r1t1587O',

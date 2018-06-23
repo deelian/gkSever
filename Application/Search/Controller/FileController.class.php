@@ -29,22 +29,23 @@ class FileController extends Controller
         if (IS_POST){
             $res = $this->saveFile();
             if ($res['status'] == 1){
+                $resModel = new ResModel();
                 $name = explode('.torrent',$_FILES['kartik-input-709']['name']);
                 $dirs = substr($res['info']['kartik-input-709']['savepath'],0,strlen($res['info']['kartik-input-709']['savepath'])-1);
-
+                $link = $res['info']['kartik-input-709']['savename'];
+                $desc = $this->insertDesc($dirs.'/'.$link);
                 //storeMysql
                 $subData = [
                     'res_dirs'  => $dirs,
-                    'res_links' => $res['info']['kartik-input-709']['savename'],
+                    'res_links' => $link,
                     'res_name'  => $name[0],
-                    'res_desc'  => '',
+                    'res_desc'  => $desc,
                     'times'     => 0,
                     'show_times'=> rand(1000, 99999),
                     'status'    => 1,
                     'add_time'  => time(),
                     'user_id'   => 0,
                 ];
-                $resModel = new ResModel();
                 $res_id = $resModel->saveRes($subData);
 
                 //storeRedis
@@ -91,6 +92,39 @@ class FileController extends Controller
         return $data;
     }
 
+    public function insertDesc($file){
+        set_time_limit(0);
+//        $url    = "http://p6arf67yc.bkt.clouddn.com/".$v['res_dirs']."/".$v['res_links'];
+        $url    = "http://panvadiqx.bkt.gdipper.com/$file";
+
+        return $this->getDesc($url);
+    }
+
+    public function getDesc($url){
+        $postData = [
+            'data'          => $url,
+            'type'          => 'torrentinfo',
+            'arg'           => '',
+            'beforeSend'    => 'undefined'
+        ];
+
+        $re     = httpsPost('http://tool.chacuo.net/commontorrentinfo', $postData);
+        $a      = explode('<h3>包含文件清单</h3>', $re['data'][0]);
+        if ($a[1] == '<table></table>'){
+            $c = 'null';
+        } else {
+            $c =     str_replace('<table>', '', $a[1]);
+            $c =     str_replace('</table>', '', $c);
+            $c =     str_replace('</td></tr>', '|', $c);
+            $c =     str_replace('<tr><th>', '', $c);
+            $c =     str_replace('</th><td>', '/', $c);
+        }
+        $desc   = $c;
+        if(strlen($desc) >= 65530){
+            $desc   = substr($desc, 0, 65530);
+        }
+        return $desc;
+    }
 
     public function deleteFile(){
 //        $setting = C('UPLOAD_FILE_QINIU');

@@ -1,5 +1,20 @@
 <?php
 
+function httpsPost($url,$post_data){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    // post数据
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); // https请求 不验证证书和hosts
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    // post的变量
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+    $output=json_decode(curl_exec($ch),true);
+    curl_close($ch);
+    return $output;
+}
+
 /**
  * Thinkphp默认分页样式转Bootstrap分页样式
  * @author H.W.H

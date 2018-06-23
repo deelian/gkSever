@@ -16,4 +16,5 @@ class ResModel extends Model
     public function saveRes($data){
         return $this->add($data);
     }
+
 }
