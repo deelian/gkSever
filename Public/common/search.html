@@ -1,6 +1,6 @@
 <form action="{:U('Index/search')}" role="search" id="searchBox" class="navbar-form" method="get">
     <div class="form-group input-group input-group-lg" >
-        <input type="text" id="searchKey" name="key" class="form-control" placeholder="Search" autofocus>
+        <input type="text" id="searchKey" name="key" class="form-control" placeholder="Search" autofocus value="<if condition='{:empty($data.kw)}'><else>{$data.kw}</if>">
     </div>
     <button type="submit" class="btn btn-success btn-lg">Search</button>
 </form>
