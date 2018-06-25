@@ -20,6 +20,7 @@ class IndexController extends BaseController {
             $req = I('get.');
             $SearchModel = new ListssearchController();
             $res = $SearchModel->get($req['key'], $req['p']);
+            $res['kw'] = I('get.key');
 
             $this->assign('data', $res);
             $this->display();
