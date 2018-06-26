@@ -17,6 +17,7 @@ class IndexController extends BaseController {
             $temp = $listModel->getList($i);
             if ($temp['status'] == 301){
                 $this->display('Common/error');
+                exit();
             }
             if ($i<=6){
                 $List['A'][$i] = $temp;

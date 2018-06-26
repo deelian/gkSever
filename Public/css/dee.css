@@ -100,3 +100,6 @@ a:focus {
     text-overflow:ellipsis;
     white-space: nowrap;
 }
+.tz{
+    display: none;
+}
