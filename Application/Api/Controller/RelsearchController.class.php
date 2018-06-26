@@ -22,7 +22,9 @@ class RelsearchController extends SearchController {
      * @return array
      */
     public function getHot(){
-        $hot = $this->XS->getHotQuery(50);
+        //lastnum(上周) 和 currnum(本周)
+        $hot = $this->XS->getHotQuery(50, 'lastnum');
+        $hot = array_merge($hot, $this->XS->getHotQuery(50, 'currnum'));
         if ($hot){
             if(IS_POST){
                 $this->retSuccess([
