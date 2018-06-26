@@ -10,5 +10,6 @@ function rangTahs(){
         'danger','warning','info','success','primary','default'
     ];
     $key = rand(1,6);
+    pLog($key,'kkkkk');
     return $tags[$key];
 }
