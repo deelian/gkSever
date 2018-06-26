@@ -14,4 +14,8 @@ class ResModel extends Model
     public function getDetail($id){
         return $this->where(['id'=>$id])->find();
     }
+
+    public function count(){
+        return $this->query('SELECT id FROM `xd_res` ORDER BY id DESC LIMIT 1');
+    }
 }

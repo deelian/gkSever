@@ -9,11 +9,11 @@
 namespace Home\Controller;
 
 
-use Think\Controller;
+//use Think\Controller;
 
-class SearchController extends Controller
+class SearchController extends XkController
 {
-    public function Index(){
-        p(THINK_VERSION);
-    }
+
+
+
 }

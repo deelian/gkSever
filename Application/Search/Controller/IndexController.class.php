@@ -3,12 +3,31 @@ namespace Search\Controller;
 
 use Api\Controller\ListssearchController;
 use Home\Controller\IndexController as dataModel;
+use Home\Controller\ListController;
 
 class IndexController extends BaseController {
     /**
      * HomePage
      */
     public function index(){
+        $listModel = new ListController();
+        $List = [];
+        $a = 1;
+        for ($i=1; $i<=10; $i++){
+            $temp = $listModel->getList($i);
+            if ($temp['status'] == 301){
+                $this->display('Common/error');
+            }
+            if ($i<=6){
+                $List['A'][$i] = $temp;
+            } else {
+                $List['B'][$a] = $temp;
+                $a++;
+            }
+        }
+//        p($List['A'],1);
+        $this->assign('listA', $List['A']);
+        $this->assign('listB', $List['B']);
         $this->display();
     }
 

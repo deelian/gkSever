@@ -131,107 +131,34 @@
           </div>
         </div>
         <div class="row mt">
-          <div class="col-md-6">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本 <span class="badge">new</span></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本 <span class="badge">new</span></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本 <span class="badge">new</span></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本 <span class="badge">new</span></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本 <span class="badge">new</span></li>
-            </ul>
-          </div>
-          <div class="col-md-6 m">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本</li>
-            </ul>
-          </div>
+            <foreach item="list" name="listA">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span></li>-->
+                        <!--<li class="list-group-item">***<span class="badge">new</span></li>-->
+                        <foreach item="L" name="list" >
+                            <li class="list-group-item"><a href="{:U('/Search/index/detail', ['code'=>$L[id]])}">{$L.res_name}</a></li>
+                        </foreach>
+                    </ul>
+                </div>
+            </foreach>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="row">
-          <div class="col-md-12 m">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 m">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 m">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 m">
-            <ul class="list-group">
-              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>
-              <li class="list-group-item">免费 Window 空间托管</li>
-              <li class="list-group-item">图像的数量</li>
-              <li class="list-group-item">24*7 支持</li>
-              <li class="list-group-item">每年更新成本</li>
-            </ul>
-          </div>
-        </div>
+
+          <foreach item="list" name="listB">
+              <div class="row">
+                  <div class="col-md-12 m">
+                      <ul class="list-group">
+                          <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>-->
+                          <foreach item="L" name="list" >
+                              <li class="list-group-item list"><a href="{:U('/Search/index/detail', ['code'=>$L[id]])}">{$L.res_name}</a></li>
+                          </foreach>
+                      </ul>
+                  </div>
+              </div>
+          </foreach>
+
       </div>
     </div>
   </div>

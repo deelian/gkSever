@@ -25,6 +25,8 @@ return array(
     //Redis prefix
     'REDIS_PRE'          => 'Resource:ResInfo:',
     'SYS_PRE'            => 'SysSetting:Info:',
+    'HOT_PRE'            => 'HotsTop:',
+    'LIST_PRE'           => 'ListsTop:',
 
     //sub suffix
     'ALLOW_SUFFIX'       => 'torrent',
