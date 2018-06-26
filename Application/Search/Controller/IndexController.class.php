@@ -18,11 +18,11 @@ class IndexController extends BaseController {
             $HotModel  = new RelsearchController();
             $hots = $HotModel->getHot();
             if ($hots['code'] == 200){
-                $hots = array_keys($hots['data']);
-                $HotWordModel->setHotList($hots);
-                $hotWord = $hots;
+                $hotw = array_keys($hots['data']);
+                $HotWordModel->setHotList($hotw);
+                $hotWord = $hotw;
             }
-            p($hots,1);
+            p($hotw,1);
         }
 
         $listModel = new ListController();
