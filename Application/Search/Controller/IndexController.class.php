@@ -2,6 +2,8 @@
 namespace Search\Controller;
 
 use Api\Controller\ListssearchController;
+use Api\Controller\RelsearchController;
+use Home\Controller\HotController;
 use Home\Controller\IndexController as dataModel;
 use Home\Controller\ListController;
 
@@ -10,7 +12,20 @@ class IndexController extends BaseController {
      * HomePage
      */
     public function index(){
+        $HotWordModel = new HotController();
+        $hotWord = $HotWordModel->getHotList();
+        if (empty($hotWord)) {
+            $HotModel  = new RelsearchController();
+            $hots = $HotModel->getHot();
+            if ($hots['code'] == 200){
+                $HotWordModel->setHotList($hots['data']);
+                $hotWord = $hots['data'];
+            }
+            p($hots,1);
+        }
+
         $listModel = new ListController();
+
         $List = [];
         $a = 1;
         for ($i=1; $i<=10; $i++){

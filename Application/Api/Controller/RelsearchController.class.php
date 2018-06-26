@@ -94,7 +94,7 @@ class RelsearchController extends SearchController {
         //创建文档对象
         $doc = new \XSDocument();
         $doc->setFields($data);
-//        $this->XL->add($doc);
+        $this->XL->add($doc);
         $this->XL->update($doc);
     }
 }
