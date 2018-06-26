@@ -22,7 +22,7 @@ class RelsearchController extends SearchController {
      * @return array
      */
     public function getHot(){
-        $hot = $this->XS->getHotQuery();
+        $hot = $this->XS->getHotQuery(50);
         if ($hot){
             if(IS_POST){
                 $this->retSuccess([
