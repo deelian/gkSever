@@ -20,7 +20,7 @@ class IndexController extends BaseController {
             $hots = array_keys($hots['data'])
             if ($hots['code'] == 200){
                 $HotWordModel->setHotList($hots);
-                $hotWord = $hots['data'];
+                $hotWord = $hots;
             }
             p($hots,1);
         }
