@@ -17,7 +17,7 @@ class IndexController extends BaseController {
         if (empty($hotWord)) {
             $HotModel  = new RelsearchController();
             $hots = $HotModel->getHot();
-            $hots = array_keys($hots['data'])
+            $hots = array_keys($hots['data']);
             if ($hots['code'] == 200){
                 $HotWordModel->setHotList($hots);
                 $hotWord = $hots;
