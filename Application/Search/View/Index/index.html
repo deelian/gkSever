@@ -19,115 +19,12 @@
           <div class="row text-center">
               <include file="./Public/common/search.html"/>
               <div class=" mt center-block mlb">
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-warning">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-info">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-success">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-primary">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-default">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-warning">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-info">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-success">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-primary">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-default">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-warning">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-info">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-success">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-primary">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-default">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-warning">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-info">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-success">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-primary">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-default">危险标签</span>
-              </a>
-              <a href="#">
-                <span class="label label-danger">危险标签</span>
-              </a>
-            </div>
+                  <foreach item="hot" name="hot">
+                      <a href="#">
+                          <span class="label label-{:rangTahs()}">{$hot}</span>
+                      </a>
+                  </foreach>
+              </div>
           </div>
         </div>
         <div class="row mt">

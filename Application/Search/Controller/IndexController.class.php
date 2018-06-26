@@ -22,11 +22,11 @@ class IndexController extends BaseController {
                 $HotWordModel->setHotList($hotw);
                 $hotWord = $hotw;
             }
-            p($hotw,1);
         }
+        p($hotWord,1);
+        $this->assign('hot', $hotWord);
 
         $listModel = new ListController();
-
         $List = [];
         $a = 1;
         for ($i=1; $i<=10; $i++){
@@ -42,7 +42,7 @@ class IndexController extends BaseController {
                 $a++;
             }
         }
-//        p($List['A'],1);
+
         $this->assign('listA', $List['A']);
         $this->assign('listB', $List['B']);
         $this->display();
