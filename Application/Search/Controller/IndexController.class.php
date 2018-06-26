@@ -23,7 +23,7 @@ class IndexController extends BaseController {
                 $hotWord = $hotw;
             }
         }
-        p($hotWord,1);
+//        p($hotWord,1);
         $this->assign('hot', $hotWord);
 
         $listModel = new ListController();
