@@ -42,7 +42,7 @@ a:focus {
 }
 .mlb>a{
     display:inline-block;
-    margin-bottom: 8px;
+    margin: 5px;
 }
 .searh_list{
     color: #333;

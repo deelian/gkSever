@@ -20,7 +20,7 @@
               <include file="./Public/common/search.html"/>
               <div class=" mt center-block mlb">
                   <foreach item="hot" name="hot">
-                      <a href="#">
+                      <a href="{:U('/Search/Index/search', ['key'=>$hot])}">
                           <span class="label label-{:rangTahs()}">{$hot}</span>
                       </a>
                   </foreach>
