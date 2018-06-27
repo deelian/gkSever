@@ -57,7 +57,7 @@ class ListController extends XkController
     public function getResTotal(){
         $ResModel = new ResModel();
         $count = $ResModel->count();
-        pLog($count);
+        pLog($count[0]['id']);
         return rand(1, $count[0]['id']);
     }
 }
