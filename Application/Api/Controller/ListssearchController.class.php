@@ -35,8 +35,8 @@ class ListssearchController extends SearchController{
         // set query
         $this->XS->setQuery($f . ':(' . $q . ')');
 
-        $relKw = $this->XS->getRelatedQuery($q);
-        $corrected = $this->XS->getCorrectedQuery($q);
+        $relKw = $this->XS->getRelatedQuery();
+        $corrected = $this->XS->getCorrectedQuery();
         $relKw = array_merge($relKw, $corrected);
 
         // set sort
