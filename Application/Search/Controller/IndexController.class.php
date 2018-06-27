@@ -54,10 +54,10 @@ class IndexController extends BaseController {
      */
     public function search(){
         if (I('get.key')){
-//            $req = I('get.');
-//            $SearchModel = new ListssearchController();
-//            $res = $SearchModel->get($req['key'], $req['p']);
-//            $res['kw'] = I('get.key');
+            $req = I('get.');
+            $SearchModel = new ListssearchController();
+            $res = $SearchModel->get($req['key'], $req['p']);
+            $res['kw'] = I('get.key');
             p($res,1);
 
             $this->assign('data', $res);
