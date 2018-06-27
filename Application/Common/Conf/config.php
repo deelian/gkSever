@@ -20,7 +20,9 @@ return array(
     'ENCRYPT_CODE'       => 'deeliansCryptCode',
 
     //Stone Conf
-    'LOAD_EXT_CONFIG'    => 'store',
+    'LOAD_EXT_CONFIG'    => 'store,sys',
+
+
 
     //Redis prefix
     'REDIS_PRE'          => 'Resource:ResInfo:',
