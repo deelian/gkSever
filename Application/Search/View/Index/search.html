@@ -46,9 +46,9 @@
         <div class="row">
           <div class="col-md-12 m">
             <ul class="list-group">
-              <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>*****</li>-->
+              <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>Relations</li>
               <foreach item="rel" name="data.relKw">
-                  <li class="list-group-item">{$rel}</li>
+                  <li class="list-group-item"><a href="{:U('/Search/Index/search', ['key'=>$rel])}">{$rel}</a></li>
               </foreach>
             </ul>
           </div>
