@@ -46,13 +46,17 @@ class ListController extends XkController
     }
 
     public function getRangeList(){
-        $ResModel = new ResModel();
-        $count = $ResModel->count();
-        $id = rand(1, $count[0]['id']);
+        $id = $this->getResTotal();
         $res = $this->RED->hgetall(C('REDIS_PRE').$id);
         return [
             'id'        => encrypt($res['id']),
             'res_name'  => $res['res_name']
         ];
+    }
+
+    public function getResTotal(){
+        $ResModel = new ResModel();
+        $count = $ResModel->count();
+        return rand(1, $count[0]['id']);
     }
 }

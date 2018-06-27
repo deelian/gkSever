@@ -27,7 +27,8 @@ class IndexController extends XkController
         ini_set('max_execution_time', 0);
         $resM = new ResModel();
 //        $start = I('get.start');
-        $end = 208889;
+        $all = new ListController();
+        $end = $all->getResTotal();
         for ($i = $start; $i<=$end; $i++){
             $info = $resM->getDetail($i);
 
