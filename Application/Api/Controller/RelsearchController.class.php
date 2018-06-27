@@ -47,9 +47,6 @@ class RelsearchController extends SearchController {
 
 
     public function getRel(){
-        //searchLock
-
-
         if (!IS_POST){
             $this->retFalse('Unlawful request！');
         }
@@ -93,7 +90,6 @@ class RelsearchController extends SearchController {
     }
 
     public function setList($data){
-        //创建文档对象
         $doc = new \XSDocument();
         $doc->setFields($data);
         $this->XL->add($doc);

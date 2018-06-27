@@ -35,6 +35,8 @@ class ListssearchController extends SearchController{
         // set query
         $this->XS->setQuery($f . ':(' . $q . ')');
 
+        $relKw = $this->XS->getRelatedQuery();
+
         // set sort
         if (($pos = strrpos($s, '_')) !== false) {
             $sf = substr($s, 0, $pos);
@@ -66,7 +68,8 @@ class ListssearchController extends SearchController{
             'list'      => $lists,
             'costTime'  => $search_cost,
             'total'     => $count,
-            'page'      => $page_show
+            'page'      => $page_show,
+            'relKw'     => $relKw
         ];
     }
 
@@ -77,5 +80,14 @@ class ListssearchController extends SearchController{
         $this->XI->add($doc);
         $this->XI->update($doc);
     }
+
+//    public function getRelKw($kw){
+//        $this->XS->setQuery('西湖');
+//// 获取前 6 个和默认搜索语句 "西湖" 相关搜索词
+//        $words = $this->XS->getRelatedQuery();
+//
+//// 获取 10 个和 "杭州" 相关的搜索词
+//        $words = $this->XS->getRelatedQuery('杭州', 10);
+//    }
 
 }
