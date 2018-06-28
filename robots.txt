@@ -1,0 +1,19 @@
+#
+# Majestic-12 welcomes all well behaved robots.
+#
+
+User-agent: 4444
+Disallow: /files/mj12node
+Disallow: /tools/
+Crawl-Delay: 5
+
+User-agent: MJ12bot
+Allow: /
+Crawl-Delay: 36000
+
+User-agent: *
+Disallow: /files/mj12node
+Disallow: /tools/
+Disallow: /admin
+Disallow: /login
+Crawl-Delay: 10
