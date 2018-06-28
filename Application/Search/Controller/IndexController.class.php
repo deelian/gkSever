@@ -77,7 +77,7 @@ class IndexController extends BaseController {
         }
         $data = new dataModel();
         $res = $data->getInfo(I('get.code'));
-//        p($res,1);
+        p($res,1);
         $this->assign('info', $res);
         $this->display();
     }

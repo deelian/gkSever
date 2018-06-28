@@ -17,13 +17,9 @@
       <div class="col-md-9">
         <h1 class="detail_t">{$info.info.res_name}</h1>
         <ul class="list-group detail_l">
-          <if condition="is_array($info['info']['res_desc'])">
-            <foreach item="list" name="info.info.res_desc">
-              <li class="list-group-item">{$list}</li>
-            </foreach>
-            <else/>
-            <li class="list-group-item">{$info.info.res_name}</li>
-          </if>
+          <foreach item="list" name="info.info.res_desc">
+            <li class="list-group-item">{$list}</li>
+          </foreach>
         </ul>
         <span class="btn btn-lg btn-success pull-right">Download Now</span>
       </div>
