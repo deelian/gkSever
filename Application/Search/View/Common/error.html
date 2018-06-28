@@ -27,7 +27,11 @@
               </div>
               <h1 class="da-error-heading">Uh oh! Looks like something went wrong with the sys! Please refresh. (locked)</h1>
               <p>You can got someelse from here！</p>
-              <p><a href="#">span</a></p>
+              <p>
+                  <foreach item="span" name="span">
+                      <a href="{:U('/Search/Index/search', ['key'=>$span])}">{$span}</a>
+                  </foreach>
+              </p>
             </div>
           </div>
         </div>
