@@ -14,18 +14,29 @@ use Home\Model\ResModel;
 class ListController extends XkController
 {
     private $listPre;
+    private $siderbarPre;
 
     public function __construct()
     {
         parent::__construct();
         $this->listPre = C('LIST_PRE');
+        $this->siderbarPre = C('SIDERBAR_PRE');
     }
 
     public function setList(){
         for ($a=1; $a<=10; $a++) {
             for ($i=1; $i<=15; $i++) {
                 $this->RED->hmset($this->listPre."$a:".$i, $this->getRangeList());
-                $this->RED->expire($this->listPre."$a:".$i,3600*5);
+                $this->RED->expire($this->listPre."$a:".$i,3600*2);
+            }
+        }
+    }
+
+    public function setSiderBar(){
+        for ($a=1; $a<=2; $a++) {
+            for ($i=1; $i<=15; $i++) {
+                $this->RED->hmset($this->siderbarPre."$a:".$i, $this->getRangeList());
+                $this->RED->expire($this->siderbarPre."$a:".$i,3600*2);
             }
         }
     }
@@ -36,6 +47,21 @@ class ListController extends XkController
             $temp = $this->RED->hgetall($this->listPre."$listId:".$i);
             if (empty($temp)) {
                 $this->setList();
+                return [
+                    'status'    => 301,
+                ];
+            }
+            $list[$i] = $temp;
+        }
+        return $list;
+    }
+
+    public function getSiderBar($listId){
+        $list = [];
+        for ($i=1; $i<=15; $i++) {
+            $temp = $this->RED->hgetall($this->siderbarPre."$listId:".$i);
+            if (empty($temp)) {
+                $this->setSiderBar();
                 return [
                     'status'    => 301,
                 ];

@@ -67,6 +67,8 @@ class IndexController extends BaseController {
                 $hotw = array_keys($span['data']);
                 $this->assign('span', $hotw);
             }
+            $this->assign('sider', $this->siderBarList());
+
             $this->display('Common/error');
         }
     }
@@ -81,8 +83,23 @@ class IndexController extends BaseController {
             $res['info']['res_desc']['0'] = $res['info']['res_name'];
         }
 //        p($res,1);
+        $this->assign('sider', $this->siderBarList());
         $this->assign('info', $res);
         $this->display();
+    }
+
+    public function siderBarList(){
+        $siderBarModel = new ListController();
+        $sider = [];
+        for ($i=1; $i<=2; $i++){
+            $temp = $siderBarModel->getSiderBar($i);
+            if ($temp['status'] == 301){
+                $this->display('Common/error');
+                exit();
+            }
+            $sider[$i] = $temp;
+        }
+        return $sider;
     }
 
     public function deelian(){
