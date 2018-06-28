@@ -37,7 +37,7 @@ class ListssearchController extends SearchController{
 
 //        $relKw = $this->XS->getRelatedQuery();
 //        $corrected = $this->XS->getCorrectedQuery();
-//        $relKw = array_merge($relKw, $corrected);
+        $relKw = $this->getRelKw($kw);
 
         // set sort
         if (($pos = strrpos($s, '_')) !== false) {
@@ -83,13 +83,12 @@ class ListssearchController extends SearchController{
         $this->XI->update($doc);
     }
 
-//    public function getRelKw($kw){
-//        $this->XS->setQuery('西湖');
-//// 获取前 6 个和默认搜索语句 "西湖" 相关搜索词
-//        $words = $this->XS->getRelatedQuery();
-//
-//// 获取 10 个和 "杭州" 相关的搜索词
-//        $words = $this->XS->getRelatedQuery('杭州', 10);
-//    }
+    public function getRelKw($kw){
+        $this->XS->setQuery($kw);
+        $words = $this->XS->getRelatedQuery();
+        $corrected = $this->XS->getCorrectedQuery();
+        $kws = array_merge($words, $corrected);
+        return $kws;
+    }
 
 }
