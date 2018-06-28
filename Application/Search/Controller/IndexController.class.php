@@ -64,7 +64,8 @@ class IndexController extends BaseController {
             $spanModel = new RelsearchController();
             $span   = $spanModel->getHot();
             if ($span['code'] == 200){
-                $this->assign('span', $span['data']);
+                $hotw = array_keys($span['data']);
+                $this->assign('span', $hotw);
             }
             $this->display('Common/error');
         }
