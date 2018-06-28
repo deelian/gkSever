@@ -58,6 +58,12 @@ class IndexController extends BaseController {
             $res = $SearchModel->get($req['key'], $req['p']);
             $res['kw'] = I('get.key');
 
+            $sider = $this->siderBarList();
+            pLog($sider,'debug');
+            pLog('ad','debug');
+            $this->assign('siderA', $sider['1']);
+            $this->assign('siderB', $sider['2']);
+
             $this->assign('data', $res);
             $this->display();
         } else {
@@ -67,12 +73,6 @@ class IndexController extends BaseController {
                 $hotw = array_keys($span['data']);
                 $this->assign('span', $hotw);
             }
-
-            $sider = $this->siderBarList();
-            pLog($sider,'debug');
-            pLog('ad','debug');
-            $this->assign('siderA', $sider['1']);
-            $this->assign('siderB', $sider['2']);
 
             $this->display('Common/error');
         }
