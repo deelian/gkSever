@@ -37,7 +37,7 @@ class ListssearchController extends SearchController{
 
 //        $relKw = $this->XS->getRelatedQuery();
 //        $corrected = $this->XS->getCorrectedQuery();
-        $relKw = $this->getRelKw($kw);
+//        $relKw = $this->getRelKw($kw);
 
         // set sort
         if (($pos = strrpos($s, '_')) !== false) {
@@ -65,6 +65,8 @@ class ListssearchController extends SearchController{
         $Page->setConfig('first','First');
         $Page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
         $page_show = bootstrap_page_style($Page->show());
+
+        $relKw = $this->getRelKw($kw);
 
         return [
             'list'      => $lists,
