@@ -24,8 +24,7 @@ class IndexController extends BaseController {
                 $hotWord = $hotw;
             }
         }
-//        p($hotWord,1);
-        $this->assign('hot', $hotWord);
+//        $this->assign('hot', $hotWord);
 
         $listModel = new ListController();
         $List = [];
@@ -44,8 +43,8 @@ class IndexController extends BaseController {
             }
         }
 
-        $this->assign('listA', $List['A']);
-        $this->assign('listB', $List['B']);
+//        $this->assign('listA', $List['A']);
+//        $this->assign('listB', $List['B']);
         $this->display();
     }
 
