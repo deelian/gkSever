@@ -78,7 +78,7 @@ class IndexController extends BaseController {
         $data = new dataModel();
         $res = $data->getInfo(I('get.code'));
         if (!isset($res['info']['res_desc'])){
-            $res['info']['res_desc'] = $res['info']['res_name'];
+            $res['info']['res_desc']['0'] = $res['info']['res_name'];
         }
         p($res,1);
         $this->assign('info', $res);
