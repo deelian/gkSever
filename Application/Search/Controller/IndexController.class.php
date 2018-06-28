@@ -67,7 +67,10 @@ class IndexController extends BaseController {
                 $hotw = array_keys($span['data']);
                 $this->assign('span', $hotw);
             }
-            $this->assign('sider', $this->siderBarList());
+
+            $sider = $this->siderBarList();
+            $this->assign('siderA', $sider['1']);
+            $this->assign('siderB', $sider['2']);
 
             $this->display('Common/error');
         }
@@ -83,7 +86,11 @@ class IndexController extends BaseController {
             $res['info']['res_desc']['0'] = $res['info']['res_name'];
         }
 //        p($res,1);
-        $this->assign('sider', $this->siderBarList());
+
+        $sider = $this->siderBarList();
+        $this->assign('siderA', $sider['1']);
+        $this->assign('siderB', $sider['2']);
+
         $this->assign('info', $res);
         $this->display();
     }
@@ -97,7 +104,6 @@ class IndexController extends BaseController {
                 $this->display('Common/error');
                 exit();
             }
-            $sider[$i] = $temp;
         }
         return $sider;
     }
