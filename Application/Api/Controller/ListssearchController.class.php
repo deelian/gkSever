@@ -86,7 +86,9 @@ class ListssearchController extends SearchController{
     public function getRelKw($kw){
         $this->XS->setQuery($kw);
         $words = $this->XS->getRelatedQuery();
+        pLog($words,'$words');
         $corrected = $this->XS->getCorrectedQuery();
+        pLog($corrected,'$corrected');
         $kws = array_merge($words, $corrected);
         return $kws;
     }
