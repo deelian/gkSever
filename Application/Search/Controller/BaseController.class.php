@@ -26,7 +26,8 @@ class BaseController extends Controller
         parent::__construct();
 
         //checkStatus
-        if (){
+        $SysModel = new SysController();
+        if ($SysModel->getSysStatus()){
             $this->display('Common/error');
             exit();
         }
