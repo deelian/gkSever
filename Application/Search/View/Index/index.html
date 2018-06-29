@@ -26,42 +26,42 @@
           <div class="row text-center">
               <include file="./Public/common/search.html"/>
               <div class=" mt center-block mlb">
-                  <!--<foreach item="hot" name="hot">-->
-                      <!--<a href="{:U('/Search/Index/search', ['key'=>$hot])}">-->
-                          <!--<span class="label label-{:rangTahs()}">{$hot}</span>-->
-                      <!--</a>-->
-                  <!--</foreach>-->
+                  <foreach item="hot" name="hot">
+                      <a href="{:U('/Search/Index/search', ['key'=>$hot])}">
+                          <span class="label label-{:rangTahs()}">{$hot}</span>
+                      </a>
+                  </foreach>
               </div>
           </div>
         </div>
-        <!--<div class="row mt">-->
-            <!--<foreach item="list" name="listA">-->
-                <!--<div class="col-md-6">-->
-                    <!--<ul class="list-group">-->
-                        <!--&lt;!&ndash;<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span></li>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<li class="list-group-item">***<span class="badge">new</span></li>&ndash;&gt;-->
-                        <!--<foreach item="L" name="list" >-->
-                            <!--<li class="list-group-item list"><a href="{:U('/Search/index/detail', ['code'=>$L[id]])}">{$L.res_name}</a></li>-->
-                        <!--</foreach>-->
-                    <!--</ul>-->
-                <!--</div>-->
-            <!--</foreach>-->
-        <!--</div>-->
+        <div class="row mt">
+            <foreach item="list" name="listA">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span></li>-->
+                        <!--<li class="list-group-item">***<span class="badge">new</span></li>-->
+                        <foreach item="L" name="list" >
+                            <li class="list-group-item list"><a href="{:U('/Search/index/detail', ['code'=>$L[id]])}">{$L.res_name}</a></li>
+                        </foreach>
+                    </ul>
+                </div>
+            </foreach>
+        </div>
       </div>
       <div class="col-md-3">
 
-          <!--<foreach item="list" name="listB">-->
-              <!--<div class="row">-->
-                  <!--<div class="col-md-12 m">-->
-                      <!--<ul class="list-group">-->
-                          <!--&lt;!&ndash;<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>&ndash;&gt;-->
-                          <!--<foreach item="L" name="list" >-->
-                              <!--<li class="list-group-item list"><a href="{:U('/Search/index/detail', ['code'=>$L[id]])}">{$L.res_name}</a></li>-->
-                          <!--</foreach>-->
-                      <!--</ul>-->
-                  <!--</div>-->
-              <!--</div>-->
-          <!--</foreach>-->
+          <foreach item="list" name="listB">
+              <div class="row">
+                  <div class="col-md-12 m">
+                      <ul class="list-group">
+                          <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>免费域名注册</li>-->
+                          <foreach item="L" name="list" >
+                              <li class="list-group-item list"><a href="{:U('/Search/index/detail', ['code'=>$L[id]])}">{$L.res_name}</a></li>
+                          </foreach>
+                      </ul>
+                  </div>
+              </div>
+          </foreach>
 
       </div>
     </div>
