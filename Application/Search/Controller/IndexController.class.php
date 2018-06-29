@@ -59,7 +59,7 @@ class IndexController extends BaseController {
             $res['kw'] = I('get.key');
 
             $sider = $this->siderBarList();
-            pLog($sider,'debug');
+            pLog($sider['1'],'debug');
             $this->assign('siderA', $sider['1']);
             $this->assign('siderB', $sider['2']);
 
