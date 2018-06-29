@@ -62,7 +62,7 @@
                   <ul class="list-group">
                       <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>****</li>-->
                       <foreach name="siderA" item="list">
-                          <li class="list-group-item list">{$list['res_name']}</li>
+                          <li class="list-group-item list"><a href="{:U('/Search/index/detail/', ['code'=>$list['id']])}">{$list['res_name']}</a></li>
                       </foreach>
                   </ul>
               </div>
@@ -73,7 +73,7 @@
                   <ul class="list-group">
                       <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>****</li>-->
                       <foreach name="siderB" item="list">
-                          <li class="list-group-item list">{$list['res_name']}</li>
+                          <li class="list-group-item list"><a href="{:U('/Search/index/detail/', ['code'=>$list['id']])}">{$list['res_name']}</a></li>
                       </foreach>
                   </ul>
               </div>
