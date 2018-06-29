@@ -27,9 +27,9 @@ class BaseController extends Controller
 
         //checkStatus
         $SysModel = new SysController();
-        if ($SysModel->getSysStatus()){
+        if (!$SysModel->getSysStatus()){
             $this->display('Common/error');
-            exit();
+//            exit();
         }
 
         $this->sysPre = C('SYS_PRE');
