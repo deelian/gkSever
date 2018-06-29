@@ -60,6 +60,7 @@ class IndexController extends BaseController {
 
             $sider = $this->siderBarList();
             pLog($sider['1'],'debug');
+            p($sider['1'],1);
             $this->assign('siderA', $sider['1']);
             $this->assign('siderB', $sider['2']);
 
