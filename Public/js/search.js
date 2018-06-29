@@ -16,7 +16,7 @@ $(function(){
         maxFileCount: 5,
         elErrorContainer: '#kv-error-1'
     }).on('filebatchpreupload', function(event, data, id, index) {
-        $('#kv-success-1').html('<h4>Congratulations!</h4><ul></ul>').hide();
+        $('#kv-success-1').html('<h4>SysInformation!</h4><ul></ul>').hide();
     }).on('fileuploaded', function(event, data, id, index) {
         if(data.jqXHR.responseJSON.code == 200){
             var fname = data.files[index].name;

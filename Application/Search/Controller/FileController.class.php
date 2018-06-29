@@ -34,6 +34,7 @@ class FileController extends Controller
                     'code'  => 504,
                     'msg'   => $fName
                 ]);
+                exit();
             }
 
             $res = $this->saveFile();
