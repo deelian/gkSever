@@ -27,14 +27,21 @@ class FileController extends Controller
 
     public function index(){
         if (IS_POST){
+            //checkName
+            $name = explode('.torrent',$_FILES['kartik-input-709']['name']);
+            if ($fName = $this->checkFileName($name['0'])){
+                $this->ajaxReturn([
+                    'code'  => 504,
+                    'msg'   => $fName
+                ]);
+            }
+
             $res = $this->saveFile();
             if ($res['status'] == 1){
                 $resModel = new ResModel();
-                $name = explode('.torrent',$_FILES['kartik-input-709']['name']);
                 $dirs = substr($res['info']['kartik-input-709']['savepath'],0,strlen($res['info']['kartik-input-709']['savepath'])-1);
                 $link = $res['info']['kartik-input-709']['savename'];
                 $desc = $this->insertDesc($dirs.'/'.$link);
-                pLog($desc,'qqqqqq');
                 //storeMysql
                 $subData = [
                     'res_dirs'  => $dirs,
@@ -81,7 +88,6 @@ class FileController extends Controller
 
     public function saveFile(){
         $info = $this->upModel->upload($_FILES);
-
         if (!$info) {
             $data = ['status'=>0,'msg'=>'上传失败，'.$this->upModel->getError()];
         } else {
@@ -126,6 +132,14 @@ class FileController extends Controller
             $desc   = substr($desc, 0, 65530);
         }
         return $desc;
+    }
+
+    public function checkFileName($str){
+        $map = C('FORBIDDEN_WORDS');
+        $blacklist="/".implode(" ",$map)."/i";
+        if(preg_match($blacklist, $str, $matches)){
+            return $matches[0];
+        }
     }
 
     public function deleteFile(){

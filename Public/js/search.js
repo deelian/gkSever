@@ -23,6 +23,10 @@ $(function(){
             $('#kv-success-1 ul').append("<strong>Uploaded "+fname+" successfully!</strong><br>Now you can find it from the search Cp");
             $('#kv-success-1').fadeIn('slow');
             setTimeout("$('#kv-success-1').fadeOut('slow')",5000)
+        }else if(data.jqXHR.responseJSON.code == 504){
+            $('#kv-success-1 ul').append("<strong>"+data.jqXHR.responseJSON.msg+" Is Forbidden!!!</strong>");
+            $('#kv-success-1').fadeIn('slow');
+            setTimeout("$('#kv-success-1').fadeOut('slow')",5000)
         }
     });
 
