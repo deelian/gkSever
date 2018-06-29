@@ -24,21 +24,25 @@ class ListController extends XkController
     }
 
     public function setList(){
+        $this->RED->set(C('SYS_STATUS_PRE'),1);
         for ($a=1; $a<=10; $a++) {
             for ($i=1; $i<=15; $i++) {
                 $this->RED->hmset($this->listPre."$a:".$i, $this->getRangeList());
                 $this->RED->expire($this->listPre."$a:".$i,3600*2);
             }
         }
+        $this->RED->set(C('SYS_STATUS_PRE'),0);
     }
 
     public function setSiderBar(){
+        $this->RED->set(C('SYS_STATUS_PRE'),1);
         for ($a=1; $a<=2; $a++) {
             for ($i=1; $i<=15; $i++) {
                 $this->RED->hmset($this->siderbarPre."$a:".$i, $this->getRangeList());
                 $this->RED->expire($this->siderbarPre."$a:".$i,3600*2);
             }
         }
+        $this->RED->set(C('SYS_STATUS_PRE'),0);
     }
 
     public function getList($listId){
