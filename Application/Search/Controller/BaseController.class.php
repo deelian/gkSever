@@ -26,10 +26,10 @@ class BaseController extends Controller
         parent::__construct();
 
         //checkStatus
-//        if (C('SYS_STATUS_PRE')){
-//            $this->display();
-//            exit();
-//        }
+        if (){
+            $this->display('Common/error');
+            exit();
+        }
 
         $this->sysPre = C('SYS_PRE');
         $this->sysInfoModel = new SiteModel();

@@ -37,7 +37,9 @@ class SysController extends XkController
         return $this->RED->hgetall($this->sysPre.'site');
     }
 
-//    public function getSys
+    public function getSysStatus(){
+        return $this->RED->get(C('SYS_STATUS_PRE'));
+    }
 
 
 }
