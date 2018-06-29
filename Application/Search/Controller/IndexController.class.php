@@ -105,6 +105,7 @@ class IndexController extends BaseController {
                 $this->display('Common/error');
                 exit();
             }
+            $sider[$i] = $temp;
         }
         return $sider;
     }

@@ -68,7 +68,6 @@ class ListController extends XkController
             }
             $list[$i] = $temp;
         }
-        pLog($list,'dee');
         return $list;
     }
 
