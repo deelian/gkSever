@@ -106,6 +106,7 @@ class IndexController extends BaseController {
                 exit();
             }
         }
+        p($sider,1);
         return $sider;
     }
 
