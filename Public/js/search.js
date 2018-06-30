@@ -9,9 +9,9 @@ var li_color_ = "#CCC";//当下拉选项获取焦点后背景颜色
 $(function(){
 
     $('.msg').click(function () {
-        layer.prompt({title: 'Your Name', formType: 1}, function(name, index){
+        layer.prompt({title: 'Your Name', formType: 1, btn: ['Next', 'Cancel']}, function(name, index){
             layer.close(index);
-            layer.prompt({title: 'Your Message', formType: 2}, function(text, index){
+            layer.prompt({title: 'Your Message', formType: 2, btn: ['Submit', 'Cancel']}, function(text, index){
                 layer.close(index);
                 $.post(
                     SubMsg,
