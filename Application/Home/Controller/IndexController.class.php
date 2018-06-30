@@ -9,6 +9,8 @@
 namespace Home\Controller;
 
 use Home\Model\ResModel;
+use Search\Model\MessageModel;
+
 class IndexController extends XkController
 {
     //资源前缀
@@ -18,6 +20,11 @@ class IndexController extends XkController
     {
         parent::__construct();
         $this->redPre = C('REDIS_PRE');
+    }
+
+    public function msg(){
+        $msgModel = new MessageModel();
+        p($msgModel->getUserMsg());
     }
 
     /**

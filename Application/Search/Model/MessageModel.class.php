@@ -16,4 +16,8 @@ class MessageModel extends Model
     public function userMsg($data){
         return $this->add($data);
     }
+
+    public function getUserMsg($where = []){
+        return $this->where($where)->select();
+    }
 }

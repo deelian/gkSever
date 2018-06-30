@@ -124,7 +124,7 @@ class IndexController extends BaseController {
             } else {
                 $lockModel = new UserController();
                 $msgModel = new MessageModel();
-                $req['ip'] = get_client_ip();
+                $req['ip'] = $this->userIP;
                 if ($lockModel->getUserStatus($req['ip'])){
                     $this->ajaxReturn([
                         'code'  => 202,
