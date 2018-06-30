@@ -6,6 +6,8 @@ use Api\Controller\RelsearchController;
 use Home\Controller\HotController;
 use Home\Controller\IndexController as dataModel;
 use Home\Controller\ListController;
+use Home\Controller\UserController;
+use Search\Model\MessageModel;
 
 class IndexController extends BaseController {
 
@@ -109,6 +111,48 @@ class IndexController extends BaseController {
             $sider[$i] = $temp;
         }
         return $sider;
+    }
+
+    public function message(){
+        if (IS_POST){
+            $req = I('post.');
+            if (empty($req['name']) || empty($req['message'])){
+                $this->ajaxReturn([
+                    'code'  => 401,
+                    'msg'   => 'Missing necessary parameters!'
+                ]);
+            } else {
+                $lockModel = new UserController();
+                $msgModel = new MessageModel();
+                $req['ip'] = get_client_ip();
+                if ($lockModel->getUserStatus($req['ip'])){
+                    $this->ajaxReturn([
+                        'code'  => 202,
+                        'msg'   => 'Please do not submit frequently!'
+                    ]);
+                }
+                $IpModel = new \Org\Net\IpLocation('UTFWry.dat');
+                $res = $IpModel->getlocation($req['ip']);
+                $req['location'] = $res['country'];
+                $req['time'] = time();
+                if ($msgModel->userMsg($req)){
+                    //lockUser
+                    $lockModel->userLock($req['ip']);
+
+                    $this->ajaxReturn([
+                        'code'  => 200,
+                        'msg'   => 'Submitted successfully!'
+                    ]);
+                } else {
+                    $this->ajaxReturn([
+                        'code'  => 500,
+                        'msg'   => 'Sys error!'
+                    ]);
+                }
+            }
+        } else {
+            $this->display('Common/error');
+        }
     }
 
     public function deelian(){
