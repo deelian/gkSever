@@ -8,6 +8,24 @@ var li_color = "#fff";//默认的下拉背景颜色
 var li_color_ = "#CCC";//当下拉选项获取焦点后背景颜色
 $(function(){
 
+    $('.msg').click(function () {
+        layer.prompt({title: 'Your Name', formType: 1, btn: ['Next', 'Cancel']}, function(name, index){
+            layer.close(index);
+            layer.prompt({title: 'Your Message', formType: 2, btn: ['Submit', 'Cancel']}, function(text, index){
+                layer.close(index);
+                $.post(
+                    SubMsg,
+                    {
+                        name: name,
+                        message: text
+                    },
+                    function(data, textStatus, xhr) {
+                        layer.msg(data.msg)
+                });
+            });
+        });
+    });
+
     $("#input-709").fileinput({
         uploadUrl: SubUrl,
         uploadAsync: true,

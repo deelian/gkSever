@@ -15,6 +15,8 @@ use Think\Controller;
 
 class BaseController extends Controller
 {
+    public $userIP;
+
     private $sysPre;
     private $sysInfoModel;
     private $sysModel;
@@ -31,6 +33,8 @@ class BaseController extends Controller
             $this->display('Common/error');
             exit();
         }
+
+        $this->userIP = get_client_ip();
 
         $this->sysPre = C('SYS_PRE');
         $this->sysInfoModel = new SiteModel();
