@@ -111,3 +111,13 @@ a:focus {
 .msg img{
     height: 200px;
 }
+.userMsg{
+    position:fixed;
+    float: right;
+    right:0px;
+    bottom:0px;
+}
+#user_msg{
+    height: 40px;
+    font-size: 20px;
+}

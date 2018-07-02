@@ -7,6 +7,33 @@ var width_ = i.css('width');//这里设置的是搜索框的宽度，目的为�
 var li_color = "#fff";//默认的下拉背景颜色
 var li_color_ = "#CCC";//当下拉选项获取焦点后背景颜色
 $(function(){
+    var uid = Date.parse(new Date());
+    var socket = io('http://52.79.219.61:2120');
+    socket.on('connect', function(){
+        socket.emit('login', uid);
+        $.toast({
+            text: 'Connect Ebola server successfully!',
+            position: 'bottom-right'
+        })
+    });
+    socket.on('new_msg', function(msg){
+        $.toast({
+            text: msg,
+            position: 'bottom-right'
+        })
+    });
+    // 后端推送来在线数据时
+    socket.on('update_online_count', function(online_stat){
+        $('#online_box').html(online_stat);
+    });
+
+    $('#sendBtn').click(function () {
+        var msg = $('#user_msg').val();
+        $.toast({
+            text: msg,
+            position: 'bottom-right'
+        })
+    });
 
     $('.msg').click(function () {
         layer.prompt({title: 'Your Name', formType: 1, btn: ['Next', 'Cancel']}, function(name, index){

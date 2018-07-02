@@ -15,6 +15,18 @@ function httpsPost($url,$post_data){
     return $output;
 }
 
+function httpGet($url='', $options=array()){
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    if (!empty($options)){
+        curl_setopt_array($ch, $options);
+    }
+    $data = curl_exec($ch);
+    curl_close($ch);
+    return $data;
+}
+
 /**
  * Thinkphp默认分页样式转Bootstrap分页样式
  * @author H.W.H
