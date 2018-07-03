@@ -29,10 +29,13 @@ $(function(){
 
     $('#sendBtn').click(function () {
         var msg = $('#user_msg').val();
-        $.toast({
-            text: msg,
-            position: 'bottom-right'
-        })
+        $.post(UserMsg, {content: msg}, function(data, textStatus, xhr) {
+            if (data.code != 200){
+                layer.msg(data.message);
+            } else {
+                $('#user_msg').val('');
+            }
+        });
     });
 
     $('.msg').click(function () {

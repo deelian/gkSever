@@ -12,5 +12,8 @@ return array(
         'lian','duan','duanlian','段炼','炼','段'
     ],
 
-    'USER_LOCK_PRE'         => 'User:LockList:'
+    'CHAT_SERVER'           => 'http://www.ebolaunion.gq:2121/?type=publish&content=',
+
+    'USER_LOCK_PRE'         => 'User:LockList:',
+    'CHAT_LOCK_PRE'         => 'Chat:LockList:'
 );
