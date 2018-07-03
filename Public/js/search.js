@@ -34,6 +34,7 @@ $(function(){
                 layer.msg(data.message);
             } else {
                 $('#user_msg').val('');
+                $('#user_msg').focus();
             }
         });
     });
