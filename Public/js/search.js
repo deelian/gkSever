@@ -32,6 +32,7 @@ $(function(){
         $.post(UserMsg, {content: msg}, function(data, textStatus, xhr) {
             if (data.code != 200){
                 layer.msg(data.message);
+                $('#user_msg').focus();
             } else {
                 $('#user_msg').val('');
                 $('#user_msg').focus();
@@ -73,9 +74,7 @@ $(function(){
             $('#kv-success-1').fadeIn('slow');
             setTimeout("$('#kv-success-1').fadeOut('slow')",5000)
         }else if(data.jqXHR.responseJSON.code == 504){
-            $('#kv-success-1 ul').append("<strong>"+data.jqXHR.responseJSON.msg+" Is Forbidden!!!</strong>");
-            $('#kv-success-1').fadeIn('slow');
-            setTimeout("$('#kv-success-1').fadeOut('slow')",5000)
+            layer.msg("ERROR: Forbidden Words [ "+data.jqXHR.responseJSON.msg+" ] From Name!");
         }
     });
 
@@ -141,7 +140,7 @@ function delkeycode(keycode){
 function ajax_getdata(key){
     $.post(
         "/Api/Relsearch/getRel",
-        {"kw":key},//ajax 的post不能提交中文提交，在动作页面进行获取后需要解码，注意字符格式，然后搜索后返回
+        {"kw":key},
         function(data){
             data_array = data.data.lists;
             for(i=0;i<data_array.length;i++) {

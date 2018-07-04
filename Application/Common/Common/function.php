@@ -1,5 +1,15 @@
 <?php
 
+function checkWord($str){
+    $rule = "/".implode('|', C('FORBIDDEN_WORDS'))."/i";
+    if(preg_match_all($rule, $str, $matches)){
+        $res = implode(',',$matches[0]);
+        return $res;
+    } else {
+        return 0;
+    }
+}
+
 function httpsPost($url,$post_data){
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);

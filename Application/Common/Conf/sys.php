@@ -13,6 +13,7 @@ return array(
     ],
 
     'CHAT_SERVER'           => 'http://www.ebolaunion.gq:2121/?type=publish&content=',
+    'CHAT_DELAY'            => 1,
 
     'USER_LOCK_PRE'         => 'User:LockList:',
     'CHAT_LOCK_PRE'         => 'Chat:LockList:'

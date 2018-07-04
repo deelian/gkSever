@@ -29,7 +29,7 @@ class FileController extends Controller
         if (IS_POST){
             //checkName
             $name = explode('.torrent',$_FILES['kartik-input-709']['name']);
-            if ($fName = $this->checkFileName($name['0'])){
+            if ($fName = checkWord($name['0'])){
                 $this->ajaxReturn([
                     'code'  => 504,
                     'msg'   => $fName
@@ -133,14 +133,6 @@ class FileController extends Controller
             $desc   = substr($desc, 0, 65530);
         }
         return $desc;
-    }
-
-    public function checkFileName($str){
-        $map = C('FORBIDDEN_WORDS');
-        $blacklist="/".implode(" ",$map)."/i";
-        if(preg_match($blacklist, $str, $matches)){
-            return $matches[0];
-        }
     }
 
     public function deleteFile(){

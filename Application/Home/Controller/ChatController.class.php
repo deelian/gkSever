@@ -21,7 +21,7 @@ class ChatController extends XkController
 
     public function userLock($ip){
         $this->RED->set($this->userLockPre.$ip,1);
-        $this->RED->expire($this->userLockPre.$ip,3);
+        $this->RED->expire($this->userLockPre.$ip,C('CHAT_DELAY'));
     }
 
     public function getUserStatus($ip){

@@ -122,6 +122,19 @@ class IndexController extends BaseController {
                     'msg'   => 'Missing necessary parameters!'
                 ]);
             } else {
+                if ($w = checkWord($req['name'])){
+                    $this->ajaxReturn([
+                        'code'  => 401,
+                        'msg'   => "ERROR: Forbidden Words [ $w ] From Name!"
+                    ]);
+                }
+                if ($w = checkWord($req['message'])){
+
+                    $this->ajaxReturn([
+                        'code'  => 401,
+                        'msg'   => "ERROR: Forbidden Words [ $w ] From Message!"
+                    ]);
+                }
                 $lockModel = new UserController();
                 $msgModel = new MessageModel();
                 $req['ip'] = $this->userIP;

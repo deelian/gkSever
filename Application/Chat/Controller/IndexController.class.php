@@ -13,6 +13,12 @@ class IndexController extends BaseController {
                     'message'   => 'Do not submit empty data!'
                 ]);
             }
+            if ($w = checkWord($req['content'])){
+                $this->ajaxReturn([
+                    'code'      => 501,
+                    'message'   => "ERROR: Forbidden Words [ $w ]!"
+                ]);
+            }
             $chatModel = new ChatController();
             if ($chatModel->getUserStatus($this->userIP)){
                 $this->ajaxReturn([
