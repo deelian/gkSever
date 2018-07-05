@@ -9,7 +9,7 @@ var li_color = "#fff";//默认的下拉背景颜色
 var li_color_ = "#CCC";//当下拉选项获取焦点后背景颜色
 $(function(){
     var uid = Date.parse(new Date());
-    var socket = io('http://52.79.219.61:2120');
+    var socket = io('http://'+BaseUrl+':2120');
     socket.on('connect', function(){
         socket.emit('login', uid);
         $.toast({
