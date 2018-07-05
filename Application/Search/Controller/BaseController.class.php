@@ -26,7 +26,13 @@ class BaseController extends Controller
     public function __construct()
     {
         parent::__construct();
-
+        if (isMobile()){
+            $this->ajaxReturn([
+                'code'      => 203,
+                'msg'       => 'This website does not currently support mobile devices, please use a PC to browse!'
+            ]);
+            exit();
+        }
         //checkStatus
         $SysModel = new SysController();
         if ($SysModel->getSysStatus()){
