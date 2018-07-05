@@ -1,7 +1,10 @@
 <?php
+
 namespace Chat\Controller;
+
+use Chat\Model\ChatModel;
 use Home\Controller\ChatController;
-use Think\Controller;
+
 class IndexController extends BaseController {
     public function index(){
         if (IS_POST){
@@ -30,6 +33,14 @@ class IndexController extends BaseController {
             $req['content'] = str_replace(' ', '%20', $req['content']);
             $url = C('CHAT_SERVER').$req['content'];
             $res = httpGet($url);
+
+            $chatMdoel = new ChatModel();
+            $chatMdoel->storeMsg([
+                'content'   => $req['content'],
+                'ip'        => $this->userIP,
+                'time'      => time()
+            ]);
+
             $chatModel->userLock($this->userIP);
             $this->ajaxReturn([
                 'code'      => 200,
@@ -39,5 +50,10 @@ class IndexController extends BaseController {
         } else {
             echo 'nil';
         }
+    }
+
+    public function getChatList(){
+        $chatModel = new ChatModel();
+        $this->ajaxReturn($chatModel->getMsg());
     }
 }
