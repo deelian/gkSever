@@ -1,6 +1,7 @@
 
 ///开始定义全局内容
 var i = $("input[name=key]");
+var m = $("input[name=msg]");
 var fouce_li_num = -1;///默认没有选择任何下拉内容
 var width_ = i.css('width');//这里设置的是搜索框的宽度，目的为了与下面的列表宽度相同
 // var top_ = i.offset().top;
@@ -22,22 +23,19 @@ $(function(){
             position: 'bottom-right'
         })
     });
-    // 后端推送来在线数据时
     socket.on('update_online_count', function(online_stat){
         $('#online_box').html(online_stat);
     });
 
     $('#sendBtn').click(function () {
-        var msg = $('#user_msg').val();
-        $.post(UserMsg, {content: msg}, function(data, textStatus, xhr) {
-            if (data.code != 200){
-                layer.msg(data.message);
-                $('#user_msg').focus();
-            } else {
-                $('#user_msg').val('');
-                $('#user_msg').focus();
-            }
-        });
+        send();
+    });
+
+    m.keyup(function (event) {
+        var keycode = event.keyCode;
+        if (keycode == 13){
+            send();
+        }
     });
 
     $('.msg').click(function () {
@@ -53,7 +51,7 @@ $(function(){
                     },
                     function(data, textStatus, xhr) {
                         layer.msg(data.msg)
-                });
+                    });
             });
         });
     });
@@ -151,4 +149,17 @@ function ajax_getdata(key){
             $("#foraspcn >li").click(function(){$("input[name=key]").val($.trim($(this).text()));$(this).parent().hide();});
         }
     );
+}
+
+function send() {
+    var msg = $('#user_msg').val();
+    $.post(UserMsg, {content: msg}, function(data, textStatus, xhr) {
+        if (data.code != 200){
+            layer.msg(data.message);
+            $('#user_msg').focus();
+        } else {
+            $('#user_msg').val('');
+            $('#user_msg').focus();
+        }
+    });
 }
