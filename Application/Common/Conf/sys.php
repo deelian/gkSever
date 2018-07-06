@@ -18,6 +18,9 @@ return array(
     'POWERED_BY'            => 'Ebola Union',
     'WEB_SERVICE'           => 'Ebola Union Core Server',
 
+    'LIST_EXPIRE'           => 1800,
+    'SIDERBAR_EXPIRE'       => 1800,
+
     'USER_LOCK_PRE'         => 'User:LockList:',
     'CHAT_LOCK_PRE'         => 'Chat:LockList:'
 );
