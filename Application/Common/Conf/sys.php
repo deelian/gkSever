@@ -15,6 +15,9 @@ return array(
     'CHAT_SERVER'           => 'http://www.ebolaunion.gq:2121/?type=publish&content=',
     'CHAT_DELAY'            => 1,
 
+    'POWERED_BY'            => 'Ebola Union',
+    'WEB_SERVICE'           => 'Ebola Union Core Server',
+
     'USER_LOCK_PRE'         => 'User:LockList:',
     'CHAT_LOCK_PRE'         => 'Chat:LockList:'
 );
