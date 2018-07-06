@@ -336,7 +336,7 @@ if ( typeof Object.create !== 'function' ) {
         heading: '',
         showHideTransition: 'fade',
         allowToastClose: true,
-        hideAfter: 10000,
+        hideAfter: 20000,
         loader: true,
         loaderBg: '#9EC600',
         stack: 15,
