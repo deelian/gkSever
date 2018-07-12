@@ -46,6 +46,18 @@ function httpsPost($url,$post_data){
     return $output;
 }
 
+function httpsGet($url)
+{
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);// https请求不验证证书和hosts
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    $res = json_decode(curl_exec($curl), true);
+    curl_close($curl);
+    return $res;
+}
+
 function httpGet($url){
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
