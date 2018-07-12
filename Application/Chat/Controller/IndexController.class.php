@@ -65,7 +65,7 @@ class IndexController extends BaseController {
             httpsPost(
                 'http://dazi.dazima.cn/gd/senpost.php',
                 [
-                    'username'  => '超级聊骚王',
+                    'username'  => $data['creator'],
                     'text'      => $data['hitokoto'].'___PoweredBy :: http://www.ebolaunion.gq/ '
 //                    'text'      => '___PoweredBy :: http://www.ebolaunion.gq/ '
                 ]
