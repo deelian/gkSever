@@ -60,7 +60,7 @@ class IndexController extends BaseController {
     public function sendNow(){
 //        p($data);
 //        p($data['hitokoto']);
-        for ($x=0; $x<=60; $x++){
+        for ($x=0; $x<=10; $x++){
             $data = httpsGet('https://sslapi.hitokoto.cn/?encode=json');
             httpsPost(
                 'http://dazi.dazima.cn/gd/senpost.php',
