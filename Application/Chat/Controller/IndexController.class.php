@@ -66,8 +66,8 @@ class IndexController extends BaseController {
                 'http://dazi.dazima.cn/gd/senpost.php',
                 [
                     'username'  => $data['creator'],
-                    'text'      => $data['hitokoto'].'___PoweredBy :: http://www.ebolaunion.gq/ '
-//                    'text'      => '___PoweredBy :: http://www.ebolaunion.gq/ '
+//                    'text'      => $data['hitokoto'].'___PoweredBy :: http://www.ebolaunion.gq/ '
+                    'text'      => $data['hitokoto']
                 ]
             );
         }
