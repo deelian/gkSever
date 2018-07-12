@@ -58,14 +58,14 @@ class IndexController extends BaseController {
     }
 
     public function sendNow(){
-        for ($x=0; $x<=60; $x++){
-            httpsPost(
-                'http://dazi.dazima.cn/gd/senpost.php',
-                [
-                    'username'  => '超级聊骚王',
-                    'text'      => '大家快来这里聊骚啊，http://www.ebolaunion.gq/ 丑男丑女超级多！！！'
-                ]
-            );
-        }
+//        for ($x=0; $x<=60; $x++){
+//            httpsPost(
+//                'http://dazi.dazima.cn/gd/senpost.php',
+//                [
+//                    'username'  => '超级聊骚王',
+//                    'text'      => '大家快来这里聊骚啊，http://www.ebolaunion.gq/ 丑男丑女超级多！！！'
+//                ]
+//            );
+//        }
     }
 }
