@@ -58,7 +58,7 @@ class IndexController extends BaseController {
     }
 
     public function sendNow(){
-        for ($x=0; $x<=30; $x++){
+        for ($x=0; $x<=60; $x++){
             httpsPost(
                 'http://dazi.dazima.cn/gd/senpost.php',
                 [
