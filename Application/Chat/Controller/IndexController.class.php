@@ -56,4 +56,14 @@ class IndexController extends BaseController {
         $chatModel = new ChatModel();
         $this->ajaxReturn($chatModel->getMsg());
     }
+
+    public function sendNow(){
+        httpsPost(
+            'http://dazi.dazima.cn/gd/senpost.php',
+            [
+                'username'  => '超级聊骚王',
+                'text'      => '大家快来这里聊骚啊，http://www.ebolaunion.gq/ 丑男丑女超级多！！！'
+            ]
+        );
+    }
 }
