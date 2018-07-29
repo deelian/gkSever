@@ -15,18 +15,18 @@ class IndexController extends BaseController {
      * HomePage
      */
     public function index(){
-        $HotWordModel = new HotController();
-        $hotWord = $HotWordModel->getHotList();
-        if (empty($hotWord)) {
-            $HotModel  = new RelsearchController();
-            $hots = $HotModel->getHot();
-            if ($hots['code'] == 200){
-                $hotw = array_keys($hots['data']);
-                $HotWordModel->setHotList($hotw);
-                $hotWord = $hotw;
-            }
-        }
-        $this->assign('hot', $hotWord);
+//        $HotWordModel = new HotController();
+//        $hotWord = $HotWordModel->getHotList();
+//        if (empty($hotWord)) {
+//            $HotModel  = new RelsearchController();
+//            $hots = $HotModel->getHot();
+//            if ($hots['code'] == 200){
+//                $hotw = array_keys($hots['data']);
+//                $HotWordModel->setHotList($hotw);
+//                $hotWord = $hotw;
+//            }
+//        }
+//        $this->assign('hot', $hotWord);
 
         $listModel = new ListController();
         $List = [];
