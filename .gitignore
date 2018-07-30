@@ -1,2 +1,4 @@
 .idea
 /Application/Runtime/*
+
+/Application/Common/Conf/*
