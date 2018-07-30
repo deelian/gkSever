@@ -1,0 +1,24 @@
+[ 2018-07-30T08:57:31+08:00 ] 127.0.0.1 /s/999.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:S
+
+[ 2018-07-30T08:57:38+08:00 ] 127.0.0.1 /s/999.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:S
+
+[ 2018-07-30T08:57:47+08:00 ] 127.0.0.1 /s/999
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:S
+
+[ 2018-07-30T09:06:42+08:00 ] 127.0.0.1 /s/999.jsp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:S
+
