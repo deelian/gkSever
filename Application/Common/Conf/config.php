@@ -20,7 +20,7 @@ return array(
     'ENCRYPT_CODE'       => 'deeliansCryptCode',
 
     //Stone Conf
-    'LOAD_EXT_CONFIG'    => 'store,sys',
+    'LOAD_EXT_CONFIG'    => 'store,sys,route',
 
 
 
