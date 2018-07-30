@@ -1,4 +1,4 @@
 .idea
 /Application/Runtime/*
 
-/Application/Common/Conf/*
+/Application/Common/Conf/store
