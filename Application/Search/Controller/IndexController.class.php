@@ -27,7 +27,6 @@ class IndexController extends BaseController {
             }
         }
         $this->assign('hot', $hotWord);
-
         $listModel = new ListController();
         $List = [];
         $a = 1;
@@ -61,8 +60,6 @@ class IndexController extends BaseController {
             $res['kw'] = I('get.key');
 
             $sider = $this->siderBarList();
-//            pLog($sider['1'],'debug');
-//            p($sider['1'],1);
             $this->assign('siderA', $sider['1']);
             $this->assign('siderB', $sider['2']);
 
