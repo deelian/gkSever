@@ -7,7 +7,7 @@ return array(
     'URL_MODEL'          => '2',
     'SESSION_AUTO_START' => true,
     'SESSION_PREFIX'     => 'xd_',
-//    'URL_HTML_SUFFIX'    => 'jsp',
+    'URL_HTML_SUFFIX'    => 'jsp',
 
     //Search Lib
     'REL_SEARCH'    => 'l_search',
