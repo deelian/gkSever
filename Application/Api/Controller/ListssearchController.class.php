@@ -72,7 +72,7 @@ class ListssearchController extends SearchController{
             'list'      => $lists,
             'costTime'  => $search_cost,
             'total'     => $count,
-            'page'      => $Page->show(),
+            'page'      => $page_show,
             'relKw'     => $relKw
         ];
     }
