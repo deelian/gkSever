@@ -922,34 +922,6 @@ function U($url='',$vars='',$suffix=true,$domain=false) {
         parse_str($info['query'],$params);
         $vars = array_merge($params,$vars);
     }
-
-    if(C('URL_ROUTER_ON')){
-        foreach (C('URL_ROUTE_RULES') as $zhaolg => $zlig){//遍历路由
-            if(strstr('/'.GROUP_NAME.$url,$zlig)){//从网址中找路由规则
-                $lg = strstr($zhaolg,'/:');//分析规则 带参数?
-                if($lg){//如果规则带参数
-                    $tempzlg = str_replace('/:','',$lg);//取参数
-                    //dump($tempzlg);
-                    if($tempzlg){
-                        if(C('APP_SUB_DOMAIN_DEPLOY')){
-                            $zlgurl = str_replace($zlig,$zhaolg,'/'.GROUP_NAME.$url); //url替换为路由规则
-                        }else{
-                            $zlgurl = str_replace($zlig,$zhaolg,$url); //url替换为路由规则
-                        }
-                        //注 /s/:c/c/4/p/__PAGE__
-                        //dump($zlgurl);
-                        $url = str_replace($lg.'/'.$tempzlg,'',$zlgurl);//url替换路由规则参数
-                    }
-                }else{//分析规则  不带参数
-                    if(C('APP_SUB_DOMAIN_DEPLOY')){
-                        $url = str_replace($zlig,$zhaolg,'/'.GROUP_NAME.$url);//url替换为路由规则
-                    }else{
-                        $url = str_replace($zlig,$zhaolg,$url);//url替换为路由规则
-                    }
-                }
-            }
-        }
-    }
     
     // URL组装
     $depr       =   C('URL_PATHINFO_DEPR');
