@@ -79,10 +79,8 @@ class Page{
 
         /* 生成URL */
         $this->parameter[$this->p] = '[PAGE]';
-        $this->url = U(ACTION_NAME, $this->parameter);
-        pLog(ACTION_NAME,'debugUrl111');
-        pLog($this->parameter,'debugUrl222');
-        pLog($this->url,'debugUrl3333');
+//        $this->url = U(ACTION_NAME, $this->parameter);
+        $this->url = '/'.ACTION_NAME.'/'.$this->parameter['key'].'/p'.'[PAGE]';
         /* 计算分页信息 */
         $this->totalPages = ceil($this->totalRows / $this->listRows); //总页数
         if(!empty($this->totalPages) && $this->nowPage > $this->totalPages) {
