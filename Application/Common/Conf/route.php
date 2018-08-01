@@ -11,14 +11,12 @@ return array(
         //oldRoutes
         '/Search/Index/search/key/:key/p/:p' => array(
             'Search/Index/search',
-            '',
             array(
                 'ext'=>'jsp'
             )
         ),
         'Search/index/detail/code/:code' => array(
             'Search/index/detail',
-            '',
             array(
                 'ext'=>'jsp'
             )
@@ -27,14 +25,12 @@ return array(
 
         'search/:key' => array(
             'Search/Index/search',
-            '',
             array(
                 'ext'=>'jsp'
             )
         ),
         'detail/:code' => array(
             'Search/index/detail',
-            '',
             array(
                 'ext'=>'jsp'
             )
