@@ -53,7 +53,7 @@ class ListssearchController extends SearchController{
 
         $search_begin   = microtime(true);
         $lists          = $this->XS->search();
-        $search_cost    = microtime(true) - $search_begin;
+        $search_cost    = round((microtime(true) - $search_begin), 4);
 
         $count      = $this->XS->getLastCount();
         $Page       = new \Think\Page($count,$n);
