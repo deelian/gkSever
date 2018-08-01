@@ -20,7 +20,7 @@
         </div>
         <h4>{$data.total} in total, took {$data.costTime} seconds</h4>
         <foreach name="data.list" item="list">
-          <a href="{:U('index/detail', ['code'=> encrypt($list['id'])])}" class="searh_list">
+          <a href="/detail/{:encrypt($list['id'])}.jsp" class="searh_list">
             <div class="row mt">
               <div class="col-md-12 m">
                 <div class="text-justify">
@@ -48,7 +48,7 @@
               <ul class="list-group">
                 <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>Relations</li>
                 <foreach item="rel" name="data.relKw">
-                  <li class="list-group-item"><a href="{:U('/Search/Index/search', ['key'=>$rel])}">{$rel}</a></li>
+                  <li class="list-group-item"><a href="/search/{$rel}.jsp">{$rel}</a></li>
                 </foreach>
               </ul>
             </div>
@@ -60,7 +60,7 @@
                   <ul class="list-group">
                       <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>****</li>-->
                       <foreach name="siderA" item="list">
-                          <li class="list-group-item list"><a href="{:U('/Search/index/detail/', ['code'=>$list['id']])}">{$list['res_name']}</a></li>
+                          <li class="list-group-item list"><a href="/detail/{$list['id']}.jsp">{$list['res_name']}</a></li>
                       </foreach>
                   </ul>
               </div>
@@ -71,7 +71,7 @@
                   <ul class="list-group">
                       <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>****</li>-->
                       <foreach name="siderB" item="list">
-                          <li class="list-group-item list"><a href="{:U('/Search/index/detail/', ['code'=>$list['id']])}">{$list['res_name']}</a></li>
+                          <li class="list-group-item list"><a href="/detail/{$list['id']}.jsp">{$list['res_name']}</a></li>
                       </foreach>
                   </ul>
               </div>
