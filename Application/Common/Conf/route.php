@@ -21,8 +21,7 @@ return array(
                 'ext'=>'jsp'
             )
         ),
-
-
+        //newRoutes
         'search/:key' => array(
             'Search/Index/search',
             array(
@@ -31,6 +30,21 @@ return array(
         ),
         'detail/:code' => array(
             'Search/index/detail',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
+
+        //init
+        'init/:start' => array(
+            'Home/index/init',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
+        //baiduTui
+        'tui' => array(
+            'Home/Baidu/tui',
             array(
                 'ext'=>'jsp'
             )

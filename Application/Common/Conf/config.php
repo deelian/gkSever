@@ -30,6 +30,7 @@ return array(
     'HOT_PRE'            => 'HotsTop:',
     'LIST_PRE'           => 'ListsTop:',
     'SIDERBAR_PRE'       => 'SiderBar:',
+    'BAIDU_TUI_PRE'      => 'Tui:BaiduTuiStart',
 
     //sub suffix
     'ALLOW_SUFFIX'       => 'torrent',
