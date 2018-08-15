@@ -167,6 +167,6 @@ class IndexController extends BaseController {
 
 
     public function deelian(){
-        phpinfo();
+        pLog('nil');
     }
 }

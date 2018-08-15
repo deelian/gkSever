@@ -49,5 +49,14 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+
+
+
+        'dee' => array(
+            'Search/index/deelian',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
     ),
 );
