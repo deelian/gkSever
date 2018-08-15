@@ -63,6 +63,7 @@ class BaiduController extends XkController
 //        if ($result->remain == 0)
 //            $this->RED->set();
         if (I('get.code') == 'deelian')
+            pLog(json_encode($urls['lists']), 'urls', 'listsLog.txt');
             p($result,1);
         echo 'nil';
     }
