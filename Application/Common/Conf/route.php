@@ -44,7 +44,7 @@ return array(
         ),
         //baiduTui
         'tui' => array(
-            'Home/Baidu/tui',
+            'Home/Baidu/tuiBaidu',
             array(
                 'ext'=>'jsp'
             )

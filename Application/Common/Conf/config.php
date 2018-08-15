@@ -22,7 +22,8 @@ return array(
     //Stone Conf
     'LOAD_EXT_CONFIG'    => 'store,sys,route',
 
-
+    //main Domain
+    'MAIN_DOMAIN'        => 'http://www.ebolaunion.gq/',
 
     //Redis prefix
     'REDIS_PRE'          => 'Resource:ResInfo:',
