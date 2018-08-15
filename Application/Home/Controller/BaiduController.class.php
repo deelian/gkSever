@@ -62,6 +62,8 @@ class BaiduController extends XkController
             pLog('当前推送指针id：'.$urls['numId'], '百度主动式推送日志', 'tuiLogs.txt');
 //        if ($result->remain == 0)
 //            $this->RED->set();
+        if (I('get.code') == 'deelian')
+            p($result,1);
         echo 'nil';
     }
 
