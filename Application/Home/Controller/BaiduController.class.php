@@ -45,7 +45,8 @@ class BaiduController extends XkController
     }
 
     public function tuiBaidu(){
-        $urls = $this->urls($this->startId(),100);
+        $num = 100;
+        $urls = $this->urls($this->startId(),$num);
         $api = 'http://data.zz.baidu.com/urls?site=www.ebolaunion.gq&token=DdEL0tMABDU3vRLf';
         $ch = curl_init();
         $options =  array(
@@ -57,8 +58,7 @@ class BaiduController extends XkController
         );
         curl_setopt_array($ch, $options);
         $result = json_decode(curl_exec($ch));
-        p($result);
-        if ($result->success == 20)
+        if ($result->success == $num)
             pLog('当前推送指针id：'.$urls['numId'], '百度主动式推送日志', 'tuiLogs.txt');
 //        if ($result->remain == 0)
 //            $this->RED->set();
