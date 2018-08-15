@@ -57,6 +57,7 @@ class BaiduController extends XkController
         );
         curl_setopt_array($ch, $options);
         $result = json_decode(curl_exec($ch));
+        p($result);
         if ($result->success == 20)
             pLog('当前推送指针id：'.$urls['numId'], '百度主动式推送日志', 'tuiLogs.txt');
 //        if ($result->remain == 0)
