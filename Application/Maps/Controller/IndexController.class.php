@@ -15,7 +15,9 @@ class IndexController extends BaseController {
         $urlModel = new BaiduController();
         $all = new ListController();
         $total = $all->getResTotal();
-        $num = 40000;
+        $total = 100;
+//        $num = 40000;
+        $num = 50;
         $page = $total/$num;
         $tempMaps = [];
         for ($a=1; $a<=ceil($page); $a++){
