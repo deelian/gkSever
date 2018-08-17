@@ -67,7 +67,7 @@ class Sitemap {//类定义开始
         $this->items[] = array(
             'loc' => $loc,
             'priority' => $arr[$priority],
-            'lastmod' => date('Y-m-d H:i:s', time()-36000),
+            'lastmod' => date('Y-m-d H:i:s', time()),
             'changefreq' => $changefreq
         );
     }
@@ -78,14 +78,14 @@ class Sitemap {//类定义开始
     function Build() {
         $s = "<?xml version='1.0' encoding='{$this->encoding}'?>\r\n";
         $s .= "<?xml-stylesheet type='text/xsl' href='sitemap.xsl'?>";
-        $s .= "\t<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\r\n";
+        $s .= "\t<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n";
         // items
         for ($i=0;$i<count($this->items);$i++) {
             $s .= "\t\t<url>\n";
-            $s .= "\t\t\t<loc>{$this->items[$i]['loc']}</loc>\r\n";
-            $s .= "\t\t\t<priority>{$this->items[$i]['priority']}</priority>\r\n";
-            $s .= "\t\t\t<lastmod>{$this->items[$i]['lastmod']}</lastmod>\r\n";
-            $s .= "\t\t\t<changefreq>{$this->items[$i]['changefreq']}</changefreq>\r\n";
+            $s .= "\t\t\t<loc>{$this->items[$i]['loc']}</loc>\n";
+            $s .= "\t\t\t<priority>{$this->items[$i]['priority']}</priority>\n";
+            $s .= "\t\t\t<lastmod>{$this->items[$i]['lastmod']}</lastmod>\n";
+            $s .= "\t\t\t<changefreq>{$this->items[$i]['changefreq']}</changefreq>\n";
             $s .= "\t\t</url>\n";
         }
         // close
