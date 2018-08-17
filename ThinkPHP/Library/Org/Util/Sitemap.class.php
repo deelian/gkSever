@@ -108,9 +108,12 @@ class Sitemap {//类定义开始
     // 功能: 将产生的sitemap 内容保存到文件
     // 参数: $fname 要保存的文件名
     /**************************************************************************/
-    function SaveToFile($fname) {
+    function SaveToFile($dir = '', $fname) {
+        $fname = $dir.$fname;
         if (file_exists($fname))
             @unlink($fname);
+        if (!empty($dir))
+            mkdir ($dir,0777,true);
         if (empty($this->content))
             $this->Build();
         $handle = fopen($fname, 'w+');

@@ -44,6 +44,17 @@ class BaiduController extends XkController
         ];
     }
 
+    public function MapsUrl($start, $end, $exit){
+        $urls = [];
+        $domain = C('MAIN_DOMAIN');
+        for ($i=$start; $i<=$end; $i++){
+            if ($i>$exit)
+                break;
+            array_push($urls, $domain."detail/".($i).".jsp");
+        }
+        return $urls;
+    }
+
     public function tuiBaidu(){
         $num = 100;
         $urls = $this->urls($this->startId(),$num);

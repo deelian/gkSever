@@ -4,17 +4,31 @@ namespace Maps\Controller;
 
 
 use Home\Controller\BaiduController;
+use Home\Controller\ListController;
+use Org\Util\Sitemap;
 
 class IndexController extends BaseController {
 
+    public $maps;
+
     public function index(){
         $urlModel = new BaiduController();
-        $cate = $urlModel->urls(1,200000);
-        foreach ($cate['lists'] as $v)
-        {
-            $this->maps ->AddItem($v, 1);
+        $all = new ListController();
+        $total = $all->getResTotal();
+        $num = 40000;
+        $page = $total/$num;
+        $tempMaps = [];
+        for ($a=1; $a<=ceil($page); $a++){
+            $listInfo = $urlModel->MapsUrl(1+($a-1)*$num, $a*$num, $total);
+            $tempMaps[$a] = $listInfo;
         }
-        $this->maps ->SaveToFile('sitemap.xml');
+        foreach ($tempMaps as $k => $v){
+            $this->maps = new Sitemap();
+            foreach ($v as $l){
+                $this->maps ->AddItem($l, 1);
+            }
+            $this->maps ->SaveToFile('sitemaps/', "sitemap$k.xml");
+        }
     }
 
 }

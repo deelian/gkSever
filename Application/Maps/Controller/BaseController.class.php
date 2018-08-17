@@ -13,12 +13,10 @@ use Think\Controller;
 
 class BaseController extends Controller
 {
-    public $maps;
-    public $fileName;
+
 
     public function __construct()
     {
         parent::__construct();
-        $this->maps = new Sitemap();
     }
 }
