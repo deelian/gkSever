@@ -84,12 +84,12 @@ class Sitemap {//类定义开始
         $s .= "http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'>\n";
         // items
         for ($i=0;$i<count($this->items);$i++) {
-            $s .= "\t<url>\n";
-            $s .= "\t\t<loc>{$this->items[$i]['loc']}</loc>\n";
-            $s .= "\t\t<priority>{$this->items[$i]['priority']}</priority>\n";
-            $s .= "\t\t<lastmod>{$this->items[$i]['lastmod']}</lastmod>\n";
-            $s .= "\t\t<changefreq>{$this->items[$i]['changefreq']}</changefreq>\n";
-            $s .= "\t</url>\n";
+            $s .= "<url>\n";
+            $s .= "<loc>{$this->items[$i]['loc']}</loc>\n";
+            $s .= "<priority>{$this->items[$i]['priority']}</priority>\n";
+            $s .= "<lastmod>{$this->items[$i]['lastmod']}</lastmod>\n";
+            $s .= "<changefreq>{$this->items[$i]['changefreq']}</changefreq>\n";
+            $s .= "</url>\n";
         }
         // close
         $s .= "</urlset>";
