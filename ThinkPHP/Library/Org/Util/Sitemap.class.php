@@ -76,16 +76,19 @@ class Sitemap {//类定义开始
     // 功能: 生成sitemap xml文件内容
     /**************************************************************************/
     function Build() {
-        $s = "<?xml version='1.0' encoding='{$this->encoding}'?>\n";
-        $s .= "<?xml-stylesheet type='text/xsl' href='sitemap.xsl'?>";
-        $s .= "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n";
+        $s = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        $s.='<urlset\n';
+        $s.='xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
+        $s.='xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n';
+        $s.='xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9"'\n;
+        $s.='http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n';
         // items
         for ($i=0;$i<count($this->items);$i++) {
-            $s .= "<url>\n";
-            $s .= "\t<loc>{$this->items[$i]['loc']}</loc>\n";
-            $s .= "\t<priority>{$this->items[$i]['priority']}</priority>\n";
-            $s .= "\t<lastmod>{$this->items[$i]['lastmod']}</lastmod>\n";
-            $s .= "\t<changefreq>{$this->items[$i]['changefreq']}</changefreq>\n";
+            $s .= "\t<url>\n";
+            $s .= "\t\t<loc>{$this->items[$i]['loc']}</loc>\n";
+            $s .= "\t\t<priority>{$this->items[$i]['priority']}</priority>\n";
+            $s .= "\t\t<lastmod>{$this->items[$i]['lastmod']}</lastmod>\n";
+            $s .= "\t\t<changefreq>{$this->items[$i]['changefreq']}</changefreq>\n";
             $s .= "\t</url>\n";
         }
         // close
