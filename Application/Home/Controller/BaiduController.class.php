@@ -50,7 +50,7 @@ class BaiduController extends XkController
         for ($i=$start; $i<=$end; $i++){
             if ($i>$exit)
                 break;
-            array_push($urls, $domain."detail/".($i).".jsp");
+            array_push($urls, $domain."detail/".encrypt($i).".jsp");
         }
         return $urls;
     }
