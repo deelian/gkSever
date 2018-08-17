@@ -78,7 +78,7 @@ class Sitemap {//类定义开始
     function Build() {
         $s = "<?xml version='1.0' encoding='{$this->encoding}'?>\n";
         $s .= "<urlset\n";
-        $s .= "xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n";
+        $s .= "xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'\n";
         $s .= "xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'\n";
         $s .= "xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9'\n";
         $s .= "http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd>\n";
