@@ -30,7 +30,7 @@ class BaiduController extends XkController
         return $start;
     }
 
-    private function urls($id, $total){
+    public function urls($id, $total){
         $urls = [];
         $total = $id + $total;
         $domain = C('MAIN_DOMAIN');
