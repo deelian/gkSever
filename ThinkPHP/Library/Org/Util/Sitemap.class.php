@@ -80,8 +80,8 @@ class Sitemap {//类定义开始
         $s .= "<urlset\n";
         $s .= "xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'\n";
         $s .= "xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'\n";
-        $s .= "xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9'\n";
-        $s .= "http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd>\n";
+        $s .= "xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9\n";
+        $s .= "http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'>\n";
         // items
         for ($i=0;$i<count($this->items);$i++) {
             $s .= "\t<url>\n";
