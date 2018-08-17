@@ -67,7 +67,7 @@ class Sitemap {//类定义开始
         $this->items[] = array(
             'loc' => $loc,
             'priority' => $arr[$priority],
-            'lastmod' => date('Y-m-d H:i:s', time()),
+            'lastmod' => date('Y-m-d H:i:s', time()-36000),
             'changefreq' => $changefreq
         );
     }
