@@ -14,12 +14,14 @@ use Think\Controller;
 class AutomessageController extends Controller
 {
     public function sendJoke(){
-        if ($jok = $this->getJokes()){
-            $jok = str_replace(' ', '%20', $jok);
-            $url = C('CHAT_SERVER').$jok;
-            httpGet($url);
-        } else {
-            pLog('jokeError!', 'ERRORLOG', 'jokeLog.txt');
+        for ($i=1; $i<=5; $i++){
+            if ($jok = $this->getJokes()){
+                $jok = str_replace(' ', '%20', $jok);
+                $url = C('CHAT_SERVER').$jok;
+                httpGet($url);
+            } else {
+                pLog('jokeError!', 'ERRORLOG', 'jokeLog.txt');
+            }
         }
     }
 
