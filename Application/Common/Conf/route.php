@@ -56,6 +56,13 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+        //sendJokes
+        'sendJokes' => array(
+            'Chat/Automessage/sendJoke',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
 
 
 
