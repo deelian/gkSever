@@ -12,6 +12,11 @@ class IndexController extends BaseController {
     public $maps;
 
     public function index(){
+//        p(I('get.code'));
+        if (I('get.code') != 'deelian'){
+            echo 'nil';
+            die;
+        }
         $urlModel = new BaiduController();
         $all = new ListController();
         $total = $all->getResTotal();
@@ -29,6 +34,7 @@ class IndexController extends BaseController {
             }
             $this->maps ->SaveToFile('sitemaps/', "sitemap$k.xml");
         }
+        echo 'done';
     }
 
 }

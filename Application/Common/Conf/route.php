@@ -49,6 +49,13 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+        //createMaps
+        'siteMaps/:code' => array(
+            'Maps/Index/index',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
 
 
 
