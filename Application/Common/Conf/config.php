@@ -23,7 +23,7 @@ return array(
     'LOAD_EXT_CONFIG'    => 'store,sys,route',
 
     //main Domain
-    'MAIN_DOMAIN'        => 'http://www.ebolaunion.gq/',
+    'MAIN_DOMAIN'        => 'http://www.ebolaunion.cf/',
 
     //Redis prefix
     'REDIS_PRE'          => 'Resource:ResInfo:',

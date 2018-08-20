@@ -58,7 +58,8 @@ class BaiduController extends XkController
     public function tuiBaidu(){
         $num = 100;
         $urls = $this->urls($this->startId(),$num);
-        $api = 'http://data.zz.baidu.com/urls?site=www.ebolaunion.gq&token=DdEL0tMABDU3vRLf';
+//        $api = 'http://data.zz.baidu.com/urls?site=www.ebolaunion.gq&token=DdEL0tMABDU3vRLf';
+        $api = 'http://data.zz.baidu.com/urls?site=www.ebolaunion.cf&token=DdEL0tMABDU3vRLf';
         $ch = curl_init();
         $options =  array(
             CURLOPT_URL => $api,
