@@ -30,9 +30,9 @@ class IndexController extends BaseController {
         foreach ($tempMaps as $k => $v){
             $this->maps = new Sitemap();
             foreach ($v as $l){
-                $this->maps ->AddItem($l, 1);
+                $this->maps->AddItem($l, 1);
             }
-            $this->maps ->SaveToFile('sitemaps/', "sitemap$k.xml");
+            $this->maps->SaveToFile('sitemaps/', "sitemap$k.xml");
         }
         echo 'done';
     }

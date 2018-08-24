@@ -63,6 +63,13 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+        //sendMessage
+        'message' => array(
+            'Search/index/message',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
 
 
 
