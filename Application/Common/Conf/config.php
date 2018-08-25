@@ -1,9 +1,9 @@
 <?php
 return array(
 	//Base Conf
-    'DEFAULT_MODULE'     => 'Search', //默认模块
-    'DEFAULT_CONTROLLER' => 'Index', // 默认控制器名称
-    'DEFAULT_ACTION'     => 'index', // 默认操作名称
+    'DEFAULT_MODULE'     => 'Search',
+    'DEFAULT_CONTROLLER' => 'Index',
+    'DEFAULT_ACTION'     => 'index',
     'URL_MODEL'          => '2',
     'SESSION_AUTO_START' => true,
     'SESSION_PREFIX'     => 'xd_',
