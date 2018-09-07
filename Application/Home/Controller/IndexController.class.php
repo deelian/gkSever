@@ -41,12 +41,12 @@ class IndexController extends XkController
 
             if ($info){
                 $res = $this->RED->hmset($this->redPre.$i, $info);
+                if($res == 'OK'){
+                    $l = ceil(($i/$end)*100).'%';
+                    pLog("写入成功！当前写入第$i 条，总共$end 条，完成度$l");
+                }
             }
 
-            if($res == 'OK'){
-                $l = ceil(($i/$end)*100).'%';
-                pLog("写入成功！当前写入第$i 条，总共$end 条，完成度$l");
-            }
         }
 
     }
