@@ -25,7 +25,7 @@ return array(
 
         //fileUpload
         'search/file' => array(
-            'search/file',
+            'Search/File/',
             array(
                 'ext'=>'jsp'
             )
