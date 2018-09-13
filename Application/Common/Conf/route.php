@@ -7,6 +7,7 @@
  */
 return array(
     'URL_ROUTER_ON'   => true,
+
     'URL_ROUTE_RULES' => array(
         //oldRoutes
         '/Search/Index/search/key/:key/p/:p' => array(
@@ -21,6 +22,15 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+
+        //fileUpload
+        'search/file' => array(
+            'search/file',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
+
         //newRoutes
         'search/:key' => array(
             'Search/Index/search',
@@ -42,6 +52,7 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+
         //baiduTui
         'tui' => array(
             'Home/Baidu/tuiBaidu',
@@ -49,6 +60,7 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+
         //createMaps
         'siteMaps/:code' => array(
             'Maps/Index/index',
@@ -56,6 +68,7 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+
         //sendJokes
         'sendJokes' => array(
             'Chat/Automessage/sendJoke',
@@ -63,6 +76,7 @@ return array(
                 'ext'=>'jsp'
             )
         ),
+
         //sendMessage
         'message' => array(
             'Search/index/message',
