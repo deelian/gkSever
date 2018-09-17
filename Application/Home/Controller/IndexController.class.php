@@ -53,14 +53,17 @@ class IndexController extends XkController
 
     /**
      * 虚拟数据重置
+     *
+     * @param int $start
      */
-    public function reSet($start){
+    public function reSet($start = 0){
         $this->RED->flushall();
         $this->init($start);
     }
 
     /**
      * 获取详情
+     *
      * @param $data
      * @return array
      */

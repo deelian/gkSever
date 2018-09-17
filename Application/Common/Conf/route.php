@@ -85,7 +85,13 @@ return array(
             )
         ),
 
-
+        //znSearch
+        'znSearch' => array(
+            'Search/ZnSearch/',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
 
         'dee' => array(
             'Search/index/deelian',
