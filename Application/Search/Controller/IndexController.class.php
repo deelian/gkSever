@@ -167,6 +167,6 @@ class IndexController extends BaseController {
 
 
     public function deelian(){
-        p('nil');
+        p(get_cfg_var('model'));
     }
 }

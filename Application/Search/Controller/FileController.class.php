@@ -90,7 +90,10 @@ class FileController extends Controller
     public function saveFile(){
         $info = $this->upModel->upload($_FILES);
         if (!$info) {
-            $data = ['status'=>0,'msg'=>'上传失败，'.$this->upModel->getError()];
+            $data = [
+                'status'=>0,
+                'msg'=>'upload failure!，'.$this->upModel->getError()
+            ];
         } else {
             $data = [
                 'status'=> 1,
@@ -120,7 +123,7 @@ class FileController extends Controller
 
         $a      = explode('<h3>包含文件清单</h3>', $re['data'][0]);
         if ($a[1] == '<table></table>'){
-            $c = 'null';
+            $c = 'nullInfo';
         } else {
             $c =     str_replace('<table>', '', $a[1]);
             $c =     str_replace('</table>', '', $c);
