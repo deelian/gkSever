@@ -31,14 +31,14 @@ class BaseController extends Controller
         if (isMobile()){
             $this->ajaxReturn([
                 'code'      => 203,
-                'msg'       => 'This website does not currently support mobile devices, please use a PC or PAD to browse, thanks!'
+                'msg'       => 'This website does not currently support mobile devices, please use a Pc to browse, Thanks!'
             ]);
             exit();
         }
 
         //checkStatus
         $SysModel = new SysController();
-        if ($SysModel->getSysStatus()){
+        if ($SysModel->getSysStatus()) {
             $this->display('Common/error');
             exit();
         }
@@ -49,18 +49,20 @@ class BaseController extends Controller
         $this->sysInfoModel = new SiteModel();
         $this->sysModel = new SysController();
 
-        if (empty($this->getSysInfo())){
+        if (empty($this->getSysInfo())) {
             $this->init();
         }
         $this->assign('sysInfo', $this->getSysInfo());
     }
 
-    public function init(){
+    public function init()
+    {
         $sysInfo = $this->sysInfoModel->getSysInfo();
         $this->sysModel->setSysInfo($sysInfo);
     }
 
-    public function getSysInfo(){
+    public function getSysInfo()
+    {
         return $this->sysModel->getSysInfo();
     }
 }

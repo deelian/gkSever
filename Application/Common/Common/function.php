@@ -27,7 +27,7 @@ function checkWord($str){
         $res = implode(',',$matches[0]);
         return $res;
     } else {
-        return 0;
+        return false;
     }
 }
 
@@ -37,7 +37,7 @@ function httpsPost($url,$post_data){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     // post数据
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); // https请求 不验证证书和hosts
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // https请求 不验证证书和hosts
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
     // post的变量
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
@@ -131,7 +131,12 @@ function pLog($value, $detail='调试日志', $name='logs.txt')
 }
 
 
-//加密函数
+/**
+ * 加密函数
+ *
+ * @param $data
+ * @return string
+ */
 function encrypt($data)
 {
     $data   =   strval($data);
@@ -158,7 +163,12 @@ function encrypt($data)
 }
 
 
-//解密函数
+/**
+ * 解密函数
+ *
+ * @param $data
+ * @return string
+ */
 function decrypt($data)
 {
     $key    = md5(C('ENCRYPT_CODE'));
@@ -203,6 +213,7 @@ function deCookie()
 
 /**
  * 检测提交方式
+ *
  * @param  int $value 提交值，默认为检测POST，1位检测GET，2位件AJAX提交
  */
 function check($value='')
