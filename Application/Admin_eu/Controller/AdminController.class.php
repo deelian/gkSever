@@ -13,6 +13,11 @@ class AdminController extends BaseadminController
 
     public function index()
     {
-        echo 'nice';
+        $this->display();
+    }
+
+    public function welInfo()
+    {
+        $this->display('welcome');
     }
 }
