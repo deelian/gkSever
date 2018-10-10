@@ -1,5 +1,12 @@
 <?php
 
+function jRet($val, $die = true){
+    echo json_encode($val);
+    if($die){
+        exit();
+    }
+}
+
 function isMobile() {
     if (isset($_SERVER['HTTP_X_WAP_PROFILE'])) {
         return true;
@@ -84,6 +91,8 @@ function bootstrap_page_style($page_html){
         $page_show = str_replace(array('<a class="num"','<a class="prev"','<a class="next"','<a class="end"','<a class="first"'),'<li><a',$page_show);
         $page_show = str_replace('</a>','</a></li>',$page_show);
         return $page_show;
+    } else {
+        return false;
     }
 }
 
@@ -130,7 +139,6 @@ function pLog($value, $detail='调试日志', $name='logs.txt')
     file_put_contents($file, $value.PHP_EOL, FILE_APPEND);
 }
 
-
 /**
  * 加密函数
  *
@@ -161,7 +169,6 @@ function encrypt($data)
     }
     return base64_encode($str);
 }
-
 
 /**
  * 解密函数
@@ -200,7 +207,6 @@ function decrypt($data)
     }
     return $str;
 }
-
 
 /**
  * 解密cookie信息
@@ -274,6 +280,7 @@ function savePassScrip($account)
     $value = str_replace('=','',base64_encode($value^md5(C('secret_key'))));
     @setcookie('auto',$value,C('cookie_time'),'/');
 }
+
 /**
  * 获取查询ip的归属地
  * @param  string $ip 锁查询的ip
@@ -286,7 +293,4 @@ function getIpLocation($ip='')
     $area = $Ip->getlocation($ip); // 获取某个IP地址所在的位置
     return $area;
 }
-
 ?>
-
-

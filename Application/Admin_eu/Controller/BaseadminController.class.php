@@ -11,11 +11,13 @@ namespace Admin_eu\Controller;
 
 use Think\Controller;
 
-class SearchController extends Controller
+class BaseadminController extends Controller
 {
     public function __construct()
     {
         parent::__construct();
-
+        if (empty(session('loginId'))) {
+            $this->redirect('Sign/index');
+        }
     }
 }
