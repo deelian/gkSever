@@ -61,11 +61,14 @@ class ResController extends BaseadminController
         );
 
 //        p($where,1);
-        $field = '*';
-        $limit = 25;
+        $field = 'id, res_name, status, times, res_dirs, add_time, user_id';
+        $limit = 15;
         $page  = $req['p'];
+        $page  = 22;
         $res = $this->mModel->getList($where, $field, $limit, $page);
-        p($res,1);
+//        p($res,1);
+
+        $this->assign('info', $res);
         $this->display();
     }
 

@@ -13,13 +13,21 @@ use Think\Model;
 class ResModel extends Model
 {
 
-    public function getList($where, $field,  $limit, $page)
+    public function getList($where, $field = '*',  $limit, $page = 1)
     {
         $count = $this->where($where)->count();
         $Page  = new \Think\Page($count, $limit);
-        $show  = $Page->show();//
-        $list  = $this->where($where)->order('add_time')->page($page . ',' . $limit)->select();
+        $show  = $Page->show();
+//        $show  = bootstrap_page_style($Page->show());
+        p($show,1);
+
+        $limit = (string)$limit;
+        $page  = (string)$page;
+
+        $list  = $this->where($where)->order('add_time')->field($field)->page($page.",$limit")->select();
+//        p($this->getLastSql(),1);
         return [
+            'all'   => $count,
             'page'  => $show,
             'list'  => $list
         ];
