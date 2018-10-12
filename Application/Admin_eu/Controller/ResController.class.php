@@ -25,43 +25,54 @@ class ResController extends BaseadminController
     public function listInfo()
     {
         $req = I('get.');
+
         $where = [];
-//        if (isset($req['name'])) {
-//            $where['res_name'] = $req['name'];
-//        }
-        !isset($req['name']) ?: ($where['res_name'] = $req['name']);
+
         !isset($req['p']) ? ($page = 1) : ($page = $req['p']);
         !isset($req['type']) ?: ($where['type'] = $req['type']);
-        !(isset($req['sTime']) && !isset($req['eTime'])) ?: (
-        $where['add_time'] = [
-            [
-                'gt',
-                $req['sTime']
+        !(isset($req['name']) && $req['name'] != '') ?: (
+            $this->assign('name', $req['name'])&
+            $where['res_name'] = [
+                [
+                    'like',
+                    "%$req[name]%"
+                ]
             ]
-        ]
         );
-        !(!isset($req['sTime']) && isset($req['eTime'])) ?: (
-        $where['add_time'] = [
-            [
-                'lt',
-                $req['eTime']
+        !((isset($req['sTime']) && $req['sTime'] != '') && (!isset($req['eTime']) || $req['eTime'] == '')) ?: (
+            $this->assign('sTime', $req['sTime'])&
+            $where['add_time'] = [
+                [
+                    'egt',
+                    strtotime($req['sTime'])
+                ]
             ]
-        ]
         );
-        !(isset($req['sTime']) && isset($req['eTime'])) ?: (
-        $where['add_time'] = [
-            [
-                'gt',
-                $req['sTime']
-            ],
-            [
-                'lt',
-                $req['eTime']
+        !((isset($req['eTime']) && $req['eTime'] != '') && (!isset($req['sTime']) || $req['sTime'] == '')) ?: (
+            $this->assign('eTime', $req['eTime'])&
+            $where['add_time'] = [
+                [
+                    'elt',
+                    strtotime($req['eTime'])
+                ]
             ]
-        ]
         );
-
-//        p($page,1);
+        !((isset($req['sTime']) && ($req['sTime'] != '')) && (isset($req['eTime']) && ($req['eTime'] != ''))) ?: (
+            $this->assign('sTime', $req['sTime'])&
+            $this->assign('eTime', $req['eTime'])&
+            $where['add_time'] = [
+                [
+                    'egt',
+                    strtotime($req['sTime'])
+                ],
+                [
+                    'elt',
+                    strtotime($req['eTime'])
+                ]
+            ]
+        );
+//p($this);
+//        p($where,1);
         $field = 'id, res_name, status, times, res_dirs, add_time, user_id';
         $limit = 15;
         $res = $this->mModel->getList($where, $field, $limit, $page);
