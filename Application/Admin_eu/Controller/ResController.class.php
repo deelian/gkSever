@@ -71,7 +71,7 @@ class ResController extends BaseadminController
                 ]
             ]
         );
-//p($this);
+
 //        p($where,1);
         $field = 'id, res_name, status, times, res_dirs, add_time, user_id';
         $limit = 15;
