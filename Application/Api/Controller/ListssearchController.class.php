@@ -64,7 +64,7 @@ class ListssearchController extends SearchController{
         $Page->setConfig('last','End');
         $Page->setConfig('first','First');
         $Page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
-        $page_show = bootstrap_page_style($Page->show());
+        $page_show = bootstrap_page_style($Page->showFront());
 //        $page_show = ($Page->show());
 
         $relKw = $this->getRelKw($kw);
