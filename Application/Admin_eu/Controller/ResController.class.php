@@ -29,42 +29,41 @@ class ResController extends BaseadminController
 //        if (isset($req['name'])) {
 //            $where['res_name'] = $req['name'];
 //        }
-        !isset($req['name']) ? :($where['res_name'] = $req['name']);
-        !isset($req['type']) ? :($where['type'] = $req['type']);
-        !(isset($req['sTime']) && !isset($req['eTime'])) ? :(
-            $where['add_time'] = [
-               [
-                   'gt',
-                   $req['sTime']
-               ]
+        !isset($req['name']) ?: ($where['res_name'] = $req['name']);
+        !isset($req['p']) ? ($page = 1) : ($page = $req['p']);
+        !isset($req['type']) ?: ($where['type'] = $req['type']);
+        !(isset($req['sTime']) && !isset($req['eTime'])) ?: (
+        $where['add_time'] = [
+            [
+                'gt',
+                $req['sTime']
             ]
+        ]
         );
-        !(!isset($req['sTime']) && isset($req['eTime'])) ? :(
-            $where['add_time'] = [
-                [
-                    'lt',
-                    $req['eTime']
-                ]
+        !(!isset($req['sTime']) && isset($req['eTime'])) ?: (
+        $where['add_time'] = [
+            [
+                'lt',
+                $req['eTime']
             ]
+        ]
         );
-        !(isset($req['sTime']) && isset($req['eTime'])) ? :(
-            $where['add_time'] = [
-                [
-                    'gt',
-                    $req['sTime']
-                ],
-                [
-                    'lt',
-                    $req['eTime']
-                ]
+        !(isset($req['sTime']) && isset($req['eTime'])) ?: (
+        $where['add_time'] = [
+            [
+                'gt',
+                $req['sTime']
+            ],
+            [
+                'lt',
+                $req['eTime']
             ]
+        ]
         );
 
-//        p($where,1);
+//        p($page,1);
         $field = 'id, res_name, status, times, res_dirs, add_time, user_id';
         $limit = 15;
-        $page  = $req['p'];
-        $page  = 22;
         $res = $this->mModel->getList($where, $field, $limit, $page);
 //        p($res,1);
 

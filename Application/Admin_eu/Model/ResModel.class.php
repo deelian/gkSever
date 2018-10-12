@@ -17,9 +17,16 @@ class ResModel extends Model
     {
         $count = $this->where($where)->count();
         $Page  = new \Think\Page($count, $limit);
-        $show  = $Page->show();
-//        $show  = bootstrap_page_style($Page->show());
-        p($show,1);
+//        $Page->lastSuffix = false;
+        $Page->setConfig('header','');
+        $Page->setConfig('prev','Pre');
+        $Page->setConfig('next','Next');
+        $Page->setConfig('last','End');
+        $Page->setConfig('first','First');
+        $Page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
+//        $show  = $Page->show();
+        $show  = bootstrap_page_style($Page->show());
+//        p($show,1);
 
         $limit = (string)$limit;
         $page  = (string)$page;
