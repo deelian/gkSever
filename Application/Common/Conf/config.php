@@ -32,6 +32,7 @@ return array(
     'LIST_PRE'           => 'ListsTop:',
     'SIDERBAR_PRE'       => 'SiderBar:',
     'BAIDU_TUI_PRE'      => 'Tui:BaiduTuiStart',
+    'CHAT_LISTS_PRE'     => 'System:ChatLists',
     //topFre
     'TOP_PRE'            => 'TopInfo:',
 
