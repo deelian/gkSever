@@ -32,7 +32,7 @@ class NewestController extends XkController
         $all = new ListController();
         $total = $all->getResTotal();
 //        p($total);
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 9; $i >= 0; $i--) {
             $res = $this->RED->hgetall(C('REDIS_PRE').($total - $i));
             $temp = [
                 'id'       => $res['id'],
@@ -42,7 +42,6 @@ class NewestController extends XkController
 //            $newest[$i] = $temp;
             $this->RED->lpush($this->newestPre, json_encode($temp));
         }
-
 //        $newest = json_encode($newest);
 //        p($newest);
         return true;
@@ -60,8 +59,13 @@ class NewestController extends XkController
             $this->initNewestLists();
             $this->getNewestLists();
         }
-        p($res,1);
-        return $res;
+
+        $ret = [];
+        foreach ($res as $k => $v) {
+            $ret[$k] = json_decode($v);
+        }
+//        p($ret,1);
+        return $ret;
     }
 
     /**
