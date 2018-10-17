@@ -12,6 +12,7 @@ namespace Home\Controller;
 class LastestController extends XkController
 {
     private $LastestPre;
+
     public function __construct()
     {
         parent::__construct();

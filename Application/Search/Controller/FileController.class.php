@@ -11,6 +11,7 @@ namespace Search\Controller;
 
 use Api\Controller\ListssearchController;
 use Api\Controller\RelsearchController;
+use Home\Controller\NewestController;
 use Search\Model\ResModel;
 use Think\Controller;
 
@@ -25,7 +26,8 @@ class FileController extends Controller
         $this->upModel = new \Think\Upload($setting);
     }
 
-    public function index(){
+    public function index()
+    {
         if (IS_POST){
             //checkName
             $name = explode('.torrent',$_FILES['kartik-input-709']['name']);
@@ -57,6 +59,15 @@ class FileController extends Controller
                 ];
                 $res_id = $resModel->saveRes($subData);
 
+                //addNewestLists
+                $newEst = [
+                    'id'       => $res_id,
+                    'time'     => $subData['add_time'],
+                    'res_name' => $subData['res_name']
+                ];
+                $Newest = new NewestController();
+                $Newest->pushNewestLists($newEst);
+
                 //storeRedis
                 $subData['id'] = $res_id;
                 $RedModel = new \Home\Controller\IndexController();
@@ -87,36 +98,39 @@ class FileController extends Controller
         }
     }
 
-    public function saveFile(){
+    public function saveFile()
+    {
         $info = $this->upModel->upload($_FILES);
         if (!$info) {
             $data = [
-                'status'=>0,
-                'msg'=>'upload failure!，'.$this->upModel->getError()
+                'status' => 0,
+                'msg'    => 'upload failure!，' . $this->upModel->getError()
             ];
         } else {
             $data = [
-                'status'=> 1,
-                'info'  => $info
+                'status' => 1,
+                'info'   => $info
             ];
         }
         return $data;
     }
 
-    public function insertDesc($file){
+    public function insertDesc($file)
+    {
         set_time_limit(0);
 //        $url    = "http://p6arf67yc.bkt.clouddn.com/".$v['res_dirs']."/".$v['res_links'];
-        $url    = "http://panvadiqx.bkt.gdipper.com/$file";
+        $url = "http://panvadiqx.bkt.gdipper.com/$file";
 
         return $this->getDesc($url);
     }
 
-    public function getDesc($url){
+    public function getDesc($url)
+    {
         $postData = [
-            'data'          => $url,
-            'type'          => 'torrentinfo',
-            'arg'           => '',
-            'beforeSend'    => 'undefined'
+            'data'       => $url,
+            'type'       => 'torrentinfo',
+            'arg'        => '',
+            'beforeSend' => 'undefined'
         ];
 
         $re     = httpsPost('http://tool.chacuo.net/commontorrentinfo', $postData);
@@ -138,7 +152,8 @@ class FileController extends Controller
         return $desc;
     }
 
-    public function deleteFile(){
+    public function deleteFile()
+    {
 //        $setting = C('UPLOAD_FILE_QINIU');
 //
 //        $file_name = I('post.file_name');//要删除的文件名称

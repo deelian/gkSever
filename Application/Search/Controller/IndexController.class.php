@@ -14,7 +14,8 @@ class IndexController extends BaseController {
     /**
      * HomePage
      */
-    public function index(){
+    public function index()
+    {
         $HotWordModel = new HotController();
         $hotWord = $HotWordModel->getHotList();
         if (empty($hotWord)) {
@@ -52,7 +53,8 @@ class IndexController extends BaseController {
     /**
      * SearchPage
      */
-    public function search(){
+    public function search()
+    {
         if (I('get.key')){
             $req = I('get.');
             $SearchModel = new ListssearchController();
@@ -77,7 +79,8 @@ class IndexController extends BaseController {
         }
     }
 
-    public function detail(){
+    public function detail()
+    {
         if (empty(I('get.code'))){
             $this->display('Common/error');
         }
@@ -86,9 +89,10 @@ class IndexController extends BaseController {
         if (empty($res['info']['res_desc'])){
             $res['info']['res_desc']['0'] = $res['info']['res_name'];
         }
-//        p($res,1);
 
         $sider = $this->siderBarList();
+//        p($sider);
+//        p($res,1);
         $this->assign('siderA', $sider['1']);
         $this->assign('siderB', $sider['2']);
 
@@ -96,7 +100,8 @@ class IndexController extends BaseController {
         $this->display();
     }
 
-    public function siderBarList(){
+    public function siderBarList()
+    {
         $siderBarModel = new ListController();
         $sider = [];
         for ($i=1; $i<=2; $i++){
@@ -110,7 +115,8 @@ class IndexController extends BaseController {
         return $sider;
     }
 
-    public function message(){
+    public function message()
+    {
         if (IS_POST){
             $req = I('post.');
             if (empty($req['name']) || empty($req['message'])){
@@ -166,7 +172,8 @@ class IndexController extends BaseController {
     }
 
 
-    public function deelian(){
+    public function deelian()
+    {
         p(get_cfg_var('model'));
     }
 }

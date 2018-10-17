@@ -1,6 +1,6 @@
 <?php
 return array(
-	//Base Conf
+    //Base Conf
     'DEFAULT_MODULE'     => 'Search',
     'DEFAULT_CONTROLLER' => 'Index',
     'DEFAULT_ACTION'     => 'index',
@@ -9,18 +9,18 @@ return array(
     'SESSION_PREFIX'     => 'xd_',
     'URL_HTML_SUFFIX'    => 'jsp',
 
+    //Stone Conf
+    'LOAD_EXT_CONFIG'    => 'store,sys,route',
+
     //Search Lib
-    'REL_SEARCH'    => 'l_search',
-    'RES_SEARCH'    => 'd_search',
+    'REL_SEARCH'         => 'l_search',
+    'RES_SEARCH'         => 'd_search',
 
     //Logs Size
     'LOG_FILE_SIZE'      => '10240',
 
     //EnCrypt Code
     'ENCRYPT_CODE'       => 'deeliansCryptCode',
-
-    //Stone Conf
-    'LOAD_EXT_CONFIG'    => 'store,sys,route',
 
     //main Domain
     'MAIN_DOMAIN'        => 'http://www.ebolaunion.cf/',
@@ -32,6 +32,8 @@ return array(
     'LIST_PRE'           => 'ListsTop:',
     'SIDERBAR_PRE'       => 'SiderBar:',
     'BAIDU_TUI_PRE'      => 'Tui:BaiduTuiStart',
+    //topFre
+    'TOP_PRE'            => 'TopInfo:',
 
     //sub suffix
     'ALLOW_SUFFIX'       => 'torrent',

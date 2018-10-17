@@ -19,12 +19,14 @@ class HotController extends XkController
         $this->listPre = C('HOT_PRE');
     }
 
-    public function setHotList($hot){
+    public function setHotList($hot)
+    {
         $this->RED->lpush($this->listPre.'hot', $hot);
         $this->RED->expire($this->listPre.'hot',3600);
     }
 
-    public function getHotList(){
+    public function getHotList()
+    {
         return $this->RED->lrange($this->listPre.'hot',0 ,-1);
     }
 }
