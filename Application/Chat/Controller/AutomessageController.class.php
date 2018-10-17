@@ -12,6 +12,7 @@ namespace Chat\Controller;
 use Admin_eu\Controller\ChatController;
 use Think\Controller;
 use Home\Controller\XkController as xk;
+use Chat\Model\ChatListModel as cModel;
 
 class AutomessageController extends Controller
 {
@@ -49,8 +50,7 @@ class AutomessageController extends Controller
     {
         $len = $this->ChatModel->RED->llen($this->ChatPre);
         if ($len == 0) {
-            $C = new ChatController();
-            if ($C->iniChatInfoToRed()) {
+            if ($this->iniChatInfoToRed()) {
                 $this->getChatInfo();
             }
         }
@@ -59,5 +59,23 @@ class AutomessageController extends Controller
         $info = $info[0];
 //        p($len,1);
         return $info;
+    }
+
+    private function iniChatInfoToRed()
+    {
+        $this->ChatModel->RED->del([$this->ChatListPre]);
+        $cModel = new cModel();
+        $lists  = $cModel->field('info')->select();
+        $res = [];
+        foreach ($lists as $k => $v) {
+            $res[$k] = $v['info'];
+        }
+        shuffle($res);
+//        p($res,1);
+        if ($this->ChatModel->RED->lpush($this->ChatListPre, $res)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
