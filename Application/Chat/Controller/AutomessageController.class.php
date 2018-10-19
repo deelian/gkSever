@@ -27,7 +27,7 @@ class AutomessageController extends Controller
     }
 
     public function sendJoke(){
-        if ($jok = $this->getJokes()){
+        if ($jok = $this->getChatInfo()){
             $jok = str_replace(' ', '%20', $jok);
             $url = C('CHAT_SERVER').$jok;
             httpGet($url);
@@ -57,7 +57,7 @@ class AutomessageController extends Controller
         $id = rand(1, $len);
         $info = $this->ChatModel->RED->lrange($this->ChatPre, $id, $id);
         $info = $info[0];
-        p($len,1);
+        p($info,1);
         return $info;
     }
 
