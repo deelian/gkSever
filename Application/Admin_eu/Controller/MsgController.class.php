@@ -65,15 +65,24 @@ class MsgController extends BaseadminController
                 ]
             ]
         );
-        $limit = 10;
+
+        $limit = 15;
+
         $lists = $mModel->where($where)->order('time DESC')->page($page . ',' . $limit)->select();
         $count = $mModel->where($where)->count();
         $Page  = new \Think\Page($count, $limit);
-        $show  = $Page->show();
+        $Page->setConfig('header','');
+        $Page->setConfig('prev','Pre');
+        $Page->setConfig('next','Next');
+        $Page->setConfig('last','End');
+        $Page->setConfig('first','First');
+        $Page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
+        $show  = bootstrap_page_style($Page->show());
 //        p($show);
 //        p($lists, 1);
-        $this->assign('list', $lists);
+        $this->assign('lists', $lists);
+        $this->assign('num', $count);
         $this->assign('page', $show);
-//        $this->display();
+        $this->display();
     }
 }

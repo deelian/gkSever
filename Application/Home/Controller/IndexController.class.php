@@ -29,16 +29,20 @@ class IndexController extends XkController
 
     /**
      * 数据虚拟化
+     *
+     * @param $start
      */
-    public function init($start){
+    public function init($start = 1)
+    {
         ini_set('max_execution_time', 0);
         $resM = new ResModel();
 //        $start = I('get.start');
         $all = new ListController();
         $end = $all->getResTotal();
+
+        $start = (int)$start;
         for ($i = $start; $i<=$end; $i++){
             $info = $resM->getDetail($i);
-
             if ($info){
                 $res = $this->RED->hmset($this->redPre.$i, $info);
                 if($res == 'OK'){
@@ -46,9 +50,8 @@ class IndexController extends XkController
                     pLog("写入成功！当前写入第$i 条，总共$end 条，完成度$l");
                 }
             }
-
         }
-
+        echo 'done!';
     }
 
     /**
@@ -56,7 +59,7 @@ class IndexController extends XkController
      *
      * @param int $start
      */
-    public function reSet($start = 0){
+    public function reSet($start = 1){
         $this->RED->flushall();
         $this->init($start);
     }
