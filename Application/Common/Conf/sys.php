@@ -12,7 +12,7 @@ return array(
         'lian','duan','duanlian','段炼','炼','段'
     ],
 
-    'CHAT_SERVER'           => 'http://www.ebolaunion.gq:2121/?type=publish&content=',
+    'CHAT_SERVER'           => 'http://www.ebolaunion.ml:2121/?type=publish&content=',
     'CHAT_DELAY'            => 1,
 
     'POWERED_BY'            => 'Ebola Union',
