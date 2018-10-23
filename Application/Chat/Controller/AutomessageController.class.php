@@ -59,7 +59,7 @@ class AutomessageController extends Controller
         $id = rand(1, $len);
         $info = $this->ChatModel->RED->lrange($this->ChatPre, $id, $id);
         $info = $info[0];
-        p($info,1);
+//        p($info,1);
         return $info;
     }
 
