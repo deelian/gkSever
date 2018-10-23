@@ -49,6 +49,8 @@ class AutomessageController extends Controller
     public function getChatInfo()
     {
         $len = $this->ChatModel->RED->llen($this->ChatPre);
+//        echo $len;
+//        p($len,1);
         if ($len == 0) {
             if ($this->iniChatInfoToRed()) {
                 $this->getChatInfo();
@@ -63,7 +65,7 @@ class AutomessageController extends Controller
 
     private function iniChatInfoToRed()
     {
-        $this->ChatModel->RED->del([$this->ChatListPre]);
+        $this->ChatModel->RED->del([$this->ChatPre]);
         $cModel = new cModel();
         $lists  = $cModel->field('info')->select();
         $res = [];
@@ -71,8 +73,7 @@ class AutomessageController extends Controller
             $res[$k] = $v['info'];
         }
         shuffle($res);
-//        p($res,1);
-        if ($this->ChatModel->RED->lpush($this->ChatListPre, $res)) {
+        if ($this->ChatModel->RED->lpush($this->ChatPre, $res)) {
             return true;
         } else {
             return false;
