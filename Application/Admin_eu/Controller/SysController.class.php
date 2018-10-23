@@ -28,10 +28,10 @@ class SysController extends BaseadminController
 
     public function sysChatInfoSet()
     {
-        $this->setMessage;
-        if ($this->smRed->RED->hmset($this->smRedPre, $data)) {
-
-        }
+//        $this->setMessage;
+//        if ($this->smRed->RED->hmset($this->smRedPre, $data)) {
+//
+//        }
     }
 
     public function sysChatInfLists()
@@ -56,7 +56,7 @@ class SysController extends BaseadminController
             'list'  => $list,
             'page'  => $show,
             'sum'   => $sum
-        ]
+        ];
         $this->assign('data', $data);
         $this->display();
     }

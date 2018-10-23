@@ -33,6 +33,7 @@ return array(
     'SIDERBAR_PRE'       => 'SiderBar:',
     'BAIDU_TUI_PRE'      => 'Tui:BaiduTuiStart',
     'CHAT_LISTS_PRE'     => 'System:ChatLists',
+    'SYS_SET_CHAT_PRE'   => 'System:ChatListsSysSet',
     'SET_MESSAGE'        => 'System:SetMsg',
     //topFre
     'TOP_PRE'            => 'TopInfo:',
