@@ -16,6 +16,7 @@ class ChatController extends BaseadminController
 {
 
     private $ChatListPre;
+    private $ChatListSysPre;
     private $sysSetChatPre;
 
     private $xkModel;
@@ -24,10 +25,10 @@ class ChatController extends BaseadminController
     public function __construct()
     {
         parent::__construct();
-        $this->ChatListPre   = C('CHAT_LISTS_PRE');
-        $this->sysSetChatPre = C('SYS_SET_CHAT_PRE');
-        $this->xkModel       = new xk();
-        $this->cModel        = new ChatListModel();
+        $this->ChatListPre    = C('CHAT_LISTS_PRE');
+        $this->sysSetChatPre  = C('SYS_SET_CHAT_PRE');
+        $this->xkModel        = new xk();
+        $this->cModel         = new ChatListModel();
     }
 
     public function chatInfoList()
@@ -35,15 +36,16 @@ class ChatController extends BaseadminController
         $req = I('get.');
         $where  = [];
         !isset($req['p']) ? ($page = 1) : ($page = $req['p']);
-        !(isset($req['content']) && $req['content'] != '') ?: (
-            $this->assign('content', $req['content'])&
-            $where['content'] = [
+        !(isset($req['name']) && $req['name'] != '') ?: (
+            $this->assign('info', $req['name'])&
+            $where['info'] = [
                 [
                     'like',
-                    "%$req[content]%"
+                    "%$req[info]%"
                 ]
             ]
         );
+        !(isset($req['level']) && $req['level'] != '') ?: ($this->assign('level', $req['level'])&$where['level'] = $req['level']);
         !((isset($req['sTime']) && $req['sTime'] != '') && (!isset($req['eTime']) || $req['eTime'] == '')) ?: (
             $this->assign('sTime', $req['sTime'])&
             $where['time'] = [
@@ -76,7 +78,7 @@ class ChatController extends BaseadminController
                 ]
             ]
         );
-//        p($where,1);
+        p($where,1);
 
         $limit = 15;
         $res   = $this->cModel->where($where)->order('updatetime DESC')->page($page . ',' . $limit)->select();
@@ -95,30 +97,32 @@ class ChatController extends BaseadminController
         $show = bootstrap_page_style($Page->show());
         $this->assign('page', $show);
 
-        $this->display();
 //        p($res,1);
 
+        $this->display();
     }
 
-    private function resetChat()
+    public function resetChat()
     {
-        $this->xkModel->RED->del([$this->ChatListPre]);
-        if ($this->iniChatInfoToRed()) {
-            echo 'done';
-        }
-    }
-
-    private function iniChatInfoToRed()
-    {
-        if ($this->xkModel->RED->llen($this->ChatListPre) == 0) {
+        if (IS_POST) {
+            $this->xkModel->RED->del([
+                $this->ChatListPre,
+                $this->ChatListSysPre
+            ]);
             $msgModel = new AutomessageController();
-            if ($msgModel->iniChatInfoToRed()) {
-                return true;
+            if ($msgModel->iniChatInfoToRed('init')) {
+                $this->ajaxReturn([
+                    'code'  => 200
+                ]);
             }
+        } else {
+            echo 'nil';
         }
-        return false;
     }
 
+    /**
+     * addChatList
+     */
     public function addChatInfo()
     {
         if (IS_AJAX) {
@@ -168,6 +172,9 @@ class ChatController extends BaseadminController
         $this->display('add');
     }
 
+    /**
+     * delChatList
+     */
     public function del()
     {
         if (IS_POST) {

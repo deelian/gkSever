@@ -25,11 +25,18 @@
 <title>Chat列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 资源管理 <span class="c-gray en">&gt;</span> 资源列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb">
+	<i class="Hui-iconfont">&#xe67f;</i> 首页
+	<span class="c-gray en">&gt;</span> 资源管理
+	<span class="c-gray en">&gt;</span> 资源列表
+	<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+		<i class="Hui-iconfont">&#xe68f;</i>
+	</a>
+</nav>
+<button style="float: right; margin-right: 15px;margin-bottom: 5px;" onclick="initInfoList()" class="btn btn-primary radius">初始化虚拟数据</button>
 <div class="page-container">
 	<div class="text-c">
 		<form action="" method="get">
-			<button onclick="removeIframe()" class="btn btn-primary radius">初始化虚拟数据</button>
 			<span class="select-box inline">
 			<select name="level" class="select">
 				<option value="1">级别一</option>
@@ -94,6 +101,22 @@
 //	  {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
 //	]
 //});
+
+function initInfoList() {
+	$.post(
+	    "{{:U('Chat/resetChat/')}}",
+		{
+		    'status': 'init'
+		},
+		function (res) {
+			if (res.code === 200) {
+			    layer.msg('Init Successfully!')
+			} else {
+			    layer.msg('Init Fail')
+			}
+        }
+	)
+}
 
 function datadel() {
     layer.confirm('确认执行批量删除吗？',function(index){
