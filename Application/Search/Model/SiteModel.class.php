@@ -13,9 +13,10 @@ class SiteModel extends Model
 {
     public function getSysInfo(){
         return [
-            'siteName'      => 'Ebola union of Korea',
-            'description'   => 'Ebola union of Korea',
-            'copyRight'     => date('Y', time())
+            'siteName'       => 'Ebola union of Korea',
+            'description'    => 'Ebola union of Korea',
+            'copyRight'      => date('Y', time()),
+            'chatSetPresent' => 60
         ];
     }
 }

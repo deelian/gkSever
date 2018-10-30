@@ -10,6 +10,7 @@ namespace Chat\Controller;
 
 
 use Admin_eu\Controller\ChatController;
+use Search\Controller\BaseController;
 use Think\Controller;
 use Home\Controller\XkController as xk;
 use Chat\Model\ChatListModel as cModel;
@@ -54,7 +55,11 @@ class AutomessageController extends Controller
 
     private function getChatInfo()
     {
-        $len = $this->ChatModel->RED->llen($this->ChatPre);
+        $Bc = new BaseController();
+        $sysConf = $Bc->getSysInfo();
+        (rand(0,100) > $sysConf['chatSetPresent']) ? ($pre = $this->ChatPre) : ($pre = $this->ChatSysSetPre);
+
+        $len = $this->ChatModel->RED->llen($pre);
         if ($len == 0) {
             if ($this->iniChatInfoToRed('init')) {
                 $this->getChatInfo();
@@ -63,7 +68,7 @@ class AutomessageController extends Controller
             }
         }
         $id = rand(1, $len);
-        $info = $this->ChatModel->RED->lrange($this->ChatPre, $id, $id);
+        $info = $this->ChatModel->RED->lrange($pre, $id, $id);
         $info = $info[0];
 //        p($info,1);
         return $info;

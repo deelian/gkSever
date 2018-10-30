@@ -49,9 +49,9 @@ class BaseController extends Controller
         $this->sysInfoModel = new SiteModel();
         $this->sysModel = new SysController();
 
-        if (empty($this->getSysInfo())) {
-            $this->init();
-        }
+//        if (empty($this->getSysInfo())) {
+//            $this->init();
+//        }
         $this->assign('sysInfo', $this->getSysInfo());
     }
 
@@ -63,6 +63,11 @@ class BaseController extends Controller
 
     public function getSysInfo()
     {
-        return $this->sysModel->getSysInfo();
+        $sysInfo = $this->sysModel->getSysInfo();
+        if (empty($sysInfo)) {
+            $this->init();
+            $this->getSysInfo();
+        }
+        return $sysInfo;
     }
 }
