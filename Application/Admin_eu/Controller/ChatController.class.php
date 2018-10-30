@@ -78,7 +78,7 @@ class ChatController extends BaseadminController
                 ]
             ]
         );
-        p($where,1);
+//        p($where,1);
 
         $limit = 15;
         $res   = $this->cModel->where($where)->order('updatetime DESC')->page($page . ',' . $limit)->select();
