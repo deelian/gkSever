@@ -16,7 +16,7 @@ class SiteModel extends Model
             'siteName'       => 'Ebola union of Korea',
             'description'    => 'Ebola union of Korea',
             'copyRight'      => date('Y', time()),
-            'chatSetPresent' => 60
+            'chatSetPresent' => 25
         ];
     }
 }
