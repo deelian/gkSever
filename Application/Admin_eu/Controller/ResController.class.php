@@ -79,7 +79,7 @@ class ResController extends BaseadminController
 //        p($res,1);
 
         $this->assign('info', $res);
-        $this->display();
+        $this->display('listInfo');
     }
 
     public function addRes()

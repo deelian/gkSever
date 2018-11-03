@@ -99,7 +99,7 @@ class ChatController extends BaseadminController
 
 //        p($res,1);
 
-        $this->display();
+        $this->display('chatInfoList');
     }
 
     public function resetChat()
