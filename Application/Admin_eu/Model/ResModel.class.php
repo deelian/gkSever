@@ -31,7 +31,7 @@ class ResModel extends Model
         $limit = (string)$limit;
         $page  = (string)$page;
 
-        $list  = $this->where($where)->order('add_time')->field($field)->page($page.",$limit")->select();
+        $list  = $this->where($where)->order('add_time DESC')->field($field)->page($page.",$limit")->select();
 //        p($this->getLastSql(),1);
         return [
             'all'   => $count,
