@@ -26,8 +26,14 @@ class SysController extends BaseadminController
 
     public function index()
     {
-
+//        p(1,1);
         $this->display();
+    }
+
+    public function update()
+    {
+        echo 111;
+        p($_POST,1);
     }
 
     /**

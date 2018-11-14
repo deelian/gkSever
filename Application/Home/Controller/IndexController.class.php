@@ -80,6 +80,12 @@ class IndexController extends XkController
         } else {
             if (!empty($res['res_desc'])){
                 $res['res_desc'] = explode('|', $res['res_desc']);
+                //filterUselessInfo
+                foreach ($res['res_desc'] as $k => $v) {
+                    if (strlen(strstr($v, '果您看到此文件，请升级到BitComet(比特彗')) > 0) {
+                        unset($res['res_desc'][$k]);
+                    }
+                }
             }
             array_pop($res['res_desc']);
             return [
