@@ -38,19 +38,27 @@ class SysController extends BaseadminController
 
     public function update()
     {
-        if (IS_POST) {
-            if (Fc($this->sysSetConf, I('post.'), $this->sysSetConfUrl)) {
+        try {
+            if (IS_POST) {
+                if (Fc($this->sysSetConf, I('post.'), $this->sysSetConfUrl)) {
+                    $this->ajaxReturn([
+                        'code'  => 200,
+                        'msg'   => 'Set Successfully!'
+                    ]);
+                }
+            } else {
                 $this->ajaxReturn([
-                    'code'  => 200,
-                    'msg'   => 'Set Successfully!'
+                    'code'  => 204,
+                    'msg'   => 'Sys error!'
                 ]);
             }
-        } else {
+        } catch (\Exception $e) {  //如书写为（Exception $e）将无效
             $this->ajaxReturn([
-                'code'  => 204,
-                'msg'   => 'Sys error!'
+                'code'  => 202,
+                'msg'   => $e->getMessage()
             ]);
         }
+
     }
 
     /**
