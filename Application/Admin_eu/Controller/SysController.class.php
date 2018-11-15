@@ -52,7 +52,9 @@ class SysController extends BaseadminController
                     'msg'   => 'Sys error!'
                 ]);
             }
-        } catch (\Exception $e) {  //如书写为（Exception $e）将无效
+        } catch (\Exception $e) {
+            echo 111;
+            p($e->getMessage());
             $this->ajaxReturn([
                 'code'  => 202,
                 'msg'   => $e->getMessage()
