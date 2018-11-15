@@ -770,8 +770,9 @@ function Fc($name, $value='', $path=DATA_PATH) {
             return file_put_contents($filename, strip_whitespace("<?php\treturn " . var_export($value, true) . ";?>"));
         }
     }
-    if (isset($_cache[$name]))
+    if (isset($_cache[$name])) {
         return $_cache[$name];
+    }
     // 获取缓存数据
     if (is_file($filename)) {
         $value          =   include $filename;
