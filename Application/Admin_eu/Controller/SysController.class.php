@@ -23,6 +23,7 @@ class SysController extends BaseadminController
         parent::__construct();
         $this->siteRedPre = C('SET_MESSAGE');
         $this->xkMod = new xk();
+
         $this->sysSetConf = 'sysSetInfo';
         $this->sysSetConfUrl = MODULE_PATH .'Conf/';
 //        $this->setMessage = new sm();
@@ -38,18 +39,17 @@ class SysController extends BaseadminController
 
     public function update()
     {
-        if (IS_POST) {
-            if (Fc($this->sysSetConf, I('post.'), $this->sysSetConfUrl)) {
-                $this->ajaxReturn([
-                    'code'  => 200,
-                    'msg'   => 'Set Successfully!'
-                ]);
-            }
+        if (IS_POST && Fc($this->sysSetConf, I('post.'), $this->sysSetConfUrl)) {
+            $this->ajaxReturn([
+                'code'  => 200,
+                'msg'   => 'Set Successfully!'
+            ]);
+        } else {
+            $this->ajaxReturn([
+                'code'  => 204,
+                'msg'   => 'Sys error!'
+            ]);
         }
-        $this->ajaxReturn([
-            'code'  => 204,
-            'msg'   => 'Sys error!'
-        ]);
     }
 
     /**

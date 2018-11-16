@@ -81,6 +81,7 @@ class IndexController extends XkController
             if (!empty($res['res_desc'])){
                 $res['res_desc'] = explode('|', $res['res_desc']);
                 //filterUselessInfo
+                $res['res_desc'] = array_unique($res['res_desc']);
                 foreach ($res['res_desc'] as $k => $v) {
                     if (strlen(strstr($v, '果您看到此文件，请升级到BitComet(比特彗')) > 0) {
                         unset($res['res_desc'][$k]);
