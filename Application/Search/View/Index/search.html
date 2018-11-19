@@ -20,14 +20,17 @@
             <include file="./Public/common/search.html"/>
           </div>
         </div>
-        <h4>{$data.total} in total, took {$data.costTime} seconds</h4>
+        <h6 style="margin-top: 15px;color: darkgray">{$data.total} in total, took {$data.costTime} seconds</h6>
         <foreach name="data.list" item="list">
           <a href="/detail/{:encrypt($list['id'])}.jsp" class="searh_list">
             <div class="row mt">
               <div class="col-md-12 m">
                 <div class="text-justify">
                   <h4 class="searh_list_h"><label class="searh_list_hb"><span class="badge">Hot</span>{$list->res_name} </label></h4>
-                  <p class="searh_list_d">{$list->res_desc}</p>
+                  <p class="searh_list_d">
+                      {{$list->res_name}}
+                      {{$list->res_desc}}
+                  </p>
                   <div class="row">
                     <div class="col-md-3"><label>Downloaded:</label> {$list->show_times}</div>
                     <div class="col-md-3"><label>PR:</label> {:ceil($list->percent()/10)}</div>
