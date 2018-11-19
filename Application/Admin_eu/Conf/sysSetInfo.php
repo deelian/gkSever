@@ -1,1 +1,0 @@
-<?php	return array ( 'siteName' => '123', 'keyWords' => '1232131', 'siteDesc' => '123', 'uploadDir' => '1341234', 'copyRight' => '333', 'siteNo' => '432', 'tong' => '1243', 'allowIpList' => '111111', 'loginTimesSet' => '511', );?>
