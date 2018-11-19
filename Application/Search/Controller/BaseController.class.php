@@ -10,7 +10,8 @@ namespace Search\Controller;
 
 
 use Home\Controller\SysController;
-use Search\Model\SiteModel;
+//use Search\Model\SiteModel;
+use Admin_eu\Model\SysModel as SysM;
 use Think\Controller;
 
 class BaseController extends Controller
@@ -46,18 +47,16 @@ class BaseController extends Controller
         $this->userIP = get_client_ip();
 
         $this->sysPre = C('SYS_PRE');
-        $this->sysInfoModel = new SiteModel();
+        $this->sysInfoModel = new SysM();
         $this->sysModel = new SysController();
 
-//        if (empty($this->getSysInfo())) {
-//            $this->init();
-//        }
         $this->assign('sysInfo', $this->getSysInfo());
     }
 
     public function init()
     {
-        $sysInfo = $this->sysInfoModel->getSysInfo();
+        $sysInfo = $this->sysInfoModel->getFileInfo();
+//        p($sysInfo,1);
         $this->sysModel->setSysInfo($sysInfo);
     }
 

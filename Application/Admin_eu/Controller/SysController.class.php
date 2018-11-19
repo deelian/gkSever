@@ -9,37 +9,38 @@
 namespace Admin_eu\Controller;
 
 use Search\Model\SetMessage as sm;
-use Home\Controller\XkController as xk;
+use Home\Controller\SysController as SysRED;
+use Admin_eu\Model\SysModel as SysM;
 
 class SysController extends BaseadminController
 {
 
     private $xkMod;
-    private $sysSetConf;
-    private $sysSetConfUrl;
+    private $sysMod;
 
     public function __construct()
     {
         parent::__construct();
-        $this->siteRedPre = C('SET_MESSAGE');
-        $this->xkMod = new xk();
+        $this->xkMod = new SysRED();
+        $this->sysMod = new SysM();
 
-        $this->sysSetConf = 'sysSetInfo';
-        $this->sysSetConfUrl = MODULE_PATH .'Conf/';
 //        $this->setMessage = new sm();
     }
 
     public function index()
     {
-        $sysConf = Fc($this->sysSetConf, '', $this->sysSetConfUrl);
-//        p($sysConf,1);
+        $sysConf = $this->sysMod->getFileInfo();
         $this->assign('conf', $sysConf);
         $this->display();
     }
 
     public function update()
     {
-        if (IS_POST && Fc($this->sysSetConf, I('post.'), $this->sysSetConfUrl)) {
+        $subData = I('post.');
+        $subData = array_merge($subData, [
+            'copyRight'     => date('Y', time()),
+        ]);
+        if (IS_POST && $this->sysMod->setFileInfo($subData) && $this->xkMod->setSysInfo($subData)) {
             $this->ajaxReturn([
                 'code'  => 200,
                 'msg'   => 'Set Successfully!'

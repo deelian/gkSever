@@ -12,6 +12,7 @@ use Think\Model;
 class SiteModel extends Model
 {
     public function getSysInfo(){
+
         return [
             'siteName'       => 'Ebola union of Korea',
             'description'    => 'Ebola union of Korea',
