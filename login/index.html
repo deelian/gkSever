@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  
+  <div class="form">
+    <div class="forceColor"></div>
+    <div class="topbar">
+      <div class="spanColor"></div>
+      <input type="password" class="input" id="password" placeholder="Password"/>
+    </div>
+    <button class="submit" id="submit" >Login</button>
+  </div>
+  
+<canvas id="q" style="width: 100%; height: 100%; display: block" width="100%" height="100%"></canvas>
+<script  src="js/index.js"></script>
+<script>
+var s = window.screen;
+var width = q.width = s.width;
+var height = q.height = s.height;
+var letters = Array(256).join(9).split('');
+var draw = function () {
+  q.getContext('2d').fillStyle='rgba(0,0,0,.05)';
+  q.getContext('2d').fillRect(0,0,width,height);
+  q.getContext('2d').fillStyle='#0F0';
+  q.getContext('2d').font="18px YAHEI";
+  letters.map(function(y_pos, index){
+    // text = String.fromCharCode(34+Math.random()*33);
+    text = parseInt(2*Math.random())
+    // text = String.fromCharCode(3e4+Math.random()*33);//显示中文
+    x_pos = index * 8;
+    q.getContext('2d').fillText(text, x_pos, y_pos);
+    letters[index] = (y_pos > 758 + Math.random() * 1e4) ? 0 : y_pos + 10;
+    // q.getContext('2d').fillStyle='#'+letters[index];
+    q.getContext('2d').fillStyle='#00FF00';
+  });
+};
+setInterval(draw, 60);
+</script>
+</body>
+
+</html>
