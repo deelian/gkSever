@@ -17,7 +17,7 @@ class SignController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->verify = A('Verify');
+//        $this->verify = A('Verify');
     }
 
     /**
@@ -25,54 +25,93 @@ class SignController extends Controller
      */
     public function index()
     {
-        session('loginId',24);
-//        p(U('Admin/index'),1);
-        $this->redirect('Admin/index');
-//        $this->display();
-    }
-
-
-    public function loginCheck()
-    {
-        if (IS_AJAX) {
-//			 $this->ajaxReturn(I());
-            // echo "string";
-            if($this->verify->checkVerify(I('subData')['verify'])){
-
-                $admin 		= M('admin');
-                $res 		= $admin->where(['account'=>I('subData')['account']])->find();
-
-                pLog($res, I('subData')['account']);
-                if($res['passwd'] == md5(I('subData')['passwd'])){
-                    session('loginId', $res['id']);
-                    jRet([
-                        'code'	=> '200',
-                        'msg'	=> 'Verification passed! Entering the system...',
-                        'url'	=> U('Index/index')
-                    ]);
-                }else{
-                    jRet([
-                        'code'	=> '502',
-                        'msg'	=> 'Incorrect username or password! Please try again...',
-                        'url'	=> U('Login/index')
+        if (IS_POST) {
+            if (I('get.code')) {
+                $admin = M('admin');
+                if (($res = $admin->where(['account' => I('get.code')])->find()['passwd']) == md5(md5(I('pass')))) {
+                    session('loginId',I('get.code'));
+                    $this->ajaxReturn([
+                        'code'  => 200,
+                        'url'   => U('/Admin_eu/admin'),
+                        'msg'   => 'Logged in successfully'
                     ]);
                 }
-            }else{
-                jRet([
-                    'code'	=> '501',
-                    'msg'	=> 'Verification code input is incorrect!'
-                ]);
             }
-        } else {
-            $this->display();
+            //retFalse
+            $this->ajaxReturn([
+                'code'  => 205,
+                'url'   => '/Login.jsp',
+                'msg'   => 'Sigh Failure'
+            ]);
         }
+        $this->display();
     }
 
+    public function set()
+    {
+        if (I('get.code') == 'init') {
+            $admin = M('admin');
+            $res   = $admin->add([
+                'account'    => 'deelian',
+                'passwd'     => md5(md5('xinduanlian')),
+                'login_ip'   => get_client_ip(),
+                'last_login' => get_client_ip(),
+                'add_time'   => time()
+            ]);
+            if ($res) {
+                $this->ajaxReturn([
+                    'code' => 200,
+                    'msg'  => 'init successfully!'
+                ]);
+            } else {
+                echo 'nil';
+            }
+        } else {
+            echo 'nil';
+        }
 
-    public function loginOut(){
+    }
+
+//    public function loginCheck()
+//    {
+//        if (IS_AJAX) {
+////			 $this->ajaxReturn(I());
+//            // echo "string";
+//            if($this->verify->checkVerify(I('subData')['verify'])){
+//
+//                $admin 		= M('admin');
+//                $res 		= $admin->where(['account'=>I('subData')['account']])->find();
+//
+//                pLog($res, I('subData')['account']);
+//                if($res['passwd'] == md5(I('subData')['passwd'])){
+//                    session('loginId', $res['id']);
+//                    jRet([
+//                        'code'	=> '200',
+//                        'msg'	=> 'Verification passed! Entering the system...',
+//                        'url'	=> U('Index/index')
+//                    ]);
+//                }else{
+//                    jRet([
+//                        'code'	=> '502',
+//                        'msg'	=> 'Incorrect username or password! Please try again...',
+//                        'url'	=> U('Login/index')
+//                    ]);
+//                }
+//            }else{
+//                jRet([
+//                    'code'	=> '501',
+//                    'msg'	=> 'Verification code input is incorrect!'
+//                ]);
+//            }
+//        } else {
+//            $this->display();
+//        }
+//    }
+
+
+    public function loginOut($code){
         session('loginId', null);
-//        p(U('Sign/index'),1);
-        $this->redirect('Sign/index');
+        $this->redirect("/Login", ['code'=>$code]);
     }
 
 }

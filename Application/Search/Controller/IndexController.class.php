@@ -61,6 +61,7 @@ class IndexController extends BaseController {
             $res = $SearchModel->get($req['key'], $req['p']);
             $res['kw'] = I('get.key');
 
+//            p($res,1);
             $sider = $this->siderBarList();
             $this->assign('siderA', $sider['1']);
             $this->assign('siderB', $sider['2']);

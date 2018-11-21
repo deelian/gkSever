@@ -2,12 +2,13 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Login form</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Login Cp by EbolaServer</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/h-ui.admin/css/style.css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/loginStyle.css">
+  <script type="text/javascript" src="__PUBLIC__/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/layer.js"></script>
 </head>
-
 <body>
-  
   <div class="form">
     <div class="forceColor"></div>
     <div class="topbar">
@@ -16,9 +17,7 @@
     </div>
     <button class="submit" id="submit" >Login</button>
   </div>
-  
 <canvas id="q" style="width: 100%; height: 100%; display: block" width="100%" height="100%"></canvas>
-<script  src="js/index.js"></script>
 <script>
 var s = window.screen;
 var width = q.width = s.width;
@@ -40,8 +39,28 @@ var draw = function () {
     q.getContext('2d').fillStyle='#00FF00';
   });
 };
+$('#submit').click(function () {
+   var pw = $('#password').val();
+   if (pw === '') {
+       layer.msg('nil Info!');
+   } else {
+       $.post(
+           '',
+           {
+               'pass': pw
+           },
+           function (res) {
+               if (res.code === 200) {
+                   setInterval(function () {
+                       window.location.href = res.url
+                   }, 2000);
+               }
+               layer.msg(res.msg)
+           }
+       )
+   }
+});
 setInterval(draw, 60);
 </script>
 </body>
-
 </html>

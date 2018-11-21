@@ -93,6 +93,14 @@ return array(
             )
         ),
 
+        //SignCp
+        'Login' => array(
+            'Admin_eu/Sign/index',
+            array(
+                'ext'=>'jsp'
+            )
+        ),
+
         'dee' => array(
             'Search/index/deelian',
             array(
