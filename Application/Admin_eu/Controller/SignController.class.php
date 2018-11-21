@@ -44,6 +44,9 @@ class SignController extends Controller
                 'msg'   => 'Sigh Failure'
             ]);
         }
+        if (!empty(session('loginId'))) {
+            $this->redirect(U('/Admin_eu/admin', '', false));
+        }
         $this->display();
     }
 

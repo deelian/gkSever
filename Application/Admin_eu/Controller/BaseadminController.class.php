@@ -17,7 +17,7 @@ class BaseadminController extends Controller
     {
         parent::__construct();
         if (empty(session('loginId'))) {
-            $this->redirect('/Login.jsp');
+            $this->redirect("/Login");
         } else {
             $this->assign('code', session('loginId'));
         }
