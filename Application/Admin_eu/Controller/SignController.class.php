@@ -47,6 +47,16 @@ class SignController extends Controller
         if (!empty(session('loginId'))) {
             $this->redirect(U('/Admin_eu/admin', '', false));
         }
+
+        $lists = [
+            'String.fromCharCode(34+Math.random()*33)',
+            'parseInt(2*Math.random())',
+            'String.fromCharCode(3e4+Math.random()*33)'
+        ];
+        $k = rand(0, 2);
+        $type = $lists[$k];
+        $this->assign('type', $type);
+
         $this->display();
     }
 
