@@ -20,7 +20,7 @@
               <include file="./Public/common/search.html"/>
               <div class=" mt center-block mlb">
                   <foreach item="hot" name="hot">
-                      <a href="/search/{$hot}.jsp">
+                      <a href="http://{:I('server.HTTP_HOST')}/search/{$hot}.jsp">
                           <span class="label label-{:rangTahs()}">{$hot}</span>
                       </a>
                   </foreach>
@@ -34,7 +34,7 @@
                         <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span></li>-->
                         <!--<li class="list-group-item">***<span class="badge">new</span></li>-->
                         <foreach item="L" name="list" >
-                            <li class="list-group-item list"><a href="/detail/{$L.id}.jsp">{$L.res_name}</a></li>
+                            <li class="list-group-item list"><a href="http://{:I('server.HTTP_HOST')}/detail/{$L.id}.jsp">{$L.res_name}</a></li>
                         </foreach>
                     </ul>
                 </div>
@@ -49,7 +49,7 @@
                       <ul class="list-group">
                           <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>#######</li>-->
                           <foreach item="L" name="list" >
-                              <li class="list-group-item list"><a href="/detail/{$L.id}.jsp">{$L.res_name}</a></li>
+                              <li class="list-group-item list"><a href="http://{:I('server.HTTP_HOST')}/detail/{$L.id}.jsp">{$L.res_name}</a></li>
                           </foreach>
                       </ul>
                   </div>

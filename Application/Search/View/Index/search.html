@@ -22,7 +22,7 @@
         </div>
         <h6 style="margin-top: 15px;color: darkgray">{$data.total} in total, took {$data.costTime} seconds</h6>
         <foreach name="data.list" item="list">
-          <a href="/detail/{:encrypt($list['id'])}.jsp" class="searh_list">
+          <a href="http://{:I('server.HTTP_HOST')}/detail/{:encrypt($list['id'])}.jsp" class="searh_list">
             <div class="row mt">
               <div class="col-md-12 m">
                 <div class="text-justify">
@@ -33,7 +33,7 @@
                   </p>
                   <div class="row">
                     <div class="col-md-3"><label>downloaded:</label> {$list->show_times}</div>
-                    <div class="col-md-3"><label>PR:</label> {:ceil($list->percent()/10)}</div>
+                    <div class="col-md-3"><label>PageRank:</label> {:ceil($list->percent()/10)}</div>
                   </div>
                 </div>
               </div>
@@ -53,7 +53,7 @@
               <ul class="list-group">
                 <li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>Relations</li>
                 <foreach item="rel" name="data.relKw">
-                  <li class="list-group-item"><a href="/search/{$rel}.jsp">{$rel}</a></li>
+                  <li class="list-group-item"><a href="http://{:I('server.HTTP_HOST')}/search/{$rel}.jsp">{$rel}</a></li>
                 </foreach>
               </ul>
             </div>
@@ -65,7 +65,7 @@
                   <ul class="list-group">
                       <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>****</li>-->
                       <foreach name="siderA" item="list">
-                          <li class="list-group-item list"><a href="/detail/{$list['id']}.jsp">{$list['res_name']}</a></li>
+                          <li class="list-group-item list"><a href="http://{:I('server.HTTP_HOST')}/detail/{$list['id']}.jsp">{$list['res_name']}</a></li>
                       </foreach>
                   </ul>
               </div>
@@ -76,7 +76,7 @@
                   <ul class="list-group">
                       <!--<li class="list-group-item bg333"><span class="glyphicon glyphicon-flag">.</span>****</li>-->
                       <foreach name="siderB" item="list">
-                          <li class="list-group-item list"><a href="/detail/{$list['id']}.jsp">{$list['res_name']}</a></li>
+                          <li class="list-group-item list"><a href="http://{:I('server.HTTP_HOST')}/detail/{$list['id']}.jsp">{$list['res_name']}</a></li>
                       </foreach>
                   </ul>
               </div>
