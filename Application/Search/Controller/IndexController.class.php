@@ -8,9 +8,11 @@ use Home\Controller\IndexController as dataModel;
 use Home\Controller\ListController;
 use Home\Controller\UserController;
 use Search\Model\MessageModel;
+use Admin_eu\Model\SysModel as SysM;
 
 class IndexController extends BaseController {
 
+    private $sysMod;
     /**
      * HomePage
      */
@@ -24,10 +26,16 @@ class IndexController extends BaseController {
             if ($hots['code'] == 200){
                 $hotw = array_keys($hots['data']);
                 $HotWordModel->setHotList($hotw);
-                $hotWord = $hotw;
+                $hotWord = ($hotw);
+                shuffle($hotWord);
             }
         }
+        $this->sysMod = new SysM();
+        $sysConf = $this->sysMod->getFileInfo();
+        $hotSteWords = explode('|', $sysConf['hotWords']);
+        $hotWord = array_merge($hotSteWords, $hotWord);
         $this->assign('hot', $hotWord);
+
         $listModel = new ListController();
         $List = [];
         $a = 1;

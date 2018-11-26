@@ -34,6 +34,15 @@ class SysController extends BaseadminController
         $this->display();
     }
 
+    public function getInfo($k)
+    {
+        $sysConf = $this->sysMod->getFileInfo();
+        $hotWords = explode('|', $sysConf[$k]);
+        $hotWords= array_merge($hotWords, [1,2,3]);
+
+        p($hotWords);
+    }
+
     public function update()
     {
         $subData = I('post.');
