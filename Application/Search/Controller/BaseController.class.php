@@ -45,9 +45,12 @@ class BaseController extends Controller
         }
 
         $this->userIP = get_client_ip();
-
-        $location = new \Org\Net\iplimit();
-        $this->assign('flagLocation', $location->setup($this->userIP));
+//        $location = new \Org\Net\iplimit();
+//        $this->assign('flagLocation', $location->setup($this->userIP));
+        $location = json_decode(file_get_contents("http://ip.taobao.com/service/getIpInfo.php?ip=$this->userIP"),true);
+        $location['country'] === '中国' ? ($flag = 'in') : ($flag = 'out');
+//        p($location,1);
+        $this->assign('flagLocation', $flag);
 
         $this->sysPre = C('SYS_PRE');
         $this->sysInfoModel = new SysM();
