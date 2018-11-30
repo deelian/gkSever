@@ -39,7 +39,7 @@ class SysController extends BaseadminController
         $sysConf = $this->sysMod->getFileInfo();
         $hotWords = explode('|', $sysConf[$k]);
         $hotWords= array_merge($hotWords, [1,2,3]);
-
+        shuffle($hotWords);
         p($hotWords);
     }
 

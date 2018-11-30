@@ -9,10 +9,12 @@ use Home\Controller\ListController;
 use Home\Controller\UserController;
 use Search\Model\MessageModel;
 use Admin_eu\Model\SysModel as SysM;
+use Home\Controller\NewestController;
 
 class IndexController extends BaseController {
 
     private $sysMod;
+
     /**
      * HomePage
      */
@@ -30,11 +32,17 @@ class IndexController extends BaseController {
                 shuffle($hotWord);
             }
         }
+        //loadSysSetHotWords
         $this->sysMod = new SysM();
         $sysConf = $this->sysMod->getFileInfo();
         $hotSteWords = explode('|', $sysConf['hotWords']);
         $hotWord = array_merge($hotSteWords, $hotWord);
         $this->assign('hot', $hotWord);
+
+        //loadNewestList
+//        $newestModel = new NewestController();
+//        $newestLists = $newestModel->getNewestLists();
+//        p($newestLists,1);
 
         $listModel = new ListController();
         $List = [];

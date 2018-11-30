@@ -29,7 +29,7 @@ class BaseController extends Controller
         parent::__construct();
 
         //filterMobile
-        if (isMobile()){
+        if (isMobile()) {
             $this->ajaxReturn([
                 'code'      => 203,
                 'msg'       => 'This website does not currently support mobile devices, please use a Pc to browse, Thanks!'
@@ -45,6 +45,9 @@ class BaseController extends Controller
         }
 
         $this->userIP = get_client_ip();
+
+        $location = new \Org\Net\iplimit();
+        $this->assign('flagLocation', $location->setup($this->userIP));
 
         $this->sysPre = C('SYS_PRE');
         $this->sysInfoModel = new SysM();

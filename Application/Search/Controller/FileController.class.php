@@ -41,11 +41,11 @@ class FileController extends Controller
 
             $res = $this->saveFile();
             if ($res['status'] == 1){
+                //storeMysql
                 $resModel = new ResModel();
                 $dirs = substr($res['info']['kartik-input-709']['savepath'],0,strlen($res['info']['kartik-input-709']['savepath'])-1);
                 $link = $res['info']['kartik-input-709']['savename'];
                 $desc = $this->insertDesc($dirs.'/'.$link);
-                //storeMysql
                 $subData = [
                     'res_dirs'  => $dirs,
                     'res_links' => $link,
@@ -100,6 +100,7 @@ class FileController extends Controller
 
     public function saveFile()
     {
+        p($_FILES,1);
         $info = $this->upModel->upload($_FILES);
         if (!$info) {
             $data = [

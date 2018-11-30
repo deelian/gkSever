@@ -3,7 +3,13 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="{:U('/')}" class="navbar-brand" style="color: #fff;"><span class="glyphicon glyphicon-home">.</span>HomeEbola</a>
+                <a href="{:U('/')}" class="navbar-brand" style="color: #fff;"><span class="glyphicon glyphicon-home">.</span>
+                    <if condition="$flagLocation eq out">
+                        {$sysInfo.home}
+                        <else/>
+                        {$sysInfo.home2}
+                    </if>
+                </a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
