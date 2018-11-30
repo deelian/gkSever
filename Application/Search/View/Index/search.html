@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <include file="./Public/common/loadCss.html"/>
-    <title>{$data.kw} - {$sysInfo.siteName}</title>
+    <title>{$data.kw} - <if condition="$flagLocation eq out">
+        {$sysInfo.siteName}
+            <else/>
+        {$sysInfo.siteName2}
+        </if>
+    </title>
     <include file="./Public/common/metaInfo.html"/>
 </head>
 <body>
