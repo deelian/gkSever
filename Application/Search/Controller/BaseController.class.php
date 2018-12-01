@@ -10,9 +10,9 @@ namespace Search\Controller;
 
 
 use Home\Controller\SysController;
-//use Search\Model\SiteModel;
 use Admin_eu\Model\SysModel as SysM;
 use Think\Controller;
+use Home\Controller\XkController as Xk;
 
 class BaseController extends Controller
 {
@@ -21,6 +21,7 @@ class BaseController extends Controller
     private $sysPre;
     private $sysInfoModel;
     private $sysModel;
+    private $locationIpPre;
 
     public $sysInfo;
 
@@ -45,10 +46,16 @@ class BaseController extends Controller
         }
 
         $this->userIP = get_client_ip();
-//        $location = new \Org\Net\iplimit();
-//        $this->assign('flagLocation', $location->setup($this->userIP));
-        $location = json_decode(file_get_contents("http://ip.taobao.com/service/getIpInfo.php?ip=$this->userIP"),true);
-        $location['data']['country'] == '中国' ? ($flag = 'in') : ($flag = 'out');
+//        $this->userIP = '84.112.205.11';
+        $this->locationIpPre = C('LOCATION_IP_PRE');
+        $Xk = new Xk();
+        if ($info = $Xk->RED->hget($this->locationIpPre, $this->userIP)) {
+            ($info === 'CN') ? ($flag = 'in') : ($flag = 'out');
+        } else {
+            $locationFlag = file_get_contents("http://api.wipmania.com/$this->userIP");
+            strstr($locationFlag,"CN") === 'CN' ? ($flag = 'in') : ($flag = 'out');
+            $Xk->RED->hset($this->locationIpPre, $this->userIP, $locationFlag);
+        }
         $this->assign('flagLocation', $flag);
 
         $this->sysPre = C('SYS_PRE');

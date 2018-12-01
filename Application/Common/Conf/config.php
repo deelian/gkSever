@@ -39,6 +39,7 @@ return array(
     'CHAT_LISTS_PRE'        => 'System:ChatLists',
     'SYS_SET_CHAT_PRE'      => 'System:ChatListsSysSet',
     'SET_MESSAGE'           => 'System:SetMsg',
+    'LOCATION_IP_PRE'       => 'User:LocationList',
     //topFre
     'TOP_PRE'               => 'TopInfo:',
 
