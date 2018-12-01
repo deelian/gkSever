@@ -1,7 +1,12 @@
 <div class="container">
     <footer>
         <div class="container text-center">
-            <p>{$sysInfo.copyRight} {$sysInfo.copyInfo}</p>
+            <p>{$sysInfo.copyRight} <if condition="$flagLocation eq out">
+                    {$sysInfo.copyInfo}
+                    <else/>
+                    {$sysInfo.copyInfo2}
+                </if>
+            </p>
         </div>
     </footer>
 </div>
