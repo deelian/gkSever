@@ -24,7 +24,7 @@
             <li class="list-group-item">{$list}</li>
           </foreach>
         </ul>
-        <span class="btn btn-lg btn-success pull-right">Download Now</span>
+        <span class="btn btn-lg btn-success pull-right" id="download">Download Now</span>
       </div>
       <div class="col-md-3">
 
@@ -57,3 +57,10 @@
   <include file="./Public/common/footer.html"/>
 </body>
 </html>
+<script>
+    $('#download').click(
+        function () {
+            layer.msg('Not logged in, no downloading!', {icon: 4});
+        }
+    )
+</script>

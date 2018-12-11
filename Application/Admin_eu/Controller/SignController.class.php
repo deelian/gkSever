@@ -41,7 +41,7 @@ class SignController extends Controller
             $this->ajaxReturn([
                 'code'  => 205,
                 'url'   => '/Login.jsp',
-                'msg'   => 'Sigh Failure'
+                'msg'   => 'Sign Failure'
             ]);
         }
         if (!empty(session('loginId'))) {
